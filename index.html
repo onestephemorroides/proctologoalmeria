@@ -109,7 +109,7 @@
     /* YouTube iframe background */
     .yt-bg {
       position: absolute; inset: 0; width: 100%; height: 100%;
-      overflow: hidden; z-index: 0;
+      overflow: hidden; z-index: 1;
     }
     .yt-bg iframe {
       position: absolute;
@@ -139,8 +139,8 @@
       }
     }
     .hero-overlay {
-      position: absolute; inset: 0;
-      background: linear-gradient(to bottom, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.10) 100%);
+      position: absolute; inset: 0; z-index: 3;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.30) 100%);
     }
     .hero-content {
       position: relative; z-index: 10;
@@ -156,16 +156,16 @@
     }
     .hero-h1 {
       font-family: var(--serif); font-size: clamp(2.2rem, 5vw, 3.8rem);
-      color: var(--g); line-height: 1.15; margin-bottom: 16px;
+      color: #fff; line-height: 1.15; margin-bottom: 16px;
       opacity: 0; animation: fadeUp .8s .4s forwards;
-      text-shadow: 0 1px 3px rgba(255,255,255,.9), 0 2px 12px rgba(255,255,255,.7), 0 0 30px rgba(255,255,255,.5);
+      text-shadow: 0 2px 8px rgba(0,0,0,.6), 0 4px 20px rgba(0,0,0,.4);
     }
-    .hero-h1 span { color: var(--td); text-shadow: 0 1px 3px rgba(255,255,255,.9), 0 2px 12px rgba(255,255,255,.7); }
+    .hero-h1 span { color: var(--tl); text-shadow: 0 2px 8px rgba(0,0,0,.6); }
     .hero-sub {
-      font-size: clamp(1rem, 2vw, 1.2rem); color: var(--g);
+      font-size: clamp(1rem, 2vw, 1.2rem); color: rgba(255,255,255,.95);
       max-width: 560px; margin-bottom: 36px; line-height: 1.7;
       opacity: 0; animation: fadeUp .8s .6s forwards;
-      text-shadow: 0 1px 3px rgba(255,255,255,.95), 0 2px 10px rgba(255,255,255,.8);
+      text-shadow: 0 1px 6px rgba(0,0,0,.6), 0 2px 12px rgba(0,0,0,.4);
       font-weight: 500;
     }
     .hero-btns {
