@@ -122,18 +122,31 @@
       border: none; pointer-events: none;
     }
     .yt-bg-mobile { display: none; }
+    /* Botón play móvil */
+    .hero-play-btn {
+      display: none;
+      position: absolute; bottom: 20px; right: 20px; z-index: 7;
+      background: rgba(255,255,255,.2); border: 2px solid rgba(255,255,255,.6);
+      border-radius: 50%; width: 48px; height: 48px;
+      align-items: center; justify-content: center;
+      cursor: pointer; backdrop-filter: blur(4px);
+      transition: background .2s;
+    }
+    .hero-play-btn:hover { background: rgba(255,255,255,.35); }
     @media (max-width: 768px) {
       .yt-bg { display: none; }
+      .hero-play-btn { display: flex; }
       .yt-bg-mobile {
-        display: block;
+        display: none; /* oculto hasta que el usuario pulse play */
         position: absolute; inset: 0; width: 100%; height: 100%;
         overflow: hidden; z-index: 0;
       }
+      .yt-bg-mobile.active { display: block; }
       .yt-bg-mobile iframe {
         position: absolute;
         top: 50%; left: 50%;
         width: 100vw;
-        height: 177.78vw; /* 9:16 ratio para vertical */
+        height: 177.78vw;
         min-height: 100%;
         transform: translate(-50%, -50%);
         border: none; pointer-events: none;
@@ -527,6 +540,10 @@
       </iframe>
     </div>
     <div class="hero-overlay"></div>
+    <!-- Botón play para móvil -->
+    <button class="hero-play-btn" id="heroPlayBtn" aria-label="Reproducir vídeo" onclick="activarVideoMovil()">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="#fff"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+    </button>
     <div class="hero-content">
       <h1 class="hero-h1">Dr. Jaime Jorge Cerrudo<br/><span>Proctólogo en Almería</span></h1>
       <p class="hero-sub">Diagnóstico y tratamiento de hemorroides, fisura anal, sinus pilonidal y más. Clínica de San Pío, Almería.</p>
@@ -944,6 +961,18 @@
       sub.classList.toggle('open');
       btn.classList.toggle('open');
     }
+    // Activar vídeo móvil al pulsar play
+    function activarVideoMovil() {
+      var ytMobile = document.querySelector('.yt-bg-mobile');
+      var btn = document.getElementById('heroPlayBtn');
+      var poster = document.getElementById('heroPoster');
+      if (ytMobile) {
+        ytMobile.classList.add('active');
+        if (btn) btn.style.display = 'none';
+        if (poster) { poster.style.opacity = '0'; setTimeout(function(){ poster.style.display = 'none'; }, 1000); }
+      }
+    }
+
     // YouTube IFrame API — forzar autoplay en iOS
     var tag = document.createElement('script');
     tag.src = "https://www.youtube.com/iframe_api";
