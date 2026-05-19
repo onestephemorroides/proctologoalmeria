@@ -510,18 +510,18 @@
     <div class="hero-poster" id="heroPoster"></div>
     <!-- Vídeo fondo desktop — YouTube -->
     <div class="yt-bg">
-      <iframe
-        src="https://www.youtube.com/embed/33tS-wMqsGk?autoplay=1&mute=1&loop=1&playlist=33tS-wMqsGk&controls=0&showinfo=0&rel=0&modestbranding=1&iv_load_policy=3&disablekb=1&playsinline=1"
-        allow="autoplay; encrypted-media"
+      <iframe id="ytDesktop"
+        src="https://www.youtube.com/embed/33tS-wMqsGk?autoplay=1&mute=1&loop=1&playlist=33tS-wMqsGk&controls=0&showinfo=0&rel=0&modestbranding=1&iv_load_policy=3&disablekb=1&playsinline=1&enablejsapi=1&origin=https://onestephemorroides.github.io"
+        allow="autoplay; encrypted-media; picture-in-picture"
         allowfullscreen
         title="Vídeo fondo desktop">
       </iframe>
     </div>
     <!-- Vídeo fondo móvil — YouTube Shorts -->
     <div class="yt-bg-mobile">
-      <iframe
-        src="https://www.youtube.com/embed/X7GQAKGTjSs?autoplay=1&mute=1&loop=1&playlist=X7GQAKGTjSs&controls=0&showinfo=0&rel=0&modestbranding=1&iv_load_policy=3&disablekb=1&playsinline=1"
-        allow="autoplay; encrypted-media"
+      <iframe id="ytMobile"
+        src="https://www.youtube.com/embed/X7GQAKGTjSs?autoplay=1&mute=1&loop=1&playlist=X7GQAKGTjSs&controls=0&showinfo=0&rel=0&modestbranding=1&iv_load_policy=3&disablekb=1&playsinline=1&enablejsapi=1&origin=https://onestephemorroides.github.io"
+        allow="autoplay; encrypted-media; picture-in-picture"
         allowfullscreen
         title="Vídeo fondo móvil">
       </iframe>
@@ -944,6 +944,25 @@
       sub.classList.toggle('open');
       btn.classList.toggle('open');
     }
+    // YouTube IFrame API — forzar autoplay en iOS
+    var tag = document.createElement('script');
+    tag.src = "https://www.youtube.com/iframe_api";
+    document.head.appendChild(tag);
+    var playerDesktop, playerMobile;
+    function onYouTubeIframeAPIReady() {
+      playerDesktop = new YT.Player('ytDesktop', {
+        events: { 'onReady': function(e) { e.target.mute(); e.target.playVideo(); } }
+      });
+      playerMobile = new YT.Player('ytMobile', {
+        events: { 'onReady': function(e) { e.target.mute(); e.target.playVideo(); } }
+      });
+    }
+    // Forzar play en primer toque — iOS Safari
+    document.addEventListener('touchstart', function() {
+      try { if (playerDesktop) playerDesktop.playVideo(); } catch(e){}
+      try { if (playerMobile) playerMobile.playVideo(); } catch(e){}
+    }, { once: true });
+
     window.addEventListener('load', function() {
       setTimeout(function() {
         var poster = document.getElementById('heroPoster');
