@@ -67,21 +67,44 @@
     .breadcrumb a { color: var(--t); }
 
     /* NAV MÓVIL */
-    .nav-links { display: flex; gap: 28px; list-style: none; }
-    .nav-links a { font-size: 13px; font-weight: 500; color: var(--gl); transition: color .2s; }
-    .nav-links a:hover { color: var(--t); }
     .nav-hamburger { display: none; background: none; border: none; cursor: pointer; padding: 6px; }
     .nav-mobile-menu {
-      display: none; position: fixed; top: 68px; left: 0; right: 0;
-      background: rgba(255,255,255,.98); backdrop-filter: blur(8px);
-      border-bottom: 1px solid #E8ECEF; z-index: 99;
-      flex-direction: column; padding: 12px 5% 20px;
+      display: none; position: fixed;
+      top: 68px; left: 0; right: 0; bottom: 0;
+      background: rgba(255,255,255,.98);
+      backdrop-filter: blur(8px);
+      z-index: 99; overflow-y: auto;
+      flex-direction: column;
+      border-top: 1px solid #E8ECEF;
       box-shadow: 0 8px 24px rgba(0,0,0,.1);
     }
     .nav-mobile-menu.open { display: flex; }
-    .nav-mobile-menu a { font-size: 15px; font-weight: 500; color: var(--g); padding: 12px 0; border-bottom: 0.5px solid #F0F0F0; }
-    .nav-mobile-menu a:last-child { border-bottom: none; }
-    .nav-mobile-menu a:hover { color: var(--t); }
+    .nav-mobile-link {
+      font-size: 16px; font-weight: 500; color: var(--g);
+      padding: 16px 5%; border-bottom: 0.5px solid #F0F0F0;
+      display: flex; align-items: center; justify-content: space-between;
+      cursor: pointer; text-decoration: none;
+    }
+    .nav-mobile-link:hover { color: var(--t); background: var(--tp); }
+    .nav-mobile-link svg { transition: transform .2s; }
+    .nav-mobile-link.open svg { transform: rotate(180deg); }
+    .nav-submenu {
+      display: none; flex-direction: column;
+      background: #FAFAFA; border-bottom: 0.5px solid #F0F0F0;
+    }
+    .nav-submenu.open { display: flex; }
+    .nav-submenu a {
+      font-size: 14px; color: var(--gl);
+      padding: 12px 5% 12px 8%;
+      border-bottom: 0.5px solid #F5F5F5;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .nav-submenu a:hover { color: var(--t); background: var(--tp); }
+    .nav-submenu a::before { content: '›'; color: var(--t); font-size: 16px; }
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .nav-hamburger { display: block; }
+    }
 
     /* HERO SOBRE MÍ */
     .hero-sobre {
@@ -341,17 +364,32 @@
       <li><a href="index.html#contacto">Contacto</a></li>
     </ul>
     <a href="tel:+34950264245" class="nav-cta">Pedir Cita</a>
-    <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Menú">
+    <button class="nav-hamburger" onclick="toggleMobileMenu()" aria-label="Menú">
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#3D4E57" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
     </button>
   </nav>
-  <!-- Menú desplegable móvil -->
+
+  <!-- MENÚ MÓVIL -->
   <div class="nav-mobile-menu" id="mobileMenu">
-    <a href="index.html#servicios" onclick="toggleMenu()">Servicios</a>
-    <a href="sobre-mi.html" onclick="toggleMenu()">Sobre mí</a>
-    <a href="blog.html" onclick="toggleMenu()">Blog</a>
-    <a href="foro.html" onclick="toggleMenu()">Foro</a>
-    <a href="index.html#contacto" onclick="toggleMenu()">Contacto</a>
+    <div class="nav-mobile-link" onclick="toggleSubmenu()">
+      Servicios
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#3D4E57" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+    </div>
+    <div class="nav-submenu" id="serviciosSubmenu">
+      <a href="hemorroides.html" onclick="closeMobileMenu()">Hemorroides</a>
+      <a href="fisura-anal.html" onclick="closeMobileMenu()">Fisura Anal</a>
+      <a href="sinus-pilonidal.html" onclick="closeMobileMenu()">Sinus Pilonidal</a>
+      <a href="colgajos-anales.html" onclick="closeMobileMenu()">Colgajos Anales</a>
+      <a href="polipos-anales.html" onclick="closeMobileMenu()">Pólipos Anales</a>
+      <a href="condilomas-anales.html" onclick="closeMobileMenu()">Condilomas Anales</a>
+      <a href="hidradenitis-perianal.html" onclick="closeMobileMenu()">Hidradenitis Perianal</a>
+      <a href="cirugia-menor.html" onclick="closeMobileMenu()">Cirugía Menor</a>
+      <a href="segunda-opinion.html" onclick="closeMobileMenu()">Segunda Opinión</a>
+    </div>
+    <a href="sobre-mi.html" class="nav-mobile-link" onclick="closeMobileMenu()">Sobre mí</a>
+    <a href="blog.html" class="nav-mobile-link" onclick="closeMobileMenu()">Blog</a>
+    <a href="foro.html" class="nav-mobile-link" onclick="closeMobileMenu()">Foro</a>
+    <a href="index.html#contacto" class="nav-mobile-link" onclick="closeMobileMenu()">Contacto</a>
   </div>
 
   <!-- BREADCRUMB -->
@@ -608,15 +646,24 @@
   </div>
 
   <script>
-    function toggleMenu() {
-      var menu = document.getElementById('mobileMenu');
-      menu.classList.toggle('open');
+    function toggleMobileMenu() {
+      document.getElementById('mobileMenu').classList.toggle('open');
     }
-    // Cerrar menú al hacer clic fuera
+    function closeMobileMenu() {
+      document.getElementById('mobileMenu').classList.remove('open');
+      document.getElementById('serviciosSubmenu').classList.remove('open');
+      document.querySelector('.nav-mobile-link').classList.remove('open');
+    }
+    function toggleSubmenu() {
+      var sub = document.getElementById('serviciosSubmenu');
+      var btn = document.querySelector('.nav-mobile-link');
+      sub.classList.toggle('open');
+      btn.classList.toggle('open');
+    }
     document.addEventListener('click', function(e) {
       var menu = document.getElementById('mobileMenu');
       var hamburger = document.querySelector('.nav-hamburger');
-      if (!menu.contains(e.target) && !hamburger.contains(e.target)) {
+      if (menu && hamburger && !menu.contains(e.target) && !hamburger.contains(e.target)) {
         menu.classList.remove('open');
       }
     });
