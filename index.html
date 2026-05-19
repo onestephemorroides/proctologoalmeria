@@ -94,9 +94,10 @@
     }
     /* Poster overlay — se desvanece cuando el vídeo carga */
     .hero-poster {
-      position: absolute; inset: 0; z-index: 2;
+      position: absolute; inset: 0; z-index: 4;
       background: url('poster-hero.png') center/cover no-repeat;
       transition: opacity 1.5s ease;
+      pointer-events: none;
     }
     @media (max-width: 768px) {
       .hero-poster { background-image: url('poster-hero-mobile.png'); }
@@ -139,11 +140,11 @@
       }
     }
     .hero-overlay {
-      position: absolute; inset: 0; z-index: 3;
+      position: absolute; inset: 0; z-index: 5;
       background: linear-gradient(to bottom, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.30) 100%);
     }
     .hero-content {
-      position: relative; z-index: 10;
+      position: relative; z-index: 6;
       height: 100%; display: flex; flex-direction: column;
       align-items: center; justify-content: center;
       text-align: center; padding: 0 5%;
@@ -396,7 +397,8 @@
 
     /* ── RESPONSIVE ── */
     @media (max-width: 900px) {
-      .nav-links, .nav-cta { display: none; }
+      .nav-links { display: none; }
+      .nav-cta { display: flex; }
       .nav-mobile-btn { display: block; }
       .stats { grid-template-columns: repeat(2,1fr); }
       .stat-item:nth-child(2) { border-right: none; }
@@ -408,6 +410,43 @@
       .contacto-inner { grid-template-columns: 1fr; }
       .footer-grid { grid-template-columns: 1fr 1fr; }
     }
+
+    /* MENÚ MÓVIL DESPLEGABLE */
+    .nav-mobile-menu {
+      display: none; position: fixed;
+      top: 68px; left: 0; right: 0; bottom: 0;
+      background: rgba(255,255,255,.98);
+      backdrop-filter: blur(8px);
+      z-index: 99; overflow-y: auto;
+      flex-direction: column;
+      border-top: 1px solid #E8ECEF;
+      box-shadow: 0 8px 24px rgba(0,0,0,.1);
+    }
+    .nav-mobile-menu.open { display: flex; }
+    .nav-mobile-link {
+      font-size: 16px; font-weight: 500; color: var(--g);
+      padding: 16px 5%; border-bottom: 0.5px solid #F0F0F0;
+      display: flex; align-items: center; justify-content: space-between;
+      cursor: pointer; text-decoration: none;
+    }
+    .nav-mobile-link:hover { color: var(--t); background: var(--tp); }
+    .nav-mobile-link svg { transition: transform .2s; }
+    .nav-mobile-link.open svg { transform: rotate(180deg); }
+
+    /* Submenú servicios */
+    .nav-submenu {
+      display: none; flex-direction: column;
+      background: #FAFAFA; border-bottom: 0.5px solid #F0F0F0;
+    }
+    .nav-submenu.open { display: flex; }
+    .nav-submenu a {
+      font-size: 14px; color: var(--gl);
+      padding: 12px 5% 12px 8%;
+      border-bottom: 0.5px solid #F5F5F5;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .nav-submenu a:hover { color: var(--t); background: var(--tp); }
+    .nav-submenu a::before { content: '›'; color: var(--t); font-size: 16px; }
     @media (max-width: 580px) {
       .servicios-grid { grid-template-columns: 1fr; }
       .stats { grid-template-columns: repeat(2,1fr); }
@@ -422,10 +461,7 @@
   <!-- NAV -->
   <nav class="nav">
     <div class="nav-brand">
-      <div class="nav-logo-ring">
-        <div class="nav-logo-cut"></div>
-        <div class="nav-logo-inner"></div>
-      </div>
+      <div class="nav-logo-ring"><div class="nav-logo-cut"></div><div class="nav-logo-inner"></div></div>
       <div>
         <div class="nav-text-name">Dr. Jaime Jorge Cerrudo</div>
         <div class="nav-text-sub">Proctólogo · Almería</div>
@@ -439,10 +475,34 @@
       <li><a href="#contacto">Contacto</a></li>
     </ul>
     <a href="tel:+34950264245" class="nav-cta">Pedir Cita</a>
-    <button class="nav-mobile-btn" aria-label="Menú">
+    <button class="nav-mobile-btn" onclick="toggleMobileMenu()" aria-label="Menú">
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#3D4E57" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
     </button>
   </nav>
+
+  <!-- MENÚ MÓVIL -->
+  <div class="nav-mobile-menu" id="mobileMenu">
+    <!-- Servicios con submenú -->
+    <div class="nav-mobile-link" onclick="toggleSubmenu()">
+      Servicios
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#3D4E57" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+    </div>
+    <div class="nav-submenu" id="serviciosSubmenu">
+      <a href="hemorroides.html" onclick="closeMobileMenu()">Hemorroides</a>
+      <a href="fisura-anal.html" onclick="closeMobileMenu()">Fisura Anal</a>
+      <a href="sinus-pilonidal.html" onclick="closeMobileMenu()">Sinus Pilonidal</a>
+      <a href="polipos-anales.html" onclick="closeMobileMenu()">Pólipos Anales</a>
+      <a href="condilomas-anales.html" onclick="closeMobileMenu()">Condilomas Anales</a>
+      <a href="hidradenitis-perianal.html" onclick="closeMobileMenu()">Hidradenitis Perianal</a>
+      <a href="colgajos-anales.html" onclick="closeMobileMenu()">Colgajos Anales</a>
+      <a href="cirugia-menor.html" onclick="closeMobileMenu()">Cirugía Menor</a>
+      <a href="segunda-opinion.html" onclick="closeMobileMenu()">Segunda Opinión</a>
+    </div>
+    <a href="sobre-mi.html" class="nav-mobile-link" onclick="closeMobileMenu()">Sobre mí</a>
+    <a href="blog.html" class="nav-mobile-link" onclick="closeMobileMenu()">Blog</a>
+    <a href="foro.html" class="nav-mobile-link" onclick="closeMobileMenu()">Foro</a>
+    <a href="#contacto" class="nav-mobile-link" onclick="closeMobileMenu()">Contacto</a>
+  </div>
 
   <!-- HERO -->
   <section class="hero" aria-label="Presentación">
@@ -694,9 +754,10 @@
     <div class="contacto-inner" style="margin-top:40px;">
       <div class="contacto-form-wrap">
         <h3>Envíanos un mensaje</h3>
-        <form name="contacto" method="POST" data-netlify="true" netlify-honeypot="bot-field">
-          <input type="hidden" name="form-name" value="contacto"/>
-          <p style="display:none"><input name="bot-field"/></p>
+        <form id="contactoForm" action="https://formspree.io/f/xzzbbqow" method="POST">
+          <input type="hidden" name="_subject" value="Nueva consulta desde proctologoalmeria.com"/>
+          <input type="hidden" name="_cc" value="hola@clinicadesanpio.es"/>
+          <input type="hidden" name="_replyto" value="onestephemorroides@gmail.com"/>
           <div class="form-group">
             <label for="nombre">Nombre completo *</label>
             <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required/>
@@ -732,6 +793,7 @@
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
             Enviar mensaje
           </button>
+          <div id="formMsg" style="display:none;margin-top:14px;padding:12px 16px;border-radius:10px;font-size:14px;text-align:center;"></div>
         </form>
       </div>
       <div class="contacto-info">
@@ -866,7 +928,22 @@
   </div>
 
   <script>
-    // Desvanecer poster cuando el vídeo de YouTube ya está cargando
+    // MENÚ MÓVIL
+    function toggleMobileMenu() {
+      var menu = document.getElementById('mobileMenu');
+      menu.classList.toggle('open');
+    }
+    function closeMobileMenu() {
+      document.getElementById('mobileMenu').classList.remove('open');
+      document.getElementById('serviciosSubmenu').classList.remove('open');
+      document.querySelector('.nav-mobile-link').classList.remove('open');
+    }
+    function toggleSubmenu() {
+      var sub = document.getElementById('serviciosSubmenu');
+      var btn = document.querySelector('.nav-mobile-link');
+      sub.classList.toggle('open');
+      btn.classList.toggle('open');
+    }
     window.addEventListener('load', function() {
       setTimeout(function() {
         var poster = document.getElementById('heroPoster');
@@ -876,18 +953,44 @@
             poster.style.display = 'none';
           }, 1500);
         }
-      }, 2500);
+      }, 1500);
     });
 
-    // NETLIFY FORMS — confirmación
-    const form = document.querySelector('form[name="contacto"]');
+    // FORMSPREE — envío del formulario
+    const form = document.getElementById('contactoForm');
     if (form) {
-      form.addEventListener('submit', function(e) {
+      form.addEventListener('submit', async function(e) {
         e.preventDefault();
-        const data = new FormData(form);
-        fetch('/', { method: 'POST', headers: {'Content-Type': 'application/x-www-form-urlencoded'}, body: new URLSearchParams(data).toString() })
-          .then(() => { form.innerHTML = '<div style="text-align:center;padding:32px 0;"><div style="font-size:2rem;margin-bottom:12px;">✅</div><h3 style="font-family:var(--serif);color:var(--g);margin-bottom:8px;">Mensaje enviado</h3><p style="color:var(--gl);font-size:14px;">El Dr. Cerrudo le contactará en breve.</p></div>'; })
-          .catch(() => alert('Error al enviar. Por favor llame al 950 264 245.'));
+        const btn = form.querySelector('.form-submit');
+        const msg = document.getElementById('formMsg');
+        btn.disabled = true;
+        btn.textContent = 'Enviando...';
+        try {
+          const res = await fetch(form.action, {
+            method: 'POST',
+            body: new FormData(form),
+            headers: { 'Accept': 'application/json' }
+          });
+          if (res.ok) {
+            msg.style.display = 'block';
+            msg.style.background = '#F0FAFA';
+            msg.style.color = '#0D7A7B';
+            msg.style.border = '1px solid rgba(26,172,173,.3)';
+            msg.innerHTML = '✅ Mensaje enviado correctamente. Le contactaremos en breve.';
+            form.reset();
+            btn.textContent = 'Enviado';
+          } else {
+            throw new Error();
+          }
+        } catch {
+          msg.style.display = 'block';
+          msg.style.background = '#FFF8F0';
+          msg.style.color = '#D97706';
+          msg.style.border = '1px solid #FDE68A';
+          msg.innerHTML = '⚠️ Error al enviar. Por favor llame al <strong>950 264 245</strong>.';
+          btn.disabled = false;
+          btn.textContent = 'Enviar mensaje';
+        }
       });
     }
   </script>
