@@ -88,10 +88,20 @@
     /* HERO INTERIOR */
     .hero-interior {
       position: relative; overflow: hidden;
-      background: url('foto-doctor.png') 15% 10%/35% auto no-repeat, var(--g);
+      background: var(--g);
+    }
+    .hero-clinica-bg {
+      position: absolute; inset: 0; z-index: 0;
+      background: url('foto-clinica.jpg') center/cover no-repeat;
+      filter: grayscale(100%);
+      opacity: 0.18;
+    }
+    .hero-doctor-bg {
+      position: absolute; inset: 0; z-index: 0;
+      background: url('foto-doctor.png') 15% 10%/35% auto no-repeat;
     }
     .hero-interior::before {
-      content: ''; position: absolute; inset: 0;
+      content: ''; position: absolute; inset: 0; z-index: 0;
       background: linear-gradient(to right, rgba(61,78,87,0.92) 40%, rgba(61,78,87,0.55) 70%, rgba(61,78,87,0.25) 100%);
     }
     .hero-interior::after { display: none; }
@@ -123,10 +133,7 @@
     .hero-interior p { text-shadow: 0 1px 4px rgba(0,0,0,.4); }
 
     @media (max-width: 768px) {
-      .hero-interior {
-        background-size: cover;
-        background-position: center top;
-      }
+      .hero-doctor-bg { background-size: cover; background-position: center top; }
       .hero-interior::before { background: rgba(61,78,87,0.82); }
       .hero-interior-inner {
         grid-template-columns: 1fr;
@@ -305,6 +312,8 @@
 
   <!-- HERO INTERIOR -->
   <div class="hero-interior">
+    <div class="hero-clinica-bg"></div>
+    <div class="hero-doctor-bg"></div>
     <div class="hero-interior-inner">
       <div class="hero-text-col">
         <div class="hero-lbl">Tratamiento sin cirugía · Almería</div>
