@@ -88,12 +88,11 @@
     /* HERO INTERIOR */
     .hero-interior {
       position: relative; padding: 56px 5% 48px; overflow: hidden;
-      background: url('foto-doctor.png') center top/cover no-repeat;
-      min-height: 360px;
+      background: url('foto-doctor.png') center 15%/70% auto no-repeat, var(--g);
     }
     .hero-interior::before {
       content: ''; position: absolute; inset: 0;
-      background: linear-gradient(to right, rgba(61,78,87,0.90) 45%, rgba(61,78,87,0.50) 75%, rgba(61,78,87,0.25) 100%);
+      background: linear-gradient(to right, rgba(61,78,87,0.92) 40%, rgba(61,78,87,0.55) 70%, rgba(61,78,87,0.30) 100%);
     }
     .hero-interior::after { display: none; }
     .hero-interior-inner {
@@ -103,23 +102,25 @@
       max-width: 1100px;
     }
     .hero-text-col { max-width: 600px; }
-    .hero-img-col {
-      display: flex; align-items: center; justify-content: center;
-    }
+    .hero-img-col { display: flex; align-items: center; justify-content: center; }
     .hero-img-col img {
       width: 100%; max-width: 320px;
       border-radius: 16px;
-      box-shadow: 0 8px 32px rgba(0,0,0,.3);
-      border: 2px solid rgba(255,255,255,.15);
+      opacity: 0.92;
+      -webkit-mask-image: radial-gradient(ellipse 85% 85% at 50% 50%, black 40%, transparent 100%);
+      mask-image: radial-gradient(ellipse 85% 85% at 50% 50%, black 40%, transparent 100%);
     }
     .hero-lbl { text-shadow: 0 1px 6px rgba(0,0,0,.5); }
     .hero-interior h1 { text-shadow: 0 2px 8px rgba(0,0,0,.5); }
     .hero-interior p { text-shadow: 0 1px 4px rgba(0,0,0,.4); }
     @media (max-width: 768px) {
-      .hero-interior { background-position: center top; padding-bottom: 40px; }
+      .hero-interior {
+        background-size: cover;
+        background-position: center top;
+      }
       .hero-interior::before { background: rgba(61,78,87,0.82); }
       .hero-interior-inner { grid-template-columns: 1fr; }
-      .hero-img-col img { max-width: 260px; margin: 0 auto; }
+      .hero-img-col img { max-width: 240px; margin: 0 auto; }
     }
     .hero-lbl { font-size: 11px; text-transform: uppercase; letter-spacing: .14em; color: var(--tl); font-weight: 500; margin-bottom: 10px; }
     .hero-interior h1 { font-family: var(--serif); font-size: clamp(1.8rem, 4vw, 2.8rem); color: #fff; line-height: 1.2; margin-bottom: 14px; }
