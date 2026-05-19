@@ -302,11 +302,26 @@
       .onestep-grid { grid-template-columns: 1fr; }
       .services-grid { grid-template-columns: repeat(2,1fr); }
     }
-    @media (max-width: 580px) {
+    /* FIX OVERFLOW MÓVIL */
+    @media (max-width: 768px) {
+      html, body { overflow-x: hidden; max-width: 100vw; }
+      * { max-width: 100%; }
+      .content { padding: 40px 5%; overflow-x: hidden; }
       .esp-grid { grid-template-columns: 1fr 1fr; }
-      .services-grid { grid-template-columns: repeat(2,1fr); }
+      .onestep-grid { grid-template-columns: 1fr; }
+      .services-grid { grid-template-columns: 1fr 1fr; }
+      .sociedades-grid { grid-template-columns: 1fr; }
+      .enfoque-grid { grid-template-columns: 1fr; }
+      .compromiso-grid { grid-template-columns: 1fr; }
+      .contacto-grid { grid-template-columns: 1fr; }
+      .com-card { overflow: hidden; }
+      .com-title { font-size: 12px; word-break: break-word; }
+      .timeline { padding-left: 22px; }
       .stats-strip { grid-template-columns: 1fr; }
-      .stat-item { border-right: none; border-bottom: 1px solid rgba(26,172,173,.15); }
+      .stat-item { border-right: none; border-bottom: 0.5px solid rgba(26,172,173,.15); }
+      .stat-item:last-child { border-bottom: none; }
+      .contacto-btns { flex-direction: column; }
+      .btn-t, .btn-wa { width: 100%; justify-content: center; }
     }
   </style>
 </head>
