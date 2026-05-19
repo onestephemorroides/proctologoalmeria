@@ -99,6 +99,9 @@
     .hero-doctor-bg {
       position: absolute; inset: 0; z-index: 0;
       background: url('foto-doctor.png') 15% 10%/35% auto no-repeat;
+      opacity: 0.55;
+      -webkit-mask-image: linear-gradient(to right, black 20%, transparent 70%);
+      mask-image: linear-gradient(to right, black 20%, transparent 70%);
     }
     .hero-interior::before {
       content: ''; position: absolute; inset: 0; z-index: 0;
