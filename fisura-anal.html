@@ -88,11 +88,15 @@
     /* HERO INTERIOR */
     .hero-interior {
       position: relative; padding: 56px 5% 48px; overflow: hidden;
-      background: url('hero-fisura-anal.png') center 30%/cover no-repeat;
+      background-color: var(--g);
+      background-image: url('img-fisura-procedimiento.png');
+      background-repeat: no-repeat;
+      background-size: auto 100%;
+      background-position: right center;
     }
     .hero-interior::before {
       content: ''; position: absolute; inset: 0;
-      background: linear-gradient(to right, rgba(61,78,87,0.82) 45%, rgba(61,78,87,0.35) 100%);
+      background: linear-gradient(to right, rgba(61,78,87,0.95) 45%, rgba(61,78,87,0.5) 75%, rgba(61,78,87,0.15) 100%);
     }
     .hero-interior::after { display: none; }
     .hero-interior-inner { position: relative; z-index: 1; max-width: 800px; }
@@ -100,8 +104,12 @@
     .hero-interior h1 { text-shadow: 0 2px 8px rgba(0,0,0,.4); }
     .hero-interior p { text-shadow: 0 1px 4px rgba(0,0,0,.35); }
     @media (max-width: 768px) {
-      .hero-interior { background-position: center top; }
-      .hero-interior::before { background: rgba(61,78,87,0.80); }
+      .hero-interior {
+        background-size: auto 50%;
+        background-position: center bottom;
+        padding-bottom: 200px;
+      }
+      .hero-interior::before { background: linear-gradient(to bottom, rgba(61,78,87,0.95) 50%, rgba(61,78,87,0.4) 100%); }
     }
     .hero-lbl { font-size: 11px; text-transform: uppercase; letter-spacing: .14em; color: var(--tl); font-weight: 500; margin-bottom: 10px; }
     .hero-interior h1 { font-family: var(--serif); font-size: clamp(1.8rem, 4vw, 2.8rem); color: #fff; line-height: 1.2; margin-bottom: 14px; }
