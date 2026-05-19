@@ -92,12 +92,15 @@
     }
     .hero-interior::before {
       content: ''; position: absolute; inset: 0;
-      background: linear-gradient(to right, rgba(61,78,87,0.92) 50%, rgba(61,78,87,0.55) 100%);
+      background: linear-gradient(to right, rgba(61,78,87,0.75) 40%, rgba(61,78,87,0.30) 100%);
     }
     .hero-interior-inner { position: relative; z-index: 1; max-width: 800px; }
+    .hero-lbl { text-shadow: 0 1px 6px rgba(0,0,0,.5); }
+    .hero-interior h1 { text-shadow: 0 2px 8px rgba(0,0,0,.5), 0 4px 16px rgba(0,0,0,.3); }
+    .hero-interior p { text-shadow: 0 1px 6px rgba(0,0,0,.4); }
     @media (max-width: 768px) {
       .hero-interior { background-image: url('hero-hemorroides-mobile.png'); background-position: center top; }
-      .hero-interior::before { background: rgba(61,78,87,0.85); }
+      .hero-interior::before { background: rgba(61,78,87,0.72); }
     }
     .hero-lbl { font-size: 11px; text-transform: uppercase; letter-spacing: .14em; color: var(--tl); font-weight: 500; margin-bottom: 10px; }
     .hero-interior h1 { font-family: var(--serif); font-size: clamp(1.8rem, 4vw, 2.8rem); color: #fff; line-height: 1.2; margin-bottom: 14px; }
