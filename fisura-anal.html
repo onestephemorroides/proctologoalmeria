@@ -106,6 +106,14 @@
       -webkit-mask-image: linear-gradient(to right, black 20%, transparent 70%);
       mask-image: linear-gradient(to right, black 20%, transparent 70%);
     }
+    @media (max-width: 768px) {
+      .hero-doctor-bg {
+        background-size: cover;
+        background-position: center top;
+        -webkit-mask-image: none;
+        mask-image: none;
+      }
+    }
     .hero-interior::before {
       content: ''; position: absolute; inset: 0; z-index: 0;
       background: linear-gradient(to right, rgba(61,78,87,0.92) 40%, rgba(61,78,87,0.55) 70%, rgba(61,78,87,0.25) 100%);
