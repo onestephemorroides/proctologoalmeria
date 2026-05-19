@@ -521,7 +521,7 @@
     function closeMobileMenu() {
       document.getElementById('mobileMenu').classList.remove('open');
       document.getElementById('serviciosSubmenu').classList.remove('open');
-      document.querySelector('.nav-mobile-link').classList.remove('open');
+      document.querySelectorAll('.nav-mobile-link').forEach(function(el){ el.classList.remove('open'); });
     }
     function toggleSubmenu() {
       document.getElementById('serviciosSubmenu').classList.toggle('open');
