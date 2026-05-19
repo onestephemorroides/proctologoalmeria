@@ -88,7 +88,7 @@
     /* HERO INTERIOR */
     .hero-interior {
       position: relative; padding: 56px 5% 48px; overflow: hidden;
-      background: url('foto-doctor.png') center 15%/70% auto no-repeat, var(--g);
+      background: url('foto-doctor.png') center 10%/45% auto no-repeat, var(--g);
     }
     .hero-interior::before {
       content: ''; position: absolute; inset: 0;
@@ -105,10 +105,9 @@
     .hero-img-col { display: flex; align-items: center; justify-content: center; }
     .hero-img-col img {
       width: 100%; max-width: 320px;
-      border-radius: 16px;
-      opacity: 0.92;
-      -webkit-mask-image: radial-gradient(ellipse 85% 85% at 50% 50%, black 40%, transparent 100%);
-      mask-image: radial-gradient(ellipse 85% 85% at 50% 50%, black 40%, transparent 100%);
+      opacity: 0.35;
+      -webkit-mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 100%);
+      mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 100%);
     }
     .hero-lbl { text-shadow: 0 1px 6px rgba(0,0,0,.5); }
     .hero-interior h1 { text-shadow: 0 2px 8px rgba(0,0,0,.5); }
@@ -120,7 +119,7 @@
       }
       .hero-interior::before { background: rgba(61,78,87,0.82); }
       .hero-interior-inner { grid-template-columns: 1fr; }
-      .hero-img-col img { max-width: 240px; margin: 0 auto; }
+      .hero-img-col img { max-width: 240px; margin: 0 auto; opacity: 0.30; }
     }
     .hero-lbl { font-size: 11px; text-transform: uppercase; letter-spacing: .14em; color: var(--tl); font-weight: 500; margin-bottom: 10px; }
     .hero-interior h1 { font-family: var(--serif); font-size: clamp(1.8rem, 4vw, 2.8rem); color: #fff; line-height: 1.2; margin-bottom: 14px; }
