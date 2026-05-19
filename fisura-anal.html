@@ -97,7 +97,7 @@
     .hero-interior::after { display: none; }
     .hero-interior-inner {
       position: relative; z-index: 1;
-      display: grid; grid-template-columns: 1fr 1fr;
+      display: grid; grid-template-columns: 1fr 30%;
       min-height: 400px;
     }
     .hero-text-col {
@@ -114,6 +114,7 @@
       object-fit: cover;
       object-position: center;
       opacity: 0.75;
+      filter: grayscale(100%);
       -webkit-mask-image: linear-gradient(to right, transparent 0%, black 20%);
       mask-image: linear-gradient(to right, transparent 0%, black 20%);
     }
@@ -135,6 +136,7 @@
       .hero-text-col { padding: 40px 5% 24px; order: 1; }
       .hero-img-col { order: 2; height: 280px; margin-top: 40px; }
       .hero-img-col img {
+        filter: grayscale(100%);
         -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 20%);
         mask-image: linear-gradient(to bottom, transparent 0%, black 20%);
       }
