@@ -36,6 +36,25 @@
     a { text-decoration: none; color: inherit; }
     img { max-width: 100%; display: block; }
 
+
+    /* DROPDOWN DESKTOP */
+    .nav-dropdown { position: relative; }
+    .nav-dropdown > a { display: flex; align-items: center; gap: 4px; }
+    .nav-dropdown > a::after { content: '▾'; font-size: 10px; }
+    .nav-dropdown-menu {
+      display: none; position: absolute; top: calc(100% + 12px); left: 50%;
+      transform: translateX(-50%); background: #fff;
+      border-radius: 12px; border: 1px solid #E8ECEF;
+      box-shadow: 0 8px 24px rgba(0,0,0,.12); min-width: 200px;
+      z-index: 200; padding: 6px 0;
+    }
+    .nav-dropdown:hover .nav-dropdown-menu { display: block; }
+    .nav-dropdown-menu a {
+      display: block; padding: 10px 16px; font-size: 13px;
+      color: var(--g); transition: background .15s;
+    }
+    .nav-dropdown-menu a:hover { background: var(--tp); color: var(--t); }
+
     /* NAV */
     .nav { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,0.97); backdrop-filter: blur(8px); border-bottom: 1px solid #E8ECEF; padding: 0 5%; display: flex; align-items: center; justify-content: space-between; height: 68px; box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
     .nav-brand { display: flex; align-items: center; gap: 12px; }
@@ -200,7 +219,20 @@
       <div><div class="nav-text-name">Dr. Jaime Jorge Cerrudo</div><div class="nav-text-sub">Proctólogo · Almería</div></div>
     </a>
     <ul class="nav-links">
-      <li><a href="index.html#servicios">Servicios</a></li>
+      <li class="nav-dropdown">
+        <a href="index.html#servicios">Servicios</a>
+        <div class="nav-dropdown-menu">
+          <a href="hemorroides.html">Hemorroides</a>
+          <a href="fisura-anal.html">Fisura Anal</a>
+          <a href="sinus-pilonidal.html">Sinus Pilonidal</a>
+          <a href="colgajos-anales.html">Colgajos Anales</a>
+          <a href="polipos-anales.html">Pólipos Anales</a>
+          <a href="condilomas-anales.html">Condilomas Anales</a>
+          <a href="hidradenitis-perianal.html">Hidradenitis Perianal</a>
+          <a href="cirugia-menor.html">Cirugía Menor</a>
+          <a href="segunda-opinion.html">Segunda Opinión</a>
+        </div>
+      </li>
       <li><a href="sobre-mi.html">Sobre mí</a></li>
       <li><a href="blog.html">Blog</a></li>
       <li><a href="foro.html">Foro</a></li>
@@ -439,8 +471,10 @@
       document.querySelectorAll('.nav-mobile-link').forEach(function(el){ el.classList.remove('open'); });
     }
     function toggleSubmenu() {
-      document.getElementById('serviciosSubmenu').classList.toggle('open');
-      document.querySelector('.nav-mobile-link').classList.toggle('open');
+      var sub = document.getElementById('serviciosSubmenu');
+      var btn = document.querySelector('.nav-mobile-link');
+      sub.classList.toggle('open');
+      btn.classList.toggle('open');
     }
     function toggleFaq(el) {
       el.classList.toggle('open');
