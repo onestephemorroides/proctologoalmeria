@@ -62,16 +62,21 @@
 
     /* HERO */
     .hero-interior { position: relative; overflow: hidden; background: var(--g); min-height: 420px; }
-    /* Vídeo desktop — visible solo en >768px */
-    .yt-bg { display: block; position: absolute; inset: 0; z-index: 0; overflow: hidden; pointer-events: none; }
+    /* Fondo consulta desenfocado */
+    .hero-clinica-bg { display: block; position: absolute; inset: 0; z-index: 0; background: url('foto-clinica.jpg') center/cover no-repeat; filter: grayscale(100%) brightness(0.35); }
+    /* Vídeo desktop — centrado con degradados laterales */
+    .yt-bg { display: block; position: absolute; inset: 0; z-index: 1; overflow: hidden; pointer-events: none; }
     .yt-bg iframe { position: absolute; top: 50%; left: 50%; width: 177.78vh; height: 100%; min-width: 100%; transform: translate(-50%, -50%); border: none; }
+    /* Degradados laterales sobre el vídeo */
+    .yt-bg::before { content: ''; position: absolute; inset: 0; z-index: 2; background: linear-gradient(to right, rgba(61,78,87,0.92) 0%, transparent 22%, transparent 78%, rgba(61,78,87,0.92) 100%); pointer-events: none; }
     /* Vídeo móvil — oculto en desktop */
-    .yt-bg-mobile { display: none; position: absolute; inset: 0; z-index: 0; overflow: hidden; pointer-events: none; }
+    .yt-bg-mobile { display: none; position: absolute; inset: 0; z-index: 1; overflow: hidden; pointer-events: none; }
     .yt-bg-mobile iframe { position: absolute; top: 50%; left: 50%; height: 177.78vw; width: 100%; min-height: 100%; transform: translate(-50%, -50%); border: none; }
-    .hero-overlay { position: absolute; inset: 0; z-index: 1; background: linear-gradient(to right, rgba(61,78,87,0.85) 40%, rgba(61,78,87,0.45) 100%); }
-    .hero-interior-inner { position: relative; z-index: 2; padding: 72px 5% 64px; max-width: 800px; }
+    .yt-bg-mobile::before { content: ''; position: absolute; inset: 0; z-index: 2; background: linear-gradient(to bottom, rgba(61,78,87,0.75) 0%, transparent 25%, transparent 75%, rgba(61,78,87,0.75) 100%); pointer-events: none; }
+    /* Overlay oscuro general para legibilidad del texto */
+    .hero-overlay { position: absolute; inset: 0; z-index: 2; background: linear-gradient(to right, rgba(61,78,87,0.65) 0%, rgba(61,78,87,0.10) 50%, rgba(61,78,87,0.65) 100%); pointer-events: none; }
+    .hero-interior-inner { position: relative; z-index: 3; padding: 72px 5% 64px; max-width: 800px; }
     .hero-text-col { display: flex; flex-direction: column; }
-    .hero-clinica-bg { display: none; }
     .hero-doctor-bg { display: none; }
     .hero-img-col { display: none; }
     .hero-video-col { display: none; }
@@ -141,7 +146,7 @@
       .nav-hamburger { display: block; }
       .yt-bg { display: none !important; }
       .yt-bg-mobile { display: block !important; }
-      .hero-overlay { background: rgba(61,78,87,0.80); }
+      .hero-overlay { background: linear-gradient(to bottom, rgba(61,78,87,0.65) 0%, rgba(61,78,87,0.10) 50%, rgba(61,78,87,0.65) 100%); }
       .hero-interior-inner { padding: 48px 5% 48px; }
       .steps-grid { grid-template-columns: 1fr; }
       .dark-features { grid-template-columns: 1fr; }
