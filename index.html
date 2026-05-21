@@ -260,17 +260,18 @@
     /* ── ONESTEP BANNER ── */
     .onestep-banner {
       background: var(--g); padding: 48px 5%;
-      display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: stretch;
     }
     .onestep-banner-text .lbl { color: var(--tl); font-size: 11px; text-transform: uppercase; letter-spacing: .14em; font-weight: 600; margin-bottom: 10px; }
     .onestep-banner-text h2 { font-family: var(--serif); font-size: 2rem; color: #fff; margin-bottom: 14px; line-height: 1.2; }
     .onestep-banner-text p { font-size: 15px; color: rgba(255,255,255,.75); line-height: 1.8; margin-bottom: 24px; }
     .onestep-logo-wrap {
       background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.12);
-      border-radius: 16px; padding: 32px; text-align: center;
+      border-radius: 16px; padding: 40px 32px;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
     }
-    .onestep-logo-wrap img { max-width: 180px; margin: 0 auto 14px; filter: brightness(1.1); }
-    .onestep-logo-wrap p { font-size: 13px; color: rgba(255,255,255,.6); line-height: 1.6; }
+    .onestep-logo-wrap img { width: 85%; max-width: 320px; margin: 0 auto 18px; filter: brightness(1.1); }
+    .onestep-logo-wrap p { font-size: 13px; color: rgba(255,255,255,.6); line-height: 1.6; text-align: center; }
     .onestep-features { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 20px; }
     .onestep-feat {
       background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.1);
