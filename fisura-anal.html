@@ -38,20 +38,31 @@
 
 
     /* DROPDOWN DESKTOP */
-    .nav-dropdown { position: relative; }
-    .nav-dropdown > a { display: flex; align-items: center; gap: 4px; }
-    .nav-dropdown > a::after { content: '▾'; font-size: 10px; }
+    .nav-dropdown { position: relative; display: flex; align-items: center; }
+    .nav-dropdown > a { display: flex; align-items: center; gap: 4px; font-size: 13px; font-weight: 500; color: var(--gl); line-height: 1; }
+    .nav-dropdown > a::after { content: '▾'; font-size: 10px; line-height: 1; margin-top: 1px; }
+    .nav-dropdown > a:hover { color: var(--t); }
     .nav-dropdown-menu {
-      display: none; position: absolute; top: calc(100% + 12px); left: 50%;
-      transform: translateX(-50%); background: #fff;
-      border-radius: 12px; border: 1px solid #E8ECEF;
-      box-shadow: 0 8px 24px rgba(0,0,0,.12); min-width: 200px;
-      z-index: 200; padding: 6px 0;
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      padding-top: 14px;
+      z-index: 200;
+    }
+    .nav-dropdown-menu-inner {
+      background: #fff;
+      border-radius: 12px;
+      border: 1px solid #E8ECEF;
+      box-shadow: 0 8px 24px rgba(0,0,0,.12);
+      min-width: 210px;
+      padding: 6px 0;
     }
     .nav-dropdown:hover .nav-dropdown-menu { display: block; }
     .nav-dropdown-menu a {
       display: block; padding: 10px 16px; font-size: 13px;
-      color: var(--g); transition: background .15s;
+      color: var(--g); transition: background .15s; white-space: nowrap;
     }
     .nav-dropdown-menu a:hover { background: var(--tp); color: var(--t); }
 
@@ -304,15 +315,17 @@
       <li class="nav-dropdown">
         <a href="index.html#servicios">Servicios</a>
         <div class="nav-dropdown-menu">
-          <a href="hemorroides.html">Hemorroides</a>
-          <a href="fisura-anal.html">Fisura Anal</a>
-          <a href="sinus-pilonidal.html">Sinus Pilonidal</a>
-          <a href="colgajos-anales.html">Colgajos Anales</a>
-          <a href="polipos-anales.html">Pólipos Anales</a>
-          <a href="condilomas-anales.html">Condilomas Anales</a>
-          <a href="hidradenitis-perianal.html">Hidradenitis Perianal</a>
-          <a href="cirugia-menor.html">Cirugía Menor</a>
-          <a href="segunda-opinion.html">Segunda Opinión</a>
+          <div class="nav-dropdown-menu-inner">
+            <a href="hemorroides.html">Hemorroides</a>
+            <a href="fisura-anal.html">Fisura Anal</a>
+            <a href="sinus-pilonidal.html">Sinus Pilonidal</a>
+            <a href="colgajos-anales.html">Colgajos Anales</a>
+            <a href="polipos-anales.html">Pólipos Anales</a>
+            <a href="condilomas-anales.html">Condilomas Anales</a>
+            <a href="hidradenitis-perianal.html">Hidradenitis Perianal</a>
+            <a href="cirugia-menor.html">Cirugía Menor</a>
+            <a href="segunda-opinion.html">Segunda Opinión</a>
+          </div>
         </div>
       </li>
       <li><a href="sobre-mi.html">Sobre mí</a></li>
