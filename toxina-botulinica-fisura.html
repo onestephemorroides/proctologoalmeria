@@ -145,6 +145,50 @@
       .cta-btns { flex-direction: column; align-items: center; }
       .footer-bottom { flex-direction: column; text-align: center; }
     }
+
+    /* BANNER COOKIES */
+    #cookie-banner {
+      display: none;
+      position: fixed; bottom: 0; left: 0; right: 0; z-index: 9999;
+      background: rgba(61,78,87,0.97); backdrop-filter: blur(8px);
+      border-top: 1px solid rgba(255,255,255,.1);
+      padding: 18px 5%;
+      box-shadow: 0 -4px 24px rgba(0,0,0,.2);
+    }
+    #cookie-banner.visible { display: block; }
+    .cookie-inner {
+      max-width: 1100px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 20px; flex-wrap: wrap;
+    }
+    .cookie-text { flex: 1; min-width: 240px; }
+    .cookie-text p {
+      font-size: 13px; color: rgba(255,255,255,.8);
+      line-height: 1.6; margin: 0;
+    }
+    .cookie-text a { color: var(--tl); text-decoration: underline; }
+    .cookie-btns { display: flex; gap: 10px; flex-shrink: 0; flex-wrap: wrap; }
+    .cookie-btn-accept {
+      background: var(--t); color: #fff;
+      border: none; border-radius: 50px;
+      padding: 10px 22px; font-size: 13px; font-weight: 600;
+      cursor: pointer; font-family: var(--sans);
+      transition: background .2s;
+    }
+    .cookie-btn-accept:hover { background: var(--td); }
+    .cookie-btn-reject {
+      background: transparent; color: rgba(255,255,255,.6);
+      border: 1px solid rgba(255,255,255,.3); border-radius: 50px;
+      padding: 10px 18px; font-size: 13px; font-weight: 500;
+      cursor: pointer; font-family: var(--sans);
+      transition: all .2s;
+    }
+    .cookie-btn-reject:hover { border-color: rgba(255,255,255,.6); color: #fff; }
+    @media (max-width: 600px) {
+      .cookie-inner { flex-direction: column; align-items: flex-start; }
+      .cookie-btns { width: 100%; }
+      .cookie-btn-accept, .cookie-btn-reject { flex: 1; text-align: center; }
+    }
   </style>
 </head>
 <body>
@@ -355,5 +399,17 @@
     }
     function toggleFaq(el) { el.classList.toggle('open'); el.nextElementSibling.classList.toggle('open'); }
   </script>
+  <!-- BANNER COOKIES -->
+  <div id="cookie-banner">
+    <div class="cookie-inner">
+      <div class="cookie-text">
+        <p>Utilizamos cookies técnicas propias necesarias para el funcionamiento de la web. Si continúas navegando, aceptas su uso. Puedes consultar nuestra <a href="cookies.html">Política de cookies</a> y <a href="privacidad.html">Política de privacidad</a>.</p>
+      </div>
+      <div class="cookie-btns">
+        <button class="cookie-btn-accept" onclick="aceptarCookies()">Aceptar</button>
+        <button class="cookie-btn-reject" onclick="rechazarCookies()">Solo necesarias</button>
+      </div>
+    </div>
+  </div>
 </body>
 </html>
