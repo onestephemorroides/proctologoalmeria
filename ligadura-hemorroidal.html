@@ -61,15 +61,26 @@
     .breadcrumb a { color: var(--t); }
 
     /* HERO */
-    .hero-interior { position: relative; overflow: hidden; background: var(--g); }
-    .hero-clinica-bg { position: absolute; inset: 0; z-index: 0; background: url('foto-clinica.jpg') center/cover no-repeat; filter: grayscale(100%); opacity: 0.32; }
-    .hero-doctor-bg { position: absolute; inset: 0; z-index: 0; background: url('foto-doctor.png') 15% 10%/35% auto no-repeat; opacity: 0.55; -webkit-mask-image: linear-gradient(to right, black 20%, transparent 70%); mask-image: linear-gradient(to right, black 20%, transparent 70%); }
-    .hero-interior::before { content: ''; position: absolute; inset: 0; z-index: 0; background: linear-gradient(to right, rgba(61,78,87,0.92) 40%, rgba(61,78,87,0.55) 70%, rgba(61,78,87,0.25) 100%); }
+    .hero-interior { position: relative; overflow: hidden; background: var(--g); min-height: 420px; }
+    /* Fondo consulta */
+    .hero-clinica-bg { display: block; position: absolute; inset: 0; z-index: 0; background: url('foto-clinica.jpg') center/cover no-repeat; filter: grayscale(100%) brightness(0.35); }
+    /* Vídeo desktop — expandido, subido 15% */
+    .yt-bg { display: block; position: absolute; inset: 0; z-index: 1; overflow: hidden; pointer-events: none; }
+    .yt-bg iframe { position: absolute; top: 35%; left: 50%; width: 100vw; height: 56.25vw; min-height: 100%; min-width: 177.78vh; transform: translate(-50%, -50%); border: none; }
+    .yt-bg::before { display: none; }
+    /* Vídeo móvil — oculto en desktop */
+    .yt-bg-mobile { display: none; position: absolute; inset: 0; z-index: 1; overflow: hidden; pointer-events: none; }
+    .yt-bg-mobile iframe { position: absolute; top: 35%; left: 50%; height: 177.78vw; width: 100%; min-height: 100%; transform: translate(-50%, -50%); border: none; }
+    /* Overlay para legibilidad del texto */
+    .hero-overlay { position: absolute; inset: 0; z-index: 2; background: linear-gradient(to right, rgba(61,78,87,0.65) 0%, rgba(61,78,87,0.10) 50%, rgba(61,78,87,0.65) 100%); pointer-events: none; }
+    .hero-interior-inner { position: relative; z-index: 3; padding: 72px 5% 64px; max-width: 800px; }
+    .hero-text-col { display: flex; flex-direction: column; }
+    .hero-doctor-bg { display: none; }
+    .hero-interior::before { display: none; }
     .hero-interior::after { display: none; }
-    .hero-interior-inner { position: relative; z-index: 1; display: grid; grid-template-columns: 1fr 30%; min-height: 380px; }
-    .hero-text-col { padding: 56px 5% 48px; display: flex; flex-direction: column; justify-content: center; }
-    .hero-img-col { position: relative; overflow: hidden; }
-    .hero-img-col img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; opacity: 0.75; filter: grayscale(100%); -webkit-mask-image: linear-gradient(to right, transparent 0%, black 20%); mask-image: linear-gradient(to right, transparent 0%, black 20%); }
+    .hero-img-col { display: none; }
+    .hero-video-col { display: none; }
+    .hero-video-mobile { display: none; }
     .hero-lbl { font-size: 11px; text-transform: uppercase; letter-spacing: .14em; color: var(--tl); font-weight: 500; margin-bottom: 10px; text-shadow: 0 1px 6px rgba(0,0,0,.5); }
     .hero-interior h1 { font-family: var(--serif); font-size: clamp(1.6rem,3.5vw,2.4rem); color: #fff; line-height: 1.2; margin-bottom: 14px; text-shadow: 0 2px 8px rgba(0,0,0,.5); }
     .hero-interior p { font-size: 15px; color: rgba(255,255,255,.8); line-height: 1.8; max-width: 580px; margin-bottom: 24px; text-shadow: 0 1px 4px rgba(0,0,0,.4); }
