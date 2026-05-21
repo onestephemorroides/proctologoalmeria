@@ -140,12 +140,26 @@
     .float-btn-wa { background: var(--wa); box-shadow: 0 4px 16px rgba(37,211,102,.4); }
     .float-btn-tel { background: var(--tel); box-shadow: 0 4px 16px rgba(30,111,217,.4); }
     .float-btn svg { width: 22px; height: 22px; }
+
+    /* Botón play móvil */
+    .hero-play-btn {
+      display: none;
+      position: absolute; top: 20px; right: 20px; z-index: 7;
+      background: rgba(255,255,255,.2); border: 2px solid rgba(255,255,255,.6);
+      border-radius: 50%; width: 48px; height: 48px;
+      align-items: center; justify-content: center;
+      cursor: pointer; backdrop-filter: blur(4px);
+      transition: background .2s;
+    }
+    .hero-play-btn:hover { background: rgba(255,255,255,.35); }
     @media (max-width: 768px) {
       html, body { overflow-x: hidden; }
       .nav-links { display: none; }
       .nav-hamburger { display: block; }
       .yt-bg { display: none !important; }
-      .yt-bg-mobile { display: block !important; }
+      .hero-play-btn { display: flex; }
+      .yt-bg-mobile { display: none; }
+      .yt-bg-mobile.active { display: block !important; }
       .hero-overlay { background: linear-gradient(to bottom, rgba(61,78,87,0.65) 0%, rgba(61,78,87,0.10) 50%, rgba(61,78,87,0.65) 100%); }
       .hero-interior-inner { padding: 48px 5% 48px; }
       .steps-grid { grid-template-columns: 1fr; }
@@ -351,6 +365,14 @@
   </div>
 
   <script>
+    function activarVideoMovil() {
+      var ytMobile = document.querySelector('.yt-bg-mobile');
+      var btn = document.getElementById('heroPlayBtn');
+      if (ytMobile) {
+        ytMobile.classList.add('active');
+        if (btn) btn.style.display = 'none';
+      }
+    }
     function toggleMobileMenu() { document.getElementById('mobileMenu').classList.toggle('open'); }
     function closeMobileMenu() {
       document.getElementById('mobileMenu').classList.remove('open');
