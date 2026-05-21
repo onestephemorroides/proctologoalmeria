@@ -64,6 +64,8 @@
       color: var(--g); transition: background .15s; white-space: nowrap;
     }
     .nav-dropdown-menu a:hover { background: var(--tp); color: var(--t); }
+    .nav-dropdown-menu .sub-item { padding-left: 28px; font-size: 12px; color: var(--gl); border-top: 1px solid #F5F5F5; }
+    .nav-dropdown-menu .sub-item:hover { background: var(--tp); color: var(--t); }
 
     /* NAV */
     .nav { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,0.97); backdrop-filter: blur(8px); border-bottom: 1px solid #E8ECEF; padding: 0 5%; display: flex; align-items: center; justify-content: space-between; height: 68px; box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
@@ -267,7 +269,10 @@
     </div>
     <div class="nav-submenu" id="serviciosSubmenu">
       <a href="hemorroides.html" onclick="closeMobileMenu()">Hemorroides</a>
+      <a href="esclerosis-hemorroidal.html" class="sub-sub" onclick="closeMobileMenu()">↳ Esclerosis con microespuma</a>
+      <a href="ligadura-hemorroidal.html" class="sub-sub" onclick="closeMobileMenu()">↳ Ligadura con banda elástica</a>
       <a href="fisura-anal.html" onclick="closeMobileMenu()">Fisura Anal</a>
+      <a href="toxina-botulinica-fisura.html" class="sub-sub" onclick="closeMobileMenu()">↳ Inyección toxina botulínica</a>
       <a href="sinus-pilonidal.html" onclick="closeMobileMenu()">Sinus Pilonidal</a>
       <a href="colgajos-anales.html" onclick="closeMobileMenu()">Colgajos Anales</a>
       <a href="polipos-anales.html" onclick="closeMobileMenu()">Pólipos Anales</a>

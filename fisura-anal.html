@@ -65,6 +65,8 @@
       color: var(--g); transition: background .15s; white-space: nowrap;
     }
     .nav-dropdown-menu a:hover { background: var(--tp); color: var(--t); }
+    .nav-dropdown-menu .sub-item { padding-left: 28px; font-size: 12px; color: var(--gl); border-top: 1px solid #F5F5F5; }
+    .nav-dropdown-menu .sub-item:hover { background: var(--tp); color: var(--t); }
 
     /* NAV */
     .nav {
@@ -347,7 +349,10 @@
     </div>
     <div class="nav-submenu" id="serviciosSubmenu">
       <a href="hemorroides.html" onclick="closeMobileMenu()">Hemorroides</a>
+      <a href="esclerosis-hemorroidal.html" class="sub-sub" onclick="closeMobileMenu()">↳ Esclerosis con microespuma</a>
+      <a href="ligadura-hemorroidal.html" class="sub-sub" onclick="closeMobileMenu()">↳ Ligadura con banda elástica</a>
       <a href="fisura-anal.html" onclick="closeMobileMenu()">Fisura Anal</a>
+      <a href="toxina-botulinica-fisura.html" class="sub-sub" onclick="closeMobileMenu()">↳ Inyección toxina botulínica</a>
       <a href="sinus-pilonidal.html" onclick="closeMobileMenu()">Sinus Pilonidal</a>
       <a href="colgajos-anales.html" onclick="closeMobileMenu()">Colgajos Anales</a>
       <a href="polipos-anales.html" onclick="closeMobileMenu()">Pólipos Anales</a>
@@ -440,11 +445,11 @@
     <h2>Tratamiento con toxina botulínica</h2>
     <p>La <strong>infiltración de toxina botulínica</strong> en el esfínter interno anal es el tratamiento de referencia para la fisura anal crónica cuando el tratamiento conservador ha fracasado. Permite resolver la fisura sin necesidad de cirugía en la mayoría de los casos.</p>
 
-    <div class="tto-card">
+    <div class="tto-card" style="cursor:pointer;" onclick="window.location='toxina-botulinica-fisura.html'">
       <div class="tto-icon">
         <svg viewBox="0 0 24 24" fill="none" stroke="#1AACAD" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
       </div>
-      <div class="tto-title">Toxina Botulínica tipo A en el esfínter anal</div>
+      <div class="tto-title">Toxina Botulínica tipo A en el esfínter anal <span style="font-size:11px;color:var(--t);font-weight:400;">— Ver más →</span></div>
       <div class="tto-desc">Se inyecta una pequeña cantidad de toxina botulínica directamente en el esfínter interno anal. Esto provoca una relajación temporal del músculo que reduce el espasmo, mejora el aporte sanguíneo y permite la cicatrización de la fisura.</div>
       <div class="tto-steps">
         <div class="tto-step"><div class="tto-step-num">1</div><p>Exploración y diagnóstico en consulta</p></div>
@@ -459,7 +464,7 @@
     <div class="dark-block">
       <div class="lbl">Consulta ONEstep® · Clínica de San Pío</div>
       <h2>Diagnóstico y tratamiento en el mismo acto</h2>
-      <p>En la Consulta ONEstep® el Dr. Jaime Jorge Cerrudo realiza la exploración, el diagnóstico y la infiltración de toxina botulínica en una sola visita, sin necesidad de programar una segunda cita.</p>
+      <p>En la Consulta ONEstep® el <a href="sobre-mi.html" style="color:inherit;text-decoration:none;border-bottom:1px dotted var(--t);">Dr. Jaime Jorge Cerrudo</a> realiza la exploración, el diagnóstico y la infiltración de toxina botulínica en una sola visita, sin necesidad de programar una segunda cita.</p>
       <div class="dark-features">
         <div class="dark-feat"><div class="dark-dot"></div><p>Sin cirugía ni anestesia general</p></div>
         <div class="dark-feat"><div class="dark-dot"></div><p>Procedimiento en menos de 15 minutos</p></div>
@@ -518,7 +523,7 @@
   <!-- CTA FINAL -->
   <div class="cta-final">
     <h2>¿Tienes dolor al ir al baño?</h2>
-    <p>El Dr. Jaime Jorge Cerrudo valora y trata la fisura anal en consulta, sin necesidad de cirugía en la mayoría de los casos.</p>
+    <p>El <a href="sobre-mi.html" style="color:inherit;text-decoration:none;border-bottom:1px dotted var(--t);">Dr. Jaime Jorge Cerrudo</a> valora y trata la fisura anal en consulta, sin necesidad de cirugía en la mayoría de los casos.</p>
     <div class="cta-btns">
       <a href="tel:+34950264245" class="btn-p">
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
@@ -546,11 +551,11 @@
   <!-- FOOTER -->
   <footer>
     <div class="footer-bottom">
-      <p>© 2026 Dr. Jaime Jorge Cerrudo · Proctólogo en Almería · proctologoalmeria.com</p>
+      <p>© 2026 <a href="sobre-mi.html" style="color:inherit;text-decoration:none;border-bottom:1px dotted var(--t);">Dr. Jaime Jorge Cerrudo</a> · Proctólogo en Almería · proctologoalmeria.com</p>
       <div class="footer-legal">
-        <a href="https://www.hemorroidesalmeria.com/aviso-legal" target="_blank" rel="noopener">Aviso legal</a>
-        <a href="https://www.hemorroidesalmeria.com/copia-de-aviso-legal" target="_blank" rel="noopener">Privacidad</a>
-        <a href="https://www.hemorroidesalmeria.com/copia-de-pol%C3%ADtica-de-privacidad" target="_blank" rel="noopener">Cookies</a>
+        <a href="aviso-legal.html">Aviso legal</a>
+        <a href="privacidad.html">Privacidad</a>
+        <a href="cookies.html">Cookies</a>
       </div>
     </div>
   </footer>
