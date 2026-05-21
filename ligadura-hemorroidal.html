@@ -133,13 +133,11 @@
       html, body { overflow-x: hidden; }
       .nav-links { display: none; }
       .nav-hamburger { display: block; }
-      .hero-clinica-bg { display: none; }
-      .hero-doctor-bg { background-size: cover; background-position: center top; -webkit-mask-image: none; mask-image: none; }
-      .hero-interior::before { background: rgba(61,78,87,0.82); }
-      .hero-interior-inner { grid-template-columns: 1fr; grid-template-rows: auto 260px; min-height: unset; }
-      .hero-text-col { padding: 40px 5% 24px; order: 1; }
-      .hero-img-col { order: 2; height: 260px; margin-top: 0; }
-      .hero-img-col img { -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 20%); mask-image: linear-gradient(to bottom, transparent 0%, black 20%); }
+      .yt-bg { display: none; }
+      .yt-bg-mobile { display: block; position: absolute; inset: 0; z-index: 0; overflow: hidden; pointer-events: none; }
+      .yt-bg-mobile iframe { position: absolute; top: 50%; left: 50%; height: 177.78vw; width: 100%; min-height: 100%; transform: translate(-50%, -50%); border: none; }
+      .hero-overlay { background: rgba(61,78,87,0.80); }
+      .hero-interior-inner { padding: 48px 5% 48px; }
       .steps-grid { grid-template-columns: 1fr; }
       .dark-features { grid-template-columns: 1fr; }
       .cta-btns { flex-direction: column; align-items: center; }
@@ -210,8 +208,13 @@
   </div>
 
   <div class="hero-interior">
-    <div class="hero-clinica-bg"></div>
-    <div class="hero-doctor-bg"></div>
+    <div class="yt-bg">
+      <iframe src="https://www.youtube.com/embed/SLBHbG9KT6Q?autoplay=1&mute=1&loop=1&playlist=SLBHbG9KT6Q&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1&enablejsapi=1" allow="autoplay; encrypted-media" allowfullscreen title="Ligadura hemorroidal con banda elástica desktop"></iframe>
+    </div>
+    <div class="yt-bg-mobile">
+      <iframe src="https://www.youtube.com/embed/aL0DCXWKmao?autoplay=1&mute=1&loop=1&playlist=aL0DCXWKmao&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1&enablejsapi=1" allow="autoplay; encrypted-media" allowfullscreen title="Ligadura hemorroidal con banda elástica móvil"></iframe>
+    </div>
+    <div class="hero-overlay"></div>
     <div class="hero-interior-inner">
       <div class="hero-text-col">
         <div class="hero-lbl">Tratamiento hemorroides · Sin cirugía</div>
@@ -222,7 +225,6 @@
           <a href="https://wa.me/34639518954?text=Hola%2C%20me%20gustar%C3%ADa%20pedir%20cita%20en%20la%20consulta%20de%20proctolog%C3%ADa%20con%20el%20Dr.%20Jaime%20Jorge%20Cerrudo." target="_blank" rel="noopener" class="btn-o">WhatsApp</a>
         </div>
       </div>
-      <div class="hero-img-col"><img src="img-ligadura.png" alt="Ligadura hemorroidal con banda elástica"/></div>
     </div>
   </div>
 
