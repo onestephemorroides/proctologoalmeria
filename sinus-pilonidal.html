@@ -578,5 +578,20 @@
       </div>
     </div>
   </div>
+  <script>
+    function aceptarCookies() {
+      localStorage.setItem('cookie_consent', 'accepted');
+      document.getElementById('cookie-banner').classList.remove('visible');
+    }
+    function rechazarCookies() {
+      localStorage.setItem('cookie_consent', 'rejected');
+      document.getElementById('cookie-banner').classList.remove('visible');
+    }
+    window.addEventListener('DOMContentLoaded', function() {
+      if (!localStorage.getItem('cookie_consent')) {
+        document.getElementById('cookie-banner').classList.add('visible');
+      }
+    });
+  </script>
 </body>
 </html>
