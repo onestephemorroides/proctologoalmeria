@@ -106,7 +106,8 @@
     .lesion-icon { width: 40px; height: 40px; background: var(--tp); border-radius: 10px; display: flex; align-items: center; justify-content: center; margin-bottom: 10px; }
     .lesion-icon svg { width: 20px; height: 20px; }
     .lesion-title { font-size: 14px; font-weight: 600; color: var(--g); margin-bottom: 6px; }
-    .lesion-desc { font-size: 12px; color: var(--gl); line-height: 1.6; }
+    .lesion-card img { width: 100%; height: 180px; object-fit: cover; border-radius: 10px; margin-top: 12px; display: block; }
+    @media (max-width: 768px) { .lesion-card img { height: 140px; } }
 
     /* PROCEDIMIENTO */
     .proc-steps { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 20px 0; }
@@ -280,37 +281,37 @@
         <div class="lesion-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#1AACAD" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3"/></svg></div>
         <div class="lesion-title">Quiste sebáceo</div>
         <div class="lesion-desc">Acumulación de sebo bajo la piel que forma un nódulo blando y bien delimitado. Puede inflamarse e infectarse si no se trata.</div>
-        <img src="img-quiste-sebaceo.png" alt="Quiste sebáceo" style="width:100%;border-radius:10px;margin-top:12px;display:block;"/>
+        <img src="img-quiste-sebaceo.png" alt="Quiste sebáceo" />
       </div>
       <div class="lesion-card">
         <div class="lesion-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#1AACAD" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="12" rx="8" ry="5"/></svg></div>
         <div class="lesion-title">Lipoma</div>
         <div class="lesion-desc">Tumor benigno de tejido graso, blando y movible. No suele producir dolor pero puede causar molestias por su tamaño o localización.</div>
-        <img src="img-lipoma.png" alt="Lipoma subcutáneo" style="width:100%;border-radius:10px;margin-top:12px;display:block;"/>
+        <img src="img-lipoma.png" alt="Lipoma subcutáneo" />
       </div>
       <div class="lesion-card">
         <div class="lesion-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#1AACAD" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20Q4 14 8 12Q12 11 16 12Q20 14 20 20"/><circle cx="9" cy="15" r="1.5"/></svg></div>
         <div class="lesion-title">Hidradenitis</div>
         <div class="lesion-desc">Enfermedad inflamatoria crónica de las glándulas sudoríparas apocrinas. Produce nódulos, abscesos y trayectos fistulosos que pueden extirparse quirúrgicamente.</div>
-        <img src="img-hidradenitis-axila.png" alt="Hidradenitis axilar" style="width:100%;border-radius:10px;margin-top:12px;display:block;"/>
+        <img src="img-hidradenitis-axila.png" alt="Hidradenitis axilar" />
       </div>
       <div class="lesion-card">
         <div class="lesion-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#1AACAD" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22C6 22 3 17 3 12s3-9 9-9 9 4 9 9-3 10-9 10z"/><circle cx="12" cy="12" r="2" fill="#1AACAD" stroke="none"/></svg></div>
         <div class="lesion-title">Absceso cutáneo</div>
         <div class="lesion-desc">Colección de pus en el tejido subcutáneo que requiere drenaje bajo anestesia local para aliviar el dolor y evitar la extensión de la infección.</div>
-        <img src="img-absceso-cutaneo.png" alt="Absceso cutáneo" style="width:100%;border-radius:10px;margin-top:12px;display:block;"/>
+        <img src="img-absceso-cutaneo.png" alt="Absceso cutáneo" />
       </div>
       <div class="lesion-card">
         <div class="lesion-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#1AACAD" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="5"/><path d="M8 14 Q6 20 12 21 Q18 20 16 14"/></svg></div>
         <div class="lesion-title">Quiste epidérmico en cuero cabelludo</div>
         <div class="lesion-desc">Lesión quística benigna frecuente en el cuero cabelludo. Su extirpación bajo anestesia local resuelve el problema de forma definitiva y con excelente resultado estético.</div>
-        <img src="img-quiste-epidermico.png" alt="Quiste epidérmico cuero cabelludo" style="width:100%;border-radius:10px;margin-top:12px;display:block;"/>
+        <img src="img-quiste-epidermico.png" alt="Quiste epidérmico cuero cabelludo" />
       </div>
       <div class="lesion-card">
         <div class="lesion-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#1AACAD" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="9" r="5"/><circle cx="15" cy="15" r="4"/></svg></div>
         <div class="lesion-title">Otras lesiones cutáneas</div>
         <div class="lesion-desc">Quistes dermoides, fibromas, granulomas y otras lesiones benignas del tejido subcutáneo susceptibles de extirpación bajo anestesia local.</div>
-        <img src="img-otras-lesiones-cutaneas.png" alt="Otras lesiones cutáneas benignas" style="width:100%;border-radius:10px;margin-top:12px;display:block;"/>
+        <img src="img-otras-lesiones-cutaneas.png" alt="Otras lesiones cutáneas benignas" />
       </div>
     </div>
 
