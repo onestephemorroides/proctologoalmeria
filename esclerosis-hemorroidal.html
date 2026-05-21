@@ -61,17 +61,20 @@
     .breadcrumb a { color: var(--t); }
 
     /* HERO */
-    .hero-interior { position: relative; overflow: hidden; background: var(--g); }
-    .hero-clinica-bg { position: absolute; inset: 0; z-index: 0; background: url('foto-clinica.jpg') center/cover no-repeat; filter: grayscale(100%); opacity: 0.32; }
-    .hero-doctor-bg { position: absolute; inset: 0; z-index: 0; background: url('foto-doctor.png') 15% 10%/35% auto no-repeat; opacity: 0.55; -webkit-mask-image: linear-gradient(to right, black 20%, transparent 70%); mask-image: linear-gradient(to right, black 20%, transparent 70%); }
-    .hero-interior::before { content: ''; position: absolute; inset: 0; z-index: 0; background: linear-gradient(to right, rgba(61,78,87,0.92) 40%, rgba(61,78,87,0.55) 70%, rgba(61,78,87,0.25) 100%); }
-    .hero-interior::after { display: none; }
-    .hero-interior-inner { position: relative; z-index: 1; display: grid; grid-template-columns: 1fr 30%; min-height: 380px; }
-    .hero-text-col { padding: 56px 5% 48px; display: flex; flex-direction: column; justify-content: center; }
+    .hero-interior { position: relative; overflow: hidden; background: var(--g); min-height: 420px; }
+    /* Vídeo de fondo desktop */
+    .yt-bg { display: block; position: absolute; inset: 0; z-index: 0; overflow: hidden; pointer-events: none; }
+    .yt-bg iframe { position: absolute; top: 50%; left: 50%; width: 177.78vh; height: 100%; min-width: 100%; transform: translate(-50%, -50%); border: none; }
+    /* Vídeo móvil — oculto en desktop */
+    .yt-bg-mobile { display: none; }
+    .hero-overlay { position: absolute; inset: 0; z-index: 1; background: linear-gradient(to right, rgba(61,78,87,0.85) 40%, rgba(61,78,87,0.45) 100%); }
+    .hero-interior-inner { position: relative; z-index: 2; padding: 72px 5% 64px; max-width: 800px; }
+    .hero-text-col { display: flex; flex-direction: column; }
+    .hero-clinica-bg { display: none; }
+    .hero-doctor-bg { display: none; }
+    .hero-img-col { display: none; }
     .hero-video-col { display: none; }
     .hero-video-mobile { display: none; }
-    .hero-img-col { position: relative; overflow: hidden; }
-    .hero-img-col img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; opacity: 0.75; filter: grayscale(100%); -webkit-mask-image: linear-gradient(to right, transparent 0%, black 20%); mask-image: linear-gradient(to right, transparent 0%, black 20%); }
     .hero-lbl { font-size: 11px; text-transform: uppercase; letter-spacing: .14em; color: var(--tl); font-weight: 500; margin-bottom: 10px; text-shadow: 0 1px 6px rgba(0,0,0,.5); }
     .hero-interior h1 { font-family: var(--serif); font-size: clamp(1.6rem,3.5vw,2.4rem); color: #fff; line-height: 1.2; margin-bottom: 14px; text-shadow: 0 2px 8px rgba(0,0,0,.5); }
     .hero-interior p { font-size: 15px; color: rgba(255,255,255,.8); line-height: 1.8; max-width: 580px; margin-bottom: 24px; text-shadow: 0 1px 4px rgba(0,0,0,.4); }
@@ -135,13 +138,11 @@
       html, body { overflow-x: hidden; }
       .nav-links { display: none; }
       .nav-hamburger { display: block; }
-      .hero-clinica-bg { display: none; }
-      .hero-doctor-bg { background-size: cover; background-position: center top; -webkit-mask-image: none; mask-image: none; }
-      .hero-interior::before { background: rgba(61,78,87,0.82); }
-      .hero-interior-inner { grid-template-columns: 1fr; grid-template-rows: auto 260px; min-height: unset; }
-      .hero-text-col { padding: 40px 5% 24px; order: 1; }
-      .hero-img-col { order: 2; height: 260px; margin-top: 0; }
-      .hero-img-col img { -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 20%); mask-image: linear-gradient(to bottom, transparent 0%, black 20%); }
+      .yt-bg { display: none; }
+      .yt-bg-mobile { display: block; position: absolute; inset: 0; z-index: 0; overflow: hidden; pointer-events: none; }
+      .yt-bg-mobile iframe { position: absolute; top: 50%; left: 50%; height: 177.78vw; width: 100%; min-height: 100%; transform: translate(-50%, -50%); border: none; }
+      .hero-overlay { background: rgba(61,78,87,0.80); }
+      .hero-interior-inner { padding: 48px 5% 48px; }
       .steps-grid { grid-template-columns: 1fr; }
       .dark-features { grid-template-columns: 1fr; }
       .cta-btns { flex-direction: column; align-items: center; }
@@ -212,8 +213,13 @@
   </div>
 
   <div class="hero-interior">
-    <div class="hero-clinica-bg"></div>
-    <div class="hero-doctor-bg"></div>
+    <div class="yt-bg">
+      <iframe src="https://www.youtube.com/embed/c5hZmPkDUN4?autoplay=1&mute=1&loop=1&playlist=c5hZmPkDUN4&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1&enablejsapi=1" allow="autoplay; encrypted-media" allowfullscreen title="Esclerosis hemorroidal con microespuma desktop"></iframe>
+    </div>
+    <div class="yt-bg-mobile">
+      <iframe src="https://www.youtube.com/embed/YJwYu-JdrDA?autoplay=1&mute=1&loop=1&playlist=YJwYu-JdrDA&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1&enablejsapi=1" allow="autoplay; encrypted-media" allowfullscreen title="Esclerosis hemorroidal con microespuma móvil"></iframe>
+    </div>
+    <div class="hero-overlay"></div>
     <div class="hero-interior-inner">
       <div class="hero-text-col">
         <div class="hero-lbl">Tratamiento hemorroides · Sin cirugía</div>
@@ -224,7 +230,6 @@
           <a href="https://wa.me/34639518954?text=Hola%2C%20me%20gustar%C3%ADa%20pedir%20cita%20en%20la%20consulta%20de%20proctolog%C3%ADa%20con%20el%20Dr.%20Jaime%20Jorge%20Cerrudo." target="_blank" rel="noopener" class="btn-o">WhatsApp</a>
         </div>
       </div>
-      <div class="hero-img-col"><img src="img-esclerosis.png" alt="Esclerosis hemorroidal con microespuma"/></div>
     </div>
   </div>
 
