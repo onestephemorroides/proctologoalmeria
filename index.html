@@ -72,9 +72,20 @@
     .nav-logo-cut { position: absolute; left: -1px; top: 50%; transform: translateY(-50%); width: 10px; height: 2.5px; background: #fff; }
     .nav-text-name { font-size: 13px; font-weight: 600; color: var(--g); }
     .nav-text-sub { font-size: 11px; color: var(--t); }
-    .nav-links { display: flex; gap: 28px; list-style: none; }
+    .nav-links { display: flex; gap: 28px; list-style: none; align-items: center; }
     .nav-links a { font-size: 13px; font-weight: 500; color: var(--gl); transition: color .2s; }
     .nav-links a:hover { color: var(--t); }
+    .nav-dropdown { position: relative; display: flex; align-items: center; }
+    .nav-dropdown > a { display: flex; align-items: center; gap: 4px; font-size: 13px; font-weight: 500; color: var(--gl); line-height: 1; }
+    .nav-dropdown > a::after { content: '▾'; font-size: 10px; line-height: 1; margin-top: 1px; }
+    .nav-dropdown > a:hover { color: var(--t); }
+    .nav-dropdown-menu { display: none; position: absolute; top: 100%; left: 50%; transform: translateX(-50%); padding-top: 14px; z-index: 200; }
+    .nav-dropdown-menu-inner { background: #fff; border-radius: 12px; border: 1px solid #E8ECEF; box-shadow: 0 8px 24px rgba(0,0,0,.12); min-width: 210px; padding: 6px 0; }
+    .nav-dropdown:hover .nav-dropdown-menu { display: block; }
+    .nav-dropdown-menu a { display: block; padding: 10px 16px; font-size: 13px; color: var(--g); transition: background .15s; white-space: nowrap; }
+    .nav-dropdown-menu a:hover { background: var(--tp); color: var(--t); }
+    .nav-dropdown-menu .sub-item { padding-left: 28px; font-size: 12px; color: var(--gl); border-top: 1px solid #F5F5F5; }
+    .nav-dropdown-menu .sub-item:hover { background: var(--tp); color: var(--t); }
     .nav-cta {
       background: var(--t); color: #fff;
       padding: 9px 20px; border-radius: 50px;
@@ -484,7 +495,23 @@
       </div>
     </div>
     <ul class="nav-links">
-      <li><a href="#servicios">Servicios</a></li>
+      <li class="nav-dropdown">
+        <a href="#servicios">Servicios</a>
+        <div class="nav-dropdown-menu"><div class="nav-dropdown-menu-inner">
+          <a href="hemorroides.html">Hemorroides</a>
+          <a href="esclerosis-hemorroidal.html" class="sub-item">↳ Esclerosis con microespuma</a>
+          <a href="ligadura-hemorroidal.html" class="sub-item">↳ Ligadura con banda elástica</a>
+          <a href="fisura-anal.html">Fisura Anal</a>
+          <a href="toxina-botulinica-fisura.html" class="sub-item">↳ Inyección toxina botulínica</a>
+          <a href="sinus-pilonidal.html">Sinus Pilonidal</a>
+          <a href="colgajos-anales.html">Colgajos Anales</a>
+          <a href="polipos-anales.html">Pólipos Anales</a>
+          <a href="condilomas-anales.html">Condilomas Anales</a>
+          <a href="hidradenitis-perianal.html">Hidradenitis Perianal</a>
+          <a href="cirugia-menor.html">Cirugía Menor</a>
+          <a href="segunda-opinion.html">Segunda Opinión</a>
+        </div></div>
+      </li>
       <li><a href="sobre-mi.html">Sobre mí</a></li>
       <li><a href="blog.html">Blog</a></li>
       <li><a href="foro.html">Foro</a></li>
