@@ -62,7 +62,7 @@
 
     /* HERO */
     .hero-interior { position: relative; overflow: hidden; background: var(--g); min-height: 420px; }
-    /* Fondo consulta */
+    /* Fondo consulta desenfocado */
     .hero-clinica-bg { display: block; position: absolute; inset: 0; z-index: 0; background: url('foto-clinica.jpg') center/cover no-repeat; filter: grayscale(100%) brightness(0.35); }
     /* Vídeo desktop — expandido, subido 15% */
     .yt-bg { display: block; position: absolute; inset: 0; z-index: 1; overflow: hidden; pointer-events: none; }
@@ -70,8 +70,9 @@
     .yt-bg::before { display: none; }
     /* Vídeo móvil — oculto en desktop */
     .yt-bg-mobile { display: none; position: absolute; inset: 0; z-index: 1; overflow: hidden; pointer-events: none; }
-    .yt-bg-mobile iframe { position: absolute; top: 35%; left: 50%; height: 177.78vw; width: 100%; min-height: 100%; transform: translate(-50%, -50%); border: none; }
-    /* Overlay para legibilidad del texto */
+    .yt-bg-mobile iframe { position: absolute; top: 50%; left: 50%; height: 177.78vw; width: 100%; min-height: 100%; transform: translate(-50%, -50%); border: none; }
+    .yt-bg-mobile::before { content: ''; position: absolute; inset: 0; z-index: 2; background: linear-gradient(to bottom, rgba(61,78,87,0.75) 0%, transparent 25%, transparent 75%, rgba(61,78,87,0.75) 100%); pointer-events: none; }
+    /* Overlay oscuro general para legibilidad del texto */
     .hero-overlay { position: absolute; inset: 0; z-index: 2; background: linear-gradient(to right, rgba(61,78,87,0.65) 0%, rgba(61,78,87,0.10) 50%, rgba(61,78,87,0.65) 100%); pointer-events: none; }
     .hero-interior-inner { position: relative; z-index: 3; padding: 72px 5% 64px; max-width: 800px; }
     .hero-text-col { display: flex; flex-direction: column; }
