@@ -156,11 +156,34 @@
       html, body { overflow-x: hidden; }
       .nav-links { display: none; }
       .nav-hamburger { display: block; }
+      /* Hero móvil — altura suficiente para vídeo vertical */
+      .hero-interior { min-height: 520px; }
+      /* Ocultar vídeo desktop */
       .yt-bg { display: none !important; }
-      .hero-play-btn { display: flex; }
-      .yt-bg-mobile { display: none; }
-      .yt-bg-mobile.active { display: block !important; }
-      .hero-overlay { background: linear-gradient(to bottom, rgba(61,78,87,0.65) 0%, rgba(61,78,87,0.10) 50%, rgba(61,78,87,0.65) 100%); }
+      /* Botón play — siempre visible en móvil */
+      .hero-play-btn {
+        display: flex !important;
+        position: absolute; top: 80px; right: 20px; z-index: 10;
+      }
+      /* Vídeo móvil: oculto hasta pulsar play */
+      .yt-bg-mobile {
+        display: none;
+        position: absolute; inset: 0; z-index: 1;
+        overflow: hidden; pointer-events: none;
+      }
+      .yt-bg-mobile.active {
+        display: block !important;
+      }
+      .yt-bg-mobile iframe {
+        position: absolute;
+        top: 50%; left: 50%;
+        width: 100vw;
+        height: 177.78vw;
+        min-height: 100%;
+        transform: translate(-50%, -50%);
+        border: none;
+      }
+      .hero-overlay { background: rgba(61,78,87,0.55); }
       .hero-interior-inner { padding: 48px 5% 48px; }
       .steps-grid { grid-template-columns: 1fr; }
       .dark-features { grid-template-columns: 1fr; }
@@ -240,6 +263,9 @@
       <iframe src="https://www.youtube.com/embed/aL0DCXWKmao?autoplay=1&mute=1&loop=1&playlist=aL0DCXWKmao&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1&enablejsapi=1" allow="autoplay; encrypted-media" allowfullscreen title="Ligadura hemorroidal con banda elástica móvil"></iframe>
     </div>
     <div class="hero-overlay"></div>
+    <button class="hero-play-btn" id="heroPlayBtn" aria-label="Reproducir vídeo" onclick="activarVideoMovil()">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="#fff"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+    </button>
     <div class="hero-interior-inner">
       <div class="hero-text-col">
         <div class="hero-lbl">Tratamiento hemorroides · Sin cirugía</div>
