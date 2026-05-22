@@ -1,106 +1,126 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
+  <!-- PÁGINA PRINCIPAL -->
   <url>
-    <loc>https://www.proctologoalmeria.com/index.html</loc>
-    <changefreq>monthly</changefreq>
+    <loc>https://www.proctologoalmeria.com/</loc>
+    <lastmod>2026-05-22</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
 
+  <!-- SOBRE MÍ -->
   <url>
     <loc>https://www.proctologoalmeria.com/sobre-mi.html</loc>
+    <lastmod>2026-05-22</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
   </url>
 
+  <!-- SERVICIOS PRINCIPALES -->
   <url>
     <loc>https://www.proctologoalmeria.com/hemorroides.html</loc>
+    <lastmod>2026-05-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
-
   <url>
     <loc>https://www.proctologoalmeria.com/esclerosis-hemorroidal.html</loc>
+    <lastmod>2026-05-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-
   <url>
     <loc>https://www.proctologoalmeria.com/ligadura-hemorroidal.html</loc>
+    <lastmod>2026-05-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-
   <url>
     <loc>https://www.proctologoalmeria.com/fisura-anal.html</loc>
+    <lastmod>2026-05-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
-
   <url>
     <loc>https://www.proctologoalmeria.com/toxina-botulinica-fisura.html</loc>
+    <lastmod>2026-05-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-
   <url>
     <loc>https://www.proctologoalmeria.com/sinus-pilonidal.html</loc>
+    <lastmod>2026-05-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
-
   <url>
     <loc>https://www.proctologoalmeria.com/colgajos-anales.html</loc>
+    <lastmod>2026-05-22</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
-
   <url>
     <loc>https://www.proctologoalmeria.com/polipos-anales.html</loc>
+    <lastmod>2026-05-22</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
-
   <url>
     <loc>https://www.proctologoalmeria.com/condilomas-anales.html</loc>
+    <lastmod>2026-05-22</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
-
   <url>
     <loc>https://www.proctologoalmeria.com/hidradenitis-perianal.html</loc>
+    <lastmod>2026-05-22</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
-
   <url>
     <loc>https://www.proctologoalmeria.com/cirugia-menor.html</loc>
+    <lastmod>2026-05-22</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
-
   <url>
     <loc>https://www.proctologoalmeria.com/segunda-opinion.html</loc>
+    <lastmod>2026-05-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
+  <!-- BLOG -->
   <url>
-    <loc>https://www.proctologoalmeria.com/aviso-legal.html</loc>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
+    <loc>https://www.proctologoalmeria.com/blog.html</loc>
+    <lastmod>2026-05-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
   </url>
-
   <url>
-    <loc>https://www.proctologoalmeria.com/privacidad.html</loc>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
+    <loc>https://www.proctologoalmeria.com/sintomas-hemorroides.html</loc>
+    <lastmod>2026-05-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
-
   <url>
-    <loc>https://www.proctologoalmeria.com/cookies.html</loc>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
+    <loc>https://www.proctologoalmeria.com/cuando-operar-hemorroides.html</loc>
+    <lastmod>2026-05-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.proctologoalmeria.com/fisura-anal-dolor-tratamiento.html</loc>
+    <lastmod>2026-05-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.proctologoalmeria.com/sinus-pilonidal-cirugia-alternativa.html</loc>
+    <lastmod>2026-05-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
 
 </urlset>
