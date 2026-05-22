@@ -17,17 +17,107 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
   <script type="application/ld+json">
   {
-    "@context":"https://schema.org",
-    "@type":"MedicalBusiness",
-    "name":"Dr. Jaime Jorge Cerrudo — Proctólogo en Almería",
-    "description":"Consulta especializada de proctología en Almería. Hemorroides, fisura anal, sinus pilonidal y más sin cirugía.",
-    "url":"https://www.proctologoalmeria.com/",
-    "telephone":"+34950264245",
-    "email":"hola@clinicadesanpio.es",
-    "address":{"@type":"PostalAddress","streetAddress":"Calle Minero Nº2, 1ºA-C","addressLocality":"Almería","postalCode":"04001","addressCountry":"ES"},
-    "openingHours":"Mo-Fr 09:00-20:00",
-    "medicalSpecialty":"Coloproctología",
-    "physician":{"@type":"Physician","name":"Dr. Jaime Jorge Cerrudo","medicalSpecialty":"Coloproctología"}
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Physician",
+        "@id": "https://www.proctologoalmeria.com/#physician",
+        "name": "Dr. Jaime Jorge Cerrudo",
+        "jobTitle": "Especialista en Cirugía General y del Aparato Digestivo",
+        "description": "Especialista en coloproctología con más de 13 años de experiencia. Responsable de la Consulta ONEstep® en la Clínica de San Pío de Almería. Instructor del Curso de Proctología de la AEC. Miembro de la AEC y la AECP.",
+        "medicalSpecialty": "Coloproctología",
+        "url": "https://www.proctologoalmeria.com/sobre-mi.html",
+        "worksFor": { "@id": "https://www.proctologoalmeria.com/#clinica" }
+      },
+      {
+        "@type": "MedicalClinic",
+        "@id": "https://www.proctologoalmeria.com/#clinica",
+        "name": "Dr. Jaime Jorge Cerrudo — Proctólogo en Almería",
+        "alternateName": "Consulta ONEstep® · Clínica de San Pío",
+        "description": "Consulta especializada de proctología en Almería. Hemorroides, fisura anal, sinus pilonidal y más sin cirugía. Diagnóstico y tratamiento en el mismo acto.",
+        "url": "https://www.proctologoalmeria.com/",
+        "telephone": "+34950264245",
+        "email": "hola@clinicadesanpio.es",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Calle Minero Nº2, 1ºA-C",
+          "addressLocality": "Almería",
+          "addressRegion": "Andalucía",
+          "postalCode": "04001",
+          "addressCountry": "ES"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 36.8387819,
+          "longitude": -2.4648327
+        },
+        "openingHoursSpecification": [
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+            "opens": "09:00",
+            "closes": "20:00"
+          }
+        ],
+        "medicalSpecialty": "Coloproctología",
+        "availableService": [
+          {
+            "@type": "MedicalProcedure",
+            "name": "Tratamiento de hemorroides sin cirugía",
+            "url": "https://www.proctologoalmeria.com/hemorroides.html",
+            "description": "Ligadura con banda elástica y esclerosis con microespuma. Sin cirugía, sin ingreso y con recuperación inmediata."
+          },
+          {
+            "@type": "MedicalProcedure",
+            "name": "Esclerosis hemorroidal con microespuma",
+            "url": "https://www.proctologoalmeria.com/esclerosis-hemorroidal.html",
+            "description": "Técnica mínimamente invasiva para el tratamiento de hemorroides internas en acto único."
+          },
+          {
+            "@type": "MedicalProcedure",
+            "name": "Ligadura hemorroidal con banda elástica",
+            "url": "https://www.proctologoalmeria.com/ligadura-hemorroidal.html",
+            "description": "Procedimiento ambulatorio para hemorroides internas sin cirugía ni ingreso hospitalario."
+          },
+          {
+            "@type": "MedicalProcedure",
+            "name": "Tratamiento de fisura anal con toxina botulínica",
+            "url": "https://www.proctologoalmeria.com/fisura-anal.html",
+            "description": "Inyección de toxina botulínica para la fisura anal crónica. Rompe el ciclo dolor-espasmo sin cirugía."
+          },
+          {
+            "@type": "MedicalProcedure",
+            "name": "Tratamiento de sinus pilonidal — Técnica GIPS",
+            "url": "https://www.proctologoalmeria.com/sinus-pilonidal.html",
+            "description": "Técnica GIPS mínimamente invasiva para el sinus pilonidal. Recuperación en 3-7 días."
+          },
+          {
+            "@type": "MedicalProcedure",
+            "name": "Segunda opinión en proctología",
+            "url": "https://www.proctologoalmeria.com/segunda-opinion.html",
+            "description": "Valoración especializada antes de operar. Hemorroides, fisura anal, sinus pilonidal y fístula anal."
+          }
+        ],
+        "hasMap": "https://www.google.com/maps?q=Clínica+de+San+Pío+Almería",
+        "priceRange": "$$",
+        "currenciesAccepted": "EUR",
+        "paymentAccepted": "Efectivo, Tarjeta de crédito",
+        "areaServed": { "@type": "City", "name": "Almería" },
+        "sameAs": [
+          "https://www.linkedin.com/in/onestep-hemorroides-almer%C3%ADa",
+          "https://www.youtube.com/@ONEstephemorroides"
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://www.proctologoalmeria.com/#website",
+        "url": "https://www.proctologoalmeria.com/",
+        "name": "Proctólogo en Almería | Dr. Jaime Jorge Cerrudo",
+        "description": "Consulta especializada de proctología en Almería. Hemorroides, fisura anal, sinus pilonidal y más sin cirugía.",
+        "inLanguage": "es",
+        "publisher": { "@id": "https://www.proctologoalmeria.com/#clinica" }
+      }
+    ]
   }
   </script>
   <style>
