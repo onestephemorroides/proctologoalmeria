@@ -342,10 +342,65 @@
 
 
 <style>
-  .blog-hero { background: var(--g); padding: 64px 5% 48px; text-align: center; }
-  .blog-hero .lbl { font-size: 11px; text-transform: uppercase; letter-spacing: .14em; color: var(--tl); font-weight: 600; margin-bottom: 12px; }
-  .blog-hero h1 { font-family: var(--serif); font-size: clamp(1.8rem, 4vw, 2.8rem); color: #fff; margin-bottom: 14px; }
-  .blog-hero p { font-size: 15px; color: rgba(255,255,255,.7); max-width: 520px; margin: 0 auto; line-height: 1.8; }
+
+  .blog-hero-wrapper {
+    position: relative;
+    overflow: hidden;
+    background: var(--g);
+    min-height: 320px;
+    display: flex;
+    align-items: center;
+  }
+  .blog-hero-clinica-bg {
+    position: absolute; inset: 0; z-index: 0;
+    background: url('foto-clinica.jpg') center/cover no-repeat;
+    filter: grayscale(100%);
+    opacity: 0.18;
+  }
+  .blog-hero-doctor-bg {
+    position: absolute; inset: 0; z-index: 1;
+    background: url('foto-doctor.png') 5% center/28% auto no-repeat;
+    opacity: 0.35;
+    -webkit-mask-image: linear-gradient(to right, black 10%, transparent 45%);
+    mask-image: linear-gradient(to right, black 10%, transparent 45%);
+  }
+  .blog-hero-patient-bg {
+    position: absolute; inset: 0; z-index: 1;
+    background: url('img-blog-hero.jpg') right center/auto 100% no-repeat;
+    opacity: 0.28;
+    -webkit-mask-image: linear-gradient(to left, black 10%, transparent 55%);
+    mask-image: linear-gradient(to left, black 10%, transparent 55%);
+  }
+  .blog-hero-overlay {
+    position: absolute; inset: 0; z-index: 2;
+    background: linear-gradient(135deg, rgba(61,78,87,0.75) 0%, rgba(26,172,173,0.25) 100%);
+  }
+  .blog-hero-inner {
+    position: relative; z-index: 3;
+    width: 100%;
+    padding: 64px 5% 56px;
+    text-align: center;
+  }
+  .blog-hero-lbl {
+    font-size: 11px; text-transform: uppercase; letter-spacing: .14em;
+    color: var(--tl); font-weight: 600; margin-bottom: 12px;
+  }
+  .blog-hero-wrapper h1 {
+    font-family: var(--serif);
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    color: #fff;
+    margin-bottom: 14px;
+    text-shadow: 0 2px 8px rgba(0,0,0,.4);
+  }
+  .blog-hero-wrapper p {
+    font-size: 15px; color: rgba(255,255,255,.8);
+    max-width: 520px; margin: 0 auto; line-height: 1.8;
+    text-shadow: 0 1px 4px rgba(0,0,0,.3);
+  }
+  @media (max-width: 768px) {
+    .blog-hero-doctor-bg { opacity: 0.2; }
+    .blog-hero-patient-bg { opacity: 0.15; }
+  }
   .blog-section { padding: 64px 5%; background: var(--bg); }
   .blog-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 24px; max-width: 1100px; margin: 0 auto; }
   .blog-card { background: #fff; border: 1px solid #E8ECEF; border-radius: 16px; overflow: hidden; transition: transform .2s, box-shadow .2s, border-color .2s; display: flex; flex-direction: column; }
@@ -368,10 +423,18 @@
   @media (max-width: 768px) { .blog-grid { grid-template-columns: 1fr; } }
 </style>
 
-<div class="blog-hero">
-  <div class="lbl">Información médica de confianza</div>
-  <h1>Blog de Proctología</h1>
-  <p>Artículos sobre hemorroides, fisura anal, sinus pilonidal y otras patologías proctológicas. Escrito por el Dr. Jaime Jorge Cerrudo, especialista en Almería.</p>
+<div class="blog-hero-wrapper">
+  <div class="blog-hero-clinica-bg"></div>
+  <div class="blog-hero-doctor-bg"></div>
+  <div class="blog-hero-patient-bg"></div>
+  <div class="blog-hero-overlay"></div>
+  <div class="blog-hero-inner">
+    <div class="blog-hero-text">
+      <div class="blog-hero-lbl">Información médica de confianza</div>
+      <h1>Blog de Proctología</h1>
+      <p>Artículos sobre hemorroides, fisura anal, sinus pilonidal y otras patologías proctológicas. Escrito por el Dr. Jaime Jorge Cerrudo, especialista en Almería.</p>
+    </div>
+  </div>
 </div>
 
 <section class="blog-section">
