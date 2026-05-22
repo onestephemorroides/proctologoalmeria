@@ -13,19 +13,65 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
   <script type="application/ld+json">
   {
-    "@context":"https://schema.org",
-    "@type":"Physician",
-    "name":"Dr. Jaime Jorge Cerrudo",
-    "description":"Cirujano especialista en Coloproctología con más de 13 años de experiencia. Responsable de la Consulta ONEstep®. Miembro de la AEC y la AECP.",
-    "url":"https://www.proctologoalmeria.com/sobre-mi.html",
-    "telephone":"+34950264245",
-    "email":"hola@clinicadesanpio.es",
-    "medicalSpecialty":"Coloproctología",
-    "memberOf":[
-      {"@type":"MedicalOrganization","name":"Asociación Española de Cirujanos (AEC)"},
-      {"@type":"MedicalOrganization","name":"Asociación Española de Coloproctología (AECP)"}
-    ],
-    "worksFor":{"@type":"MedicalOrganization","name":"Clínica de San Pío","address":{"@type":"PostalAddress","streetAddress":"Calle Minero Nº2, 1ºA-C","addressLocality":"Almería","postalCode":"04001","addressCountry":"ES"}}
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Physician",
+        "@id": "https://www.proctologoalmeria.com/#physician",
+        "name": "Dr. Jaime Jorge Cerrudo",
+        "jobTitle": "Especialista en Cirugía General y del Aparato Digestivo",
+        "description": "Cirujano especialista en Coloproctología con más de 13 años de experiencia. Responsable de la Consulta ONEstep® en la Clínica de San Pío, Almería. Instructor del Curso de Proctología de la AEC. Miembro de la AEC y la AECP.",
+        "image": "https://www.proctologoalmeria.com/foto-doctor.png",
+        "url": "https://www.proctologoalmeria.com/sobre-mi.html",
+        "telephone": "+34950264245",
+        "email": "hola@clinicadesanpio.es",
+        "priceRange": "$$",
+        "medicalSpecialty": "Coloproctología",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Calle Minero Nº2, 1ºA-C",
+          "addressLocality": "Almería",
+          "addressRegion": "Andalucía",
+          "postalCode": "04001",
+          "addressCountry": "ES"
+        },
+        "memberOf": [
+          { "@type": "MedicalOrganization", "name": "Asociación Española de Cirujanos (AEC)", "alternateName": "AEC" },
+          { "@type": "MedicalOrganization", "name": "Asociación Española de Coloproctología (AECP)", "alternateName": "AECP" }
+        ],
+        "hasOccupation": {
+          "@type": "Occupation",
+          "name": "Proctólogo",
+          "occupationLocation": { "@type": "City", "name": "Almería" }
+        },
+        "worksFor": { "@id": "https://www.proctologoalmeria.com/#clinica" },
+        "sameAs": [
+          "http://www.linkedin.com/in/onestep-hemorroides-almer%C3%ADa",
+          "https://www.instagram.com/hemorroides_sin_cirugia/",
+          "https://www.youtube.com/@ONEstephemorroides"
+        ],
+        "knowsAbout": [
+          "Hemorroides", "Fisura anal", "Sinus pilonidal",
+          "Cáncer colorrectal", "Enfermedad inflamatoria intestinal",
+          "Cirugía laparoscópica", "Coloproctología"
+        ]
+      },
+      {
+        "@type": "ProfilePage",
+        "name": "Dr. Jaime Jorge Cerrudo — Proctólogo Especialista en Almería",
+        "description": "Conoce al Dr. Jaime Jorge Cerrudo, especialista en Coloproctología en Almería con más de 13 años de experiencia.",
+        "url": "https://www.proctologoalmeria.com/sobre-mi.html",
+        "inLanguage": "es",
+        "mainEntity": { "@id": "https://www.proctologoalmeria.com/#physician" },
+        "breadcrumb": {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://www.proctologoalmeria.com/" },
+            { "@type": "ListItem", "position": 2, "name": "Sobre mí", "item": "https://www.proctologoalmeria.com/sobre-mi.html" }
+          ]
+        }
+      }
+    ]
   }
   </script>
   <style>
