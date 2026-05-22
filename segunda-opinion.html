@@ -13,15 +13,41 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
   <script type="application/ld+json">
   {
-    "@context":"https://schema.org",
-    "@type":"MedicalWebPage",
-    "name":"Segunda Opinión Proctológica en Almería",
-    "description":"Segunda opinión especializada en proctología. Si te han recomendado cirugía, consúltanos antes. Dr. Jaime Jorge Cerrudo, Almería.",
-    "url":"https://www.proctologoalmeria.com/segunda-opinion.html",
-    "author":{"@type":"Physician","name":"Dr. Jaime Jorge Cerrudo"}
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "MedicalWebPage",
+        "name": "Segunda Opinión en Coloproctología Almería",
+        "description": "Segunda opinión especializada en coloproctología en Almería. Cáncer colorrectal, EII, hemorroides, fisura anal. Dr. Jaime Jorge Cerrudo, Clínica de San Pío.",
+        "url": "https://www.proctologoalmeria.com/segunda-opinion.html",
+        "inLanguage": "es",
+        "about": {
+          "@type": "MedicalSpecialty",
+          "name": "Coloproctología"
+        },
+        "author": { "@type": "Physician", "name": "Dr. Jaime Jorge Cerrudo", "@id": "https://www.proctologoalmeria.com/#physician" },
+        "breadcrumb": {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://www.proctologoalmeria.com/" },
+            { "@type": "ListItem", "position": 2, "name": "Segunda Opinión", "item": "https://www.proctologoalmeria.com/segunda-opinion.html" }
+          ]
+        }
+      },
+      {
+        "@type": "MedicalProcedure",
+        "name": "Segunda opinión en proctología y coloproctología en Almería",
+        "description": "Valoración especializada antes de operarse. Hemorroides, fisura anal, sinus pilonidal, fístula anal, cáncer colorrectal y enfermedad inflamatoria intestinal.",
+        "url": "https://www.proctologoalmeria.com/segunda-opinion.html",
+        "procedureType": "DiagnosticProcedure",
+        "howPerformed": "Consulta presencial en la Clínica de San Pío de Almería. Revisión de pruebas y orientación terapéutica.",
+        "performer": { "@type": "Physician", "name": "Dr. Jaime Jorge Cerrudo", "@id": "https://www.proctologoalmeria.com/#physician" },
+        "location": { "@id": "https://www.proctologoalmeria.com/#clinica" }
+      }
+    ]
   }
   </script>
-  <style>
+    <style>
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
     :root {
       --t: #1AACAD; --tl: #2ECFCF; --tp: #F0FAFA; --td: #0D7A7B;

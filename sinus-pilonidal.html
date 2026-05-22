@@ -13,16 +13,46 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
   <script type="application/ld+json">
   {
-    "@context":"https://schema.org",
-    "@type":"MedicalWebPage",
-    "name":"Tratamiento del Sinus Pilonidal en Almería",
-    "description":"Tratamiento del sinus pilonidal mediante técnica GIPS mínimamente invasiva. Dr. Jaime Jorge Cerrudo, Almería.",
-    "url":"https://www.proctologoalmeria.com/sinus-pilonidal.html",
-    "about":{"@type":"MedicalCondition","name":"Sinus Pilonidal","alternateName":"Quiste pilonidal"},
-    "author":{"@type":"Physician","name":"Dr. Jaime Jorge Cerrudo"}
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "MedicalWebPage",
+        "name": "Tratamiento Sinus Pilonidal Almería — Técnica GIPS",
+        "description": "Tratamiento del sinus pilonidal en Almería con técnica GIPS mínimamente invasiva. Recuperación en 3-7 días. Dr. Jaime Jorge Cerrudo, Clínica de San Pío.",
+        "url": "https://www.proctologoalmeria.com/sinus-pilonidal.html",
+        "inLanguage": "es",
+        "about": {
+          "@type": "MedicalCondition",
+          "name": "Sinus Pilonidal",
+          "alternateName": "Quiste pilonidal",
+          "possibleTreatment": [
+            { "@type": "MedicalTherapy", "name": "Técnica GIPS mínimamente invasiva" }
+          ]
+        },
+        "author": { "@type": "Physician", "name": "Dr. Jaime Jorge Cerrudo", "@id": "https://www.proctologoalmeria.com/#physician" },
+        "breadcrumb": {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://www.proctologoalmeria.com/" },
+            { "@type": "ListItem", "position": 2, "name": "Sinus Pilonidal", "item": "https://www.proctologoalmeria.com/sinus-pilonidal.html" }
+          ]
+        }
+      },
+      {
+        "@type": "MedicalProcedure",
+        "name": "Técnica GIPS para sinus pilonidal en Almería",
+        "description": "Tratamiento mínimamente invasivo del sinus pilonidal. Incisiones de 3-5 mm, recuperación en 3-7 días y reincorporación laboral rápida. Sin herida abierta ni curas diarias.",
+        "url": "https://www.proctologoalmeria.com/sinus-pilonidal.html",
+        "procedureType": "NoninvasiveProcedure",
+        "howPerformed": "Técnica GIPS con incisiones mínimas bajo anestesia local. Sin ingreso hospitalario.",
+        "bodyLocation": "Región sacrococcígea",
+        "performer": { "@type": "Physician", "name": "Dr. Jaime Jorge Cerrudo", "@id": "https://www.proctologoalmeria.com/#physician" },
+        "location": { "@id": "https://www.proctologoalmeria.com/#clinica" }
+      }
+    ]
   }
   </script>
-  <style>
+    <style>
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
     :root {
       --t: #1AACAD; --tl: #2ECFCF; --tp: #F0FAFA; --td: #0D7A7B;

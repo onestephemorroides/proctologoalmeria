@@ -13,16 +13,46 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
   <script type="application/ld+json">
   {
-    "@context":"https://schema.org",
-    "@type":"MedicalWebPage",
-    "name":"Tratamiento de Hidradenitis Perianal en Almería",
-    "description":"Tratamiento de la hidradenitis supurativa perianal. Extirpación local bajo anestesia local. Dr. Jaime Jorge Cerrudo, Almería.",
-    "url":"https://www.proctologoalmeria.com/hidradenitis-perianal.html",
-    "about":{"@type":"MedicalCondition","name":"Hidradenitis Supurativa Perianal"},
-    "author":{"@type":"Physician","name":"Dr. Jaime Jorge Cerrudo"}
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "MedicalWebPage",
+        "name": "Tratamiento Hidradenitis Perianal Almería",
+        "description": "Tratamiento de hidradenitis supurativa perianal en Almería. Extirpación local bajo anestesia local en consulta. Dr. Jaime Jorge Cerrudo.",
+        "url": "https://www.proctologoalmeria.com/hidradenitis-perianal.html",
+        "inLanguage": "es",
+        "about": {
+          "@type": "MedicalCondition",
+          "name": "Hidradenitis Perianal",
+          "alternateName": "Hidradenitis supurativa perianal",
+          "possibleTreatment": [
+            { "@type": "MedicalTherapy", "name": "Extirpación local bajo anestesia local" }
+          ]
+        },
+        "author": { "@type": "Physician", "name": "Dr. Jaime Jorge Cerrudo", "@id": "https://www.proctologoalmeria.com/#physician" },
+        "breadcrumb": {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://www.proctologoalmeria.com/" },
+            { "@type": "ListItem", "position": 2, "name": "Hidradenitis Perianal", "item": "https://www.proctologoalmeria.com/hidradenitis-perianal.html" }
+          ]
+        }
+      },
+      {
+        "@type": "MedicalProcedure",
+        "name": "Extirpación de hidradenitis perianal en Almería",
+        "description": "Extirpación local de la hidradenitis supurativa perianal bajo anestesia local en consulta. Clasificación según escala de Hurley.",
+        "url": "https://www.proctologoalmeria.com/hidradenitis-perianal.html",
+        "procedureType": "SurgicalProcedure",
+        "howPerformed": "Cirugía local bajo anestesia local en consulta. Sin ingreso hospitalario.",
+        "bodyLocation": "Región perianal",
+        "performer": { "@type": "Physician", "name": "Dr. Jaime Jorge Cerrudo", "@id": "https://www.proctologoalmeria.com/#physician" },
+        "location": { "@id": "https://www.proctologoalmeria.com/#clinica" }
+      }
+    ]
   }
   </script>
-  <style>
+    <style>
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
     :root {
       --t: #1AACAD; --tl: #2ECFCF; --tp: #F0FAFA; --td: #0D7A7B;
