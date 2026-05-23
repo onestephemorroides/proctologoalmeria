@@ -23,42 +23,12 @@
     "name": "Foro de Pacientes — Proctólogo Almería",
     "description": "Preguntas frecuentes sobre proctología respondidas por el Dr. Jaime Jorge Cerrudo",
     "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "¿Duele la exploración proctológica?",
-        "answerCount": 1,
-        "acceptedAnswer": { "@type": "Answer", "text": "La exploración proctológica, cuando la realiza un especialista con experiencia, es generalmente bien tolerada. Se lleva a cabo con el paciente en posición lateral, de forma progresiva y con lubricación adecuada. La anoscopia puede resultar algo molesta pero no dolorosa en la mayoría de los casos." }
-      },
-      {
-        "@type": "Question",
-        "name": "¿Son dolorosos los procedimientos para tratar las hemorroides?",
-        "answerCount": 1,
-        "acceptedAnswer": { "@type": "Answer", "text": "Las técnicas ambulatorias como la ligadura con bandas elásticas o la esclerosis con microespuma son prácticamente indoloras durante el procedimiento. Los procedimientos quirúrgicos se realizan bajo anestesia y tampoco generan dolor en el momento." }
-      },
-      {
-        "@type": "Question",
-        "name": "¿Cuántas sesiones son necesarias para curar las hemorroides?",
-        "answerCount": 1,
-        "acceptedAnswer": { "@type": "Answer", "text": "Con ligaduras de bandas elásticas se realizan habitualmente entre 2 y 4 sesiones separadas por 3-4 semanas para hemorroides de grado II y III. Los procedimientos en acto único resuelven el problema en una sola intervención." }
-      },
-      {
-        "@type": "Question",
-        "name": "¿Cuánto tarda en curar la fisura anal tras la inyección de toxina botulínica?",
-        "answerCount": 1,
-        "acceptedAnswer": { "@type": "Answer", "text": "La mejoría del dolor suele notarse en los primeros 7-10 días tras la inyección. La cicatrización completa de la fisura se produce habitualmente entre las 6 y las 12 semanas, con una tasa de curación que supera el 70-80% en fisuras crónicas." }
-      },
-      {
-        "@type": "Question",
-        "name": "¿Qué diferencia hay entre una fisura anal y una fístula anal?",
-        "answerCount": 1,
-        "acceptedAnswer": { "@type": "Answer", "text": "La fisura anal es una pequeña herida en el borde del ano que produce dolor intenso durante y después de la deposición. La fístula anal es un trayecto patológico que comunica el canal anal con la piel perianal, con supuración intermitente." }
-      },
-      {
-        "@type": "Question",
-        "name": "¿Puedo evitar la cirugía para las hemorroides?",
-        "answerCount": 1,
-        "acceptedAnswer": { "@type": "Answer", "text": "En muchos casos sí. Las hemorroides de grado I y II responden bien a medidas higiénico-dietéticas y a procedimientos ambulatorios. La cirugía se reserva para hemorroides de grado III-IV que no responden a otras medidas." }
-      }
+      { "@type": "Question", "name": "¿Duele la exploración proctológica?", "answerCount": 1, "acceptedAnswer": { "@type": "Answer", "text": "La exploración proctológica, cuando la realiza un especialista con experiencia, es generalmente bien tolerada. Se lleva a cabo con el paciente en posición lateral, de forma progresiva y con lubricación adecuada." } },
+      { "@type": "Question", "name": "¿Son dolorosos los procedimientos para tratar las hemorroides?", "answerCount": 1, "acceptedAnswer": { "@type": "Answer", "text": "Las técnicas ambulatorias como la ligadura con bandas elásticas o la esclerosis con microespuma son prácticamente indoloras durante el procedimiento." } },
+      { "@type": "Question", "name": "¿Cuántas sesiones son necesarias para curar las hemorroides?", "answerCount": 1, "acceptedAnswer": { "@type": "Answer", "text": "Con ligaduras de bandas elásticas se realizan habitualmente entre 2 y 4 sesiones separadas por 3-4 semanas para hemorroides de grado II y III." } },
+      { "@type": "Question", "name": "¿Cuánto tarda en curar la fisura anal tras la inyección de toxina botulínica?", "answerCount": 1, "acceptedAnswer": { "@type": "Answer", "text": "La mejoría del dolor suele notarse en los primeros 7-10 días. La cicatrización completa se produce habitualmente entre las 6 y las 12 semanas." } },
+      { "@type": "Question", "name": "¿Qué diferencia hay entre una fisura anal y una fístula anal?", "answerCount": 1, "acceptedAnswer": { "@type": "Answer", "text": "La fisura anal es una pequeña herida en el borde del ano que produce dolor intenso. La fístula anal es un trayecto patológico que comunica el canal anal con la piel perianal, con supuración intermitente." } },
+      { "@type": "Question", "name": "¿Puedo evitar la cirugía para las hemorroides?", "answerCount": 1, "acceptedAnswer": { "@type": "Answer", "text": "En muchos casos sí. Las hemorroides de grado I y II responden bien a medidas higiénico-dietéticas y a procedimientos ambulatorios." } }
     ]
   }
   </script>
@@ -73,18 +43,12 @@
       --sans: 'DM Sans', system-ui, sans-serif;
     }
     html { scroll-behavior: smooth; }
-    body { font-family: var(--sans); color: var(--g); background: #fff; font-size: 16px; line-height: 1.6; }
+    body { font-family: var(--sans); color: var(--g); background: #fff; font-size: 16px; line-height: 1.6; overflow-x: hidden; }
     a { text-decoration: none; color: inherit; }
     img { max-width: 100%; display: block; }
 
     /* ── NAV ── */
-    .nav {
-      position: sticky; top: 0; z-index: 100;
-      background: rgba(255,255,255,0.97); backdrop-filter: blur(8px);
-      border-bottom: 1px solid #E8ECEF; padding: 0 5%;
-      display: flex; align-items: center; justify-content: space-between;
-      height: 68px; box-shadow: 0 2px 12px rgba(0,0,0,0.06);
-    }
+    .nav { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,0.97); backdrop-filter: blur(8px); border-bottom: 1px solid #E8ECEF; padding: 0 5%; display: flex; align-items: center; justify-content: space-between; height: 68px; box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
     .nav-brand { display: flex; align-items: center; gap: 12px; }
     .nav-logo-ring { width: 38px; height: 38px; border-radius: 50%; border: 2.5px solid var(--t); display: flex; align-items: center; justify-content: center; position: relative; flex-shrink: 0; }
     .nav-logo-inner { width: 12px; height: 12px; border-radius: 50%; background: var(--t); }
@@ -107,8 +71,8 @@
     .nav-dropdown-menu .sub-item:hover { background: var(--tp); color: var(--t); }
     .nav-cta { background: var(--t); color: #fff; padding: 9px 20px; border-radius: 50px; font-size: 13px; font-weight: 600; transition: background .2s, transform .15s; }
     .nav-cta:hover { background: var(--td); transform: translateY(-1px); }
-    .nav-mobile-btn { display: none; background: none; border: none; cursor: pointer; padding: 6px; }
-    .nav-mobile-menu { display: none; position: fixed; top: 68px; left: 0; right: 0; bottom: 0; background: rgba(255,255,255,.98); backdrop-filter: blur(8px); z-index: 99; overflow-y: auto; flex-direction: column; border-top: 1px solid #E8ECEF; box-shadow: 0 8px 24px rgba(0,0,0,.1); }
+    .nav-hamburger { display: none; background: none; border: none; cursor: pointer; padding: 6px; }
+    .nav-mobile-menu { display: none; position: fixed; top: 68px; left: 0; right: 0; bottom: 0; background: rgba(255,255,255,.98); backdrop-filter: blur(8px); z-index: 99; overflow-y: auto; flex-direction: column; border-top: 1px solid #E8ECEF; }
     .nav-mobile-menu.open { display: flex; }
     .nav-mobile-link { font-size: 16px; font-weight: 500; color: var(--g); padding: 16px 5%; border-bottom: 0.5px solid #F0F0F0; display: flex; align-items: center; justify-content: space-between; cursor: pointer; text-decoration: none; }
     .nav-mobile-link:hover { color: var(--t); background: var(--tp); }
@@ -118,66 +82,27 @@
     .nav-submenu a:hover { color: var(--t); background: var(--tp); }
     .nav-submenu a::before { content: '›'; color: var(--t); font-size: 16px; }
 
-    /* ── HERO CON 3 IMÁGENES ── */
-    .foro-hero {
-      background: var(--g);
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      min-height: 480px;
-      overflow: hidden;
-      position: relative;
-    }
-    .foro-hero-text {
-      padding: 72px 5% 60px 5%;
-      display: flex; flex-direction: column; justify-content: center;
-      position: relative; z-index: 2;
-    }
-    .foro-hero-text::after {
-      content: '';
-      position: absolute; inset: 0;
-      background: radial-gradient(ellipse at 0% 50%, rgba(26,172,173,.12) 0%, transparent 70%);
-      pointer-events: none;
-    }
-    .foro-hero-lbl { font-size: 11px; text-transform: uppercase; letter-spacing: .16em; color: var(--tl); font-weight: 600; margin-bottom: 14px; }
-    .foro-hero h1 { font-family: var(--serif); font-size: clamp(1.9rem, 3.5vw, 2.8rem); color: #fff; line-height: 1.2; margin-bottom: 16px; }
-    .foro-hero h1 span { color: var(--tl); }
-    .foro-hero-p { font-size: 14px; color: rgba(255,255,255,.72); line-height: 1.8; max-width: 480px; margin-bottom: 28px; }
-    .foro-hero-aviso { display: inline-flex; align-items: flex-start; gap: 10px; background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.15); border-radius: 10px; padding: 12px 16px; font-size: 12px; color: rgba(255,255,255,.6); line-height: 1.5; max-width: 420px; }
-    .foro-hero-aviso svg { flex-shrink: 0; margin-top: 1px; }
+    /* ── BREADCRUMB ── */
+    .breadcrumb { padding: 10px 5%; font-size: 12px; color: var(--gl); background: var(--bg); border-bottom: 1px solid #E8ECEF; display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+    .breadcrumb a { color: var(--t); }
 
-    /* Mosaico de imágenes */
-    .foro-hero-imgs {
-      display: grid;
-      grid-template-rows: 1fr 1fr;
-      grid-template-columns: 1fr 1fr;
-      gap: 3px;
-      overflow: hidden;
-    }
-    .foro-hero-imgs .img-main {
-      grid-row: 1 / 3;
-      grid-column: 1 / 2;
-    }
-    .foro-hero-imgs .img-top {
-      grid-row: 1 / 2;
-      grid-column: 2 / 3;
-    }
-    .foro-hero-imgs .img-bottom {
-      grid-row: 2 / 3;
-      grid-column: 2 / 3;
-    }
-    .foro-hero-imgs img {
-      width: 100%; height: 100%;
-      object-fit: cover; object-position: center;
-      display: block;
-    }
-    /* overlay oscuro sobre imágenes para coherencia */
-    .foro-hero-imgs::after {
-      content: '';
-      position: absolute; inset: 0;
-      background: linear-gradient(to right, rgba(61,78,87,0.6) 0%, rgba(61,78,87,0.1) 60%, transparent 100%);
-      pointer-events: none; z-index: 1;
-    }
-    .foro-hero-imgs { position: relative; }
+    /* ── HERO — idéntico a colgajos-anales.html ── */
+    .hero-interior { position: relative; overflow: hidden; background: var(--g); }
+    .hero-clinica-bg { position: absolute; inset: 0; z-index: 0; background: url('poster-hero.png') center/cover no-repeat; filter: grayscale(100%); opacity: 0.32; }
+    .hero-doctor-bg { position: absolute; inset: 0; z-index: 0; background: url('foto-doctor.png') 15% 10%/35% auto no-repeat; opacity: 0.55; -webkit-mask-image: linear-gradient(to right, black 20%, transparent 70%); mask-image: linear-gradient(to right, black 20%, transparent 70%); }
+    .hero-interior::before { content: ''; position: absolute; inset: 0; z-index: 0; background: linear-gradient(to right, rgba(61,78,87,0.92) 40%, rgba(61,78,87,0.55) 70%, rgba(61,78,87,0.25) 100%); }
+    .hero-interior-inner { position: relative; z-index: 1; display: grid; grid-template-columns: 1fr 30%; min-height: 400px; }
+    .hero-text-col { padding: 56px 5% 48px; display: flex; flex-direction: column; justify-content: center; }
+    .hero-img-col { position: relative; overflow: hidden; }
+    .hero-img-col img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 30%; opacity: 0.75; filter: grayscale(100%); -webkit-mask-image: linear-gradient(to right, transparent 0%, black 20%); mask-image: linear-gradient(to right, transparent 0%, black 20%); }
+    .hero-lbl { font-size: 11px; text-transform: uppercase; letter-spacing: .14em; color: var(--tl); font-weight: 500; margin-bottom: 10px; text-shadow: 0 1px 6px rgba(0,0,0,.5); }
+    .hero-interior h1 { font-family: var(--serif); font-size: clamp(1.8rem, 4vw, 2.8rem); color: #fff; line-height: 1.2; margin-bottom: 14px; text-shadow: 0 2px 8px rgba(0,0,0,.5); }
+    .hero-interior p { font-size: 15px; color: rgba(255,255,255,.8); line-height: 1.8; max-width: 580px; margin-bottom: 24px; text-shadow: 0 1px 4px rgba(0,0,0,.4); }
+    .hero-btns { display: flex; gap: 12px; flex-wrap: wrap; }
+    .btn-p { background: var(--t); color: #fff; padding: 12px 22px; border-radius: 50px; font-size: 14px; font-weight: 600; display: inline-flex; align-items: center; gap: 8px; transition: background .2s; }
+    .btn-p:hover { background: var(--td); }
+    .btn-o { border: 2px solid rgba(255,255,255,.6); color: #fff; padding: 11px 20px; border-radius: 50px; font-size: 14px; font-weight: 500; display: inline-flex; align-items: center; gap: 8px; transition: background .2s; }
+    .btn-o:hover { background: rgba(255,255,255,.1); }
 
     /* ── MAIN ── */
     .foro-main { max-width: 860px; margin: 0 auto; padding: 56px 5% 80px; }
@@ -203,7 +128,7 @@
     .pregunta-card.abierta .respuesta { max-height: 600px; }
     .respuesta-inner { border-top: 1.5px solid #E8ECEF; padding: 22px 22px 24px; background: var(--tp); display: flex; gap: 16px; }
     .respuesta-avatar { flex-shrink: 0; width: 42px; height: 42px; border-radius: 50%; background: var(--t); display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 600; color: #fff; letter-spacing: .03em; }
-    .respuesta-firma { font-size: 12px; font-weight: 600; color: var(--t); margin-bottom: 8px; letter-spacing: .02em; }
+    .respuesta-firma { font-size: 12px; font-weight: 600; color: var(--t); margin-bottom: 8px; }
     .respuesta-firma span { font-weight: 400; color: var(--gl); }
     .respuesta-texto { font-size: 14px; color: var(--g); line-height: 1.8; }
     .respuesta-texto strong { color: var(--td); font-weight: 600; }
@@ -230,7 +155,7 @@
     .form-submit:hover { background: var(--td); transform: translateY(-1px); }
     .form-exito { display: none; margin-top: 16px; background: var(--tp); border: 1.5px solid rgba(26,172,173,.3); border-radius: 10px; padding: 14px 18px; font-size: 14px; color: var(--td); line-height: 1.6; }
 
-    /* ── DIVIDER / FOOTER / FLOTANTES ── */
+    /* ── FOOTER / FLOTANTES ── */
     .divider { height: 1px; background: linear-gradient(to right, transparent, #E0E0E0, transparent); margin: 0 5%; }
     footer { background: var(--g); padding: 48px 5% 28px; }
     .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 40px; }
@@ -252,14 +177,18 @@
     .float-btn svg { width: 22px; height: 22px; }
 
     /* ── RESPONSIVE ── */
-    @media (max-width: 900px) {
+    @media (max-width: 768px) {
       .nav-links { display: none; }
-      .nav-mobile-btn { display: block; }
-      .foro-hero { grid-template-columns: 1fr; }
-      .foro-hero-imgs { display: none; }
-      .foro-hero-text { padding: 48px 5% 40px; }
-      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .nav-hamburger { display: block; }
+      .hero-clinica-bg { display: none; }
+      .hero-doctor-bg { background-size: cover; background-position: center top; -webkit-mask-image: none; mask-image: none; }
+      .hero-interior::before { background: rgba(61,78,87,0.82); }
+      .hero-interior-inner { grid-template-columns: 1fr; }
+      .hero-text-col { padding: 40px 5% 32px; }
+      .hero-img-col { height: 280px; }
+      .hero-img-col img { object-position: center top; -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 15%); mask-image: linear-gradient(to bottom, transparent 0%, black 15%); }
       .form-row { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
     }
     @media (max-width: 580px) {
       .footer-grid { grid-template-columns: 1fr; }
@@ -267,19 +196,28 @@
       .pregunta-header { padding: 16px; }
       .respuesta-inner { padding: 16px; flex-direction: column; gap: 10px; }
     }
+
+    /* BANNER COOKIES */
+    #cookie-banner { display: none; position: fixed; bottom: 0; left: 0; right: 0; z-index: 9999; background: rgba(61,78,87,0.97); backdrop-filter: blur(8px); border-top: 1px solid rgba(255,255,255,.1); padding: 18px 5%; box-shadow: 0 -4px 24px rgba(0,0,0,.2); }
+    #cookie-banner.visible { display: block; }
+    .cookie-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+    .cookie-text { flex: 1; min-width: 240px; }
+    .cookie-text p { font-size: 13px; color: rgba(255,255,255,.8); line-height: 1.6; margin: 0; }
+    .cookie-text a { color: var(--tl); text-decoration: underline; }
+    .cookie-btns { display: flex; gap: 10px; flex-shrink: 0; }
+    .cookie-btn-accept { background: var(--t); color: #fff; border: none; border-radius: 50px; padding: 10px 22px; font-size: 13px; font-weight: 600; cursor: pointer; font-family: var(--sans); }
+    .cookie-btn-accept:hover { background: var(--td); }
+    .cookie-btn-reject { background: transparent; color: rgba(255,255,255,.6); border: 1px solid rgba(255,255,255,.3); border-radius: 50px; padding: 10px 18px; font-size: 13px; font-weight: 500; cursor: pointer; font-family: var(--sans); }
   </style>
 </head>
 <body>
 
 <!-- NAV -->
 <nav class="nav">
-  <div class="nav-brand">
+  <a href="index.html" class="nav-brand">
     <div class="nav-logo-ring"><div class="nav-logo-cut"></div><div class="nav-logo-inner"></div></div>
-    <div>
-      <div class="nav-text-name"><a href="sobre-mi.html" style="color:inherit;text-decoration:none;border-bottom:1px dotted var(--t);">Dr. Jaime Jorge Cerrudo</a></div>
-      <div class="nav-text-sub">Proctólogo · Almería</div>
-    </div>
-  </div>
+    <div><div class="nav-text-name">Dr. Jaime Jorge Cerrudo</div><div class="nav-text-sub">Proctólogo · Almería</div></div>
+  </a>
   <ul class="nav-links">
     <li class="nav-dropdown">
       <a href="index.html#servicios">Servicios</a>
@@ -304,7 +242,7 @@
     <li><a href="index.html#contacto">Contacto</a></li>
   </ul>
   <a href="tel:+34950264245" class="nav-cta">Pedir Cita</a>
-  <button class="nav-mobile-btn" onclick="toggleMobileMenu()" aria-label="Menú">
+  <button class="nav-hamburger" onclick="toggleMobileMenu()" aria-label="Menú">
     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#3D4E57" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
   </button>
 </nav>
@@ -331,36 +269,39 @@
   <a href="index.html#contacto" class="nav-mobile-link" onclick="closeMobileMenu()">Contacto</a>
 </div>
 
-<!-- HERO CON MOSAICO DE IMÁGENES -->
-<section class="foro-hero" aria-label="Foro de pacientes">
-  <div class="foro-hero-text">
-    <div class="foro-hero-lbl">Foro de pacientes</div>
-    <h1>Sus dudas, respondidas<br/>por el <span>especialista</span></h1>
-    <p class="foro-hero-p">Encuentre respuesta a las preguntas más frecuentes en proctología. Si no encuentra lo que busca, puede enviarnos su consulta y le responderemos personalmente.</p>
-    <div class="foro-hero-aviso">
-      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.6)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-      Las respuestas tienen carácter informativo y no sustituyen a la consulta médica individualizada
-    </div>
-  </div>
+<!-- BREADCRUMB -->
+<div class="breadcrumb">
+  <a href="index.html">Inicio</a><span>›</span>
+  <strong style="color:var(--g)">Foro de pacientes</strong>
+</div>
 
-  <!-- MOSAICO: img-foro-hero (grande izq) + poster-hero (arr der) + foto-doctor (abj der) -->
-  <div class="foro-hero-imgs">
-    <div class="img-main">
-      <img src="img-foro-hero.png" alt="Médico respondiendo preguntas de pacientes en videollamada"/>
+<!-- HERO — mismo esquema que colgajos-anales.html -->
+<div class="hero-interior">
+  <div class="hero-clinica-bg"></div>
+  <div class="hero-doctor-bg"></div>
+  <div class="hero-interior-inner">
+    <div class="hero-text-col">
+      <div class="hero-lbl">Foro de pacientes · Almería</div>
+      <h1>Sus dudas, respondidas<br/>por el especialista</h1>
+      <p>Encuentre respuesta a las preguntas más frecuentes en proctología. Si no encuentra lo que busca, puede enviarnos su consulta y le responderemos personalmente.</p>
+      <div class="hero-btns">
+        <a href="#enviar-pregunta" class="btn-p">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+          Enviar una pregunta
+        </a>
+        <a href="tel:+34950264245" class="btn-o">Pedir Cita — 950 264 245</a>
+      </div>
     </div>
-    <div class="img-top">
-      <img src="poster-hero.png" alt="Consulta de proctología — Clínica de San Pío Almería"/>
-    </div>
-    <div class="img-bottom">
-      <img src="foto-doctor.png" alt="Dr. Jaime Jorge Cerrudo — Proctólogo en Almería" style="object-position: center top;"/>
+    <div class="hero-img-col">
+      <img src="img-foro-hero.png" alt="Médico respondiendo preguntas de pacientes"/>
     </div>
   </div>
-</section>
+</div>
 
 <!-- CONTENIDO PRINCIPAL -->
 <main class="foro-main">
 
-  <!-- FILTROS — mismas categorías que el desplegable de servicios -->
+  <!-- FILTROS -->
   <div class="filtros" role="group" aria-label="Filtrar preguntas por categoría">
     <button class="filtro-btn activo" onclick="filtrar('todas', this)">Todas</button>
     <button class="filtro-btn" onclick="filtrar('hemorroides', this)">Hemorroides</button>
@@ -392,7 +333,7 @@
           <div class="respuesta-avatar">JJC</div>
           <div>
             <p class="respuesta-firma">Dr. Jaime Jorge Cerrudo <span>· Especialista en Coloproctología</span></p>
-            <p class="respuesta-texto">La exploración proctológica, cuando la realiza un especialista con experiencia, es generalmente bien tolerada. Se lleva a cabo con el paciente en posición lateral, de forma progresiva y con lubricación adecuada. La <strong>anoscopia</strong> —que permite visualizar el canal anal— puede resultar algo molesta, pero no dolorosa en la mayoría de los casos.<br/><br/>Si existe una <strong>fisura anal activa</strong> u otra patología dolorosa, la exploración se adapta o puede realizarse bajo sedación si fuera necesario. En la Clínica de San Pío priorizamos siempre la comodidad del paciente.</p>
+            <p class="respuesta-texto">La exploración proctológica, cuando la realiza un especialista con experiencia, es generalmente bien tolerada. Se lleva a cabo con el paciente en posición lateral, de forma progresiva y con lubricación adecuada. La <strong>anoscopia</strong> —que permite visualizar el canal anal— puede resultar algo molesta, pero no dolorosa en la mayoría de los casos.<br/><br/>Si existe una <strong>fisura anal activa</strong> u otra patología dolorosa en la región anal, en ocasiones la exploración no puede realizarse en ese momento. En esos casos, es preferible tratar primero la dolencia que impide la exploración y realizarla una vez resuelta, garantizando así un diagnóstico completo y sin molestias innecesarias para el paciente.</p>
           </div>
         </div>
       </div>
@@ -412,7 +353,7 @@
           <div class="respuesta-avatar">JJC</div>
           <div>
             <p class="respuesta-firma">Dr. Jaime Jorge Cerrudo <span>· Especialista en Coloproctología</span></p>
-            <p class="respuesta-texto">Depende del tipo de procedimiento. Las técnicas ambulatorias como la <strong>ligadura con bandas elásticas</strong> o la <strong>esclerosis con microespuma</strong> se realizan sin anestesia y son prácticamente indoloras en el momento, pudiendo existir una leve molestia o sensación de presión en las horas siguientes.<br/><br/>Los procedimientos quirúrgicos se realizan bajo anestesia local o sedación y tampoco generan dolor en el momento, aunque el postoperatorio puede requerir analgesia durante varios días. En la Consulta ONEstep® empleamos técnicas mínimamente invasivas que minimizan las molestias y permiten una recuperación rápida.</p>
+            <p class="respuesta-texto">Depende del tipo de procedimiento. Las técnicas ambulatorias como la <strong>ligadura con bandas elásticas</strong> o la <strong>esclerosis con microespuma</strong> se realizan sin anestesia y son prácticamente indoloras en el momento, pudiendo existir una leve molestia o sensación de presión en las horas siguientes.<br/><br/>En la Consulta ONEstep® empleamos técnicas mínimamente invasivas que minimizan las molestias y permiten una recuperación rápida.</p>
           </div>
         </div>
       </div>
@@ -432,7 +373,7 @@
           <div class="respuesta-avatar">JJC</div>
           <div>
             <p class="respuesta-firma">Dr. Jaime Jorge Cerrudo <span>· Especialista en Coloproctología</span></p>
-            <p class="respuesta-texto">El número de sesiones varía según el <strong>grado de las hemorroides</strong> y la técnica empleada. Con ligaduras de bandas elásticas se realizan habitualmente entre <strong>2 y 4 sesiones</strong>, separadas por 3-4 semanas, para hemorroides de grado II y III.<br/><br/>Los procedimientos en acto único —como la hemorroidopexia circular o la hemorroidectomía— resuelven el problema en una sola intervención. Tras la valoración inicial le indicaré el plan de tratamiento más adecuado para su caso concreto.</p>
+            <p class="respuesta-texto">El número de sesiones varía según el <strong>grado de las hemorroides</strong> y la técnica empleada —ya sea esclerosis con microespuma o ligadura con banda elástica—. En la mayoría de los casos, <strong>una sola sesión de procedimiento es suficiente</strong> para resolver el problema. Algunas hemorroides, según su tamaño o características, pueden requerir una segunda sesión complementaria.<br/><br/>Tras la valoración inicial le indicaré la técnica y el número de sesiones más adecuados para su caso concreto.</p>
           </div>
         </div>
       </div>
@@ -452,7 +393,7 @@
           <div class="respuesta-avatar">JJC</div>
           <div>
             <p class="respuesta-firma">Dr. Jaime Jorge Cerrudo <span>· Especialista en Coloproctología</span></p>
-            <p class="respuesta-texto">La mejoría del dolor suele notarse en los primeros <strong>7-10 días</strong> tras la inyección, a medida que la toxina botulínica reduce el espasmo del esfínter interno y permite que el tejido se oxigene y regenere.<br/><br/>La <strong>cicatrización completa</strong> de la fisura se produce habitualmente entre las <strong>6 y las 12 semanas</strong>, con tasas de curación que superan el 70-80% en fisuras crónicas correctamente seleccionadas. Durante ese período es fundamental mantener una dieta rica en fibra, una hidratación adecuada y el tratamiento tópico pautado para evitar las deposiciones duras que perpetúan la lesión.</p>
+            <p class="respuesta-texto">La mejoría del dolor suele notarse en los primeros <strong>7-10 días</strong> tras la inyección, a medida que la toxina botulínica reduce el espasmo del esfínter interno y permite que el tejido se oxigene y regenere.<br/><br/>La <strong>cicatrización completa</strong> de la fisura se produce habitualmente entre las <strong>6 y las 12 semanas</strong>, con una tasa de curación que puede alcanzar hasta el <strong>70%</strong> en fisuras crónicas correctamente seleccionadas. Durante ese período es fundamental mantener una dieta rica en fibra, hidratación adecuada y el tratamiento tópico pautado para evitar las deposiciones duras que perpetúan la lesión.</p>
           </div>
         </div>
       </div>
@@ -492,13 +433,13 @@
           <div class="respuesta-avatar">JJC</div>
           <div>
             <p class="respuesta-firma">Dr. Jaime Jorge Cerrudo <span>· Especialista en Coloproctología</span></p>
-            <p class="respuesta-texto">En muchos casos, sí. Las hemorroides de <strong>grado I y II</strong> responden bien a medidas higiénico-dietéticas —dieta rica en fibra, hidratación adecuada, evitar el esfuerzo prolongado— y a procedimientos ambulatorios como las ligaduras con bandas o la esclerosis con microespuma.<br/><br/>La cirugía se reserva para hemorroides de <strong>grado III-IV</strong> que no responden a otras medidas o en casos con complicaciones. En la Consulta ONEstep® valoramos cada caso de forma individualizada y siempre priorizamos las opciones menos invasivas cuando son eficaces.</p>
+            <p class="respuesta-texto">En la gran mayoría de los casos, sí. Los procedimientos hemorroidales —ligadura con banda elástica y esclerosis con microespuma— permiten resolver <strong>más del 90% de las hemorroides patológicas de grado I, II y III</strong> sin necesidad de cirugía. Incluso determinadas hemorroides de <strong>grado IV seleccionadas</strong> pueden tratarse con éxito mediante estos procedimientos no quirúrgicos.<br/><br/>La cirugía se reserva para hemorroides de grado IV de <strong>gran tamaño</strong> o que no hayan respondido a procedimientos previos no quirúrgicos. En la Consulta ONEstep® valoramos cada caso de forma individualizada y siempre priorizamos las opciones menos invasivas cuando son eficaces.</p>
           </div>
         </div>
       </div>
     </article>
 
-  </div><!-- /lista-preguntas -->
+  </div>
 
   <!-- DISCLAIMER -->
   <div class="disclaimer" role="note">
@@ -511,7 +452,6 @@
     <div class="section-lbl">Haga su consulta</div>
     <h2>¿No encuentra respuesta a su duda?</h2>
     <p>Envíenos su pregunta. Si es de interés general, la publicaremos en el foro con la respuesta del especialista. Recibirá respuesta en su correo en un plazo de 48-72 h laborables.</p>
-
     <form id="foroForm" action="https://formspree.io/f/xredlpyy" method="POST">
       <input type="hidden" name="_subject" value="Nueva pregunta desde el Foro — proctologoalmeria.com"/>
       <div class="form-row">
@@ -550,9 +490,7 @@
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
         Enviar pregunta
       </button>
-      <div class="form-exito" id="foroFormMsg" role="alert">
-        ✅ Su pregunta ha sido enviada correctamente. Le responderemos en un plazo de 48-72 h laborables. Gracias por confiar en la Consulta ONEstep®.
-      </div>
+      <div class="form-exito" id="foroFormMsg" role="alert">✅ Su pregunta ha sido enviada correctamente. Le responderemos en un plazo de 48-72 h laborables. Gracias por confiar en la Consulta ONEstep®.</div>
     </form>
   </section>
 
@@ -566,10 +504,7 @@
     <div class="footer-brand">
       <div class="nav-brand">
         <div class="nav-logo-ring"><div class="nav-logo-cut"></div><div class="nav-logo-inner"></div></div>
-        <div>
-          <div class="nav-text-name" style="color:#fff;">Dr. Jaime Jorge Cerrudo</div>
-          <div class="nav-text-sub">Proctólogo · Almería</div>
-        </div>
+        <div><div class="nav-text-name" style="color:#fff;">Dr. Jaime Jorge Cerrudo</div><div class="nav-text-sub">Proctólogo · Almería</div></div>
       </div>
       <p>Consulta especializada de proctología en Almería. Hemorroides, fisura anal, sinus pilonidal y más sin cirugía. Clínica de San Pío.</p>
     </div>
@@ -625,12 +560,12 @@
 </div>
 
 <!-- BANNER COOKIES -->
-<div id="cookie-banner" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:9999;background:rgba(61,78,87,0.97);backdrop-filter:blur(8px);border-top:1px solid rgba(255,255,255,.1);padding:18px 5%;box-shadow:0 -4px 24px rgba(0,0,0,.2);">
-  <div style="max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;">
-    <p style="font-size:13px;color:rgba(255,255,255,.8);line-height:1.6;flex:1;min-width:240px;">Utilizamos cookies técnicas propias necesarias para el funcionamiento de la web. <a href="cookies.html" style="color:var(--tl);text-decoration:underline;">Política de cookies</a>.</p>
-    <div style="display:flex;gap:10px;flex-shrink:0;">
-      <button onclick="aceptarCookies()" style="background:var(--t);color:#fff;border:none;border-radius:50px;padding:10px 22px;font-size:13px;font-weight:600;cursor:pointer;font-family:var(--sans);">Aceptar</button>
-      <button onclick="rechazarCookies()" style="background:transparent;color:rgba(255,255,255,.6);border:1px solid rgba(255,255,255,.3);border-radius:50px;padding:10px 18px;font-size:13px;font-weight:500;cursor:pointer;font-family:var(--sans);">Solo necesarias</button>
+<div id="cookie-banner">
+  <div class="cookie-inner">
+    <div class="cookie-text"><p>Utilizamos cookies técnicas propias necesarias para el funcionamiento de la web. <a href="cookies.html">Política de cookies</a> y <a href="privacidad.html">Política de privacidad</a>.</p></div>
+    <div class="cookie-btns">
+      <button class="cookie-btn-accept" onclick="aceptarCookies()">Aceptar</button>
+      <button class="cookie-btn-reject" onclick="rechazarCookies()">Solo necesarias</button>
     </div>
   </div>
 </div>
@@ -643,10 +578,7 @@
   function toggleCard(header) {
     var card = header.parentElement;
     var estaAbierta = card.classList.contains('abierta');
-    document.querySelectorAll('.pregunta-card.abierta').forEach(function(c) {
-      c.classList.remove('abierta');
-      c.querySelector('.pregunta-header').setAttribute('aria-expanded','false');
-    });
+    document.querySelectorAll('.pregunta-card.abierta').forEach(function(c) { c.classList.remove('abierta'); c.querySelector('.pregunta-header').setAttribute('aria-expanded','false'); });
     if (!estaAbierta) { card.classList.add('abierta'); header.setAttribute('aria-expanded','true'); }
   }
   document.querySelectorAll('.pregunta-header').forEach(function(h) {
@@ -681,10 +613,10 @@
     });
   }
 
-  function aceptarCookies() { localStorage.setItem('cookie_consent','accepted'); document.getElementById('cookie-banner').style.display='none'; }
-  function rechazarCookies() { localStorage.setItem('cookie_consent','rejected'); document.getElementById('cookie-banner').style.display='none'; }
+  function aceptarCookies() { localStorage.setItem('cookie_consent','accepted'); document.getElementById('cookie-banner').classList.remove('visible'); }
+  function rechazarCookies() { localStorage.setItem('cookie_consent','rejected'); document.getElementById('cookie-banner').classList.remove('visible'); }
   window.addEventListener('DOMContentLoaded', function() {
-    if (!localStorage.getItem('cookie_consent')) document.getElementById('cookie-banner').style.display='block';
+    if (!localStorage.getItem('cookie_consent')) document.getElementById('cookie-banner').classList.add('visible');
   });
 </script>
 </body>
