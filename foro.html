@@ -88,9 +88,8 @@
 
     /* ── HERO — idéntico a colgajos-anales.html ── */
     .hero-interior { position: relative; overflow: hidden; background: var(--g); }
-    /* Fondo clínica: contiene la imagen sin recortar, centrada, sin zoom excesivo */
-    .hero-clinica-bg { position: absolute; inset: 0; z-index: 0; background: url('foto-clinica.jpg') center center/auto 100% no-repeat; filter: grayscale(100%); opacity: 0.22; }
-    /* Sin capa del doctor en desktop — solo el overlay oscuro */
+    .hero-clinica-bg { position: absolute; inset: 0; z-index: 0; background: url('foto-clinica.jpg') center/cover no-repeat; filter: grayscale(100%); opacity: 0.32; }
+    .hero-doctor-bg { position: absolute; inset: 0; z-index: 0; background: url('foto-doctor.png') 15% 10%/35% auto no-repeat; opacity: 0.55; -webkit-mask-image: linear-gradient(to right, black 20%, transparent 70%); mask-image: linear-gradient(to right, black 20%, transparent 70%); }
     .hero-interior::before { content: ''; position: absolute; inset: 0; z-index: 0; background: linear-gradient(to right, rgba(61,78,87,0.92) 40%, rgba(61,78,87,0.55) 70%, rgba(61,78,87,0.25) 100%); }
     .hero-interior-inner { position: relative; z-index: 1; display: grid; grid-template-columns: 1fr 30%; min-height: 400px; }
     .hero-text-col { padding: 56px 5% 48px; display: flex; flex-direction: column; justify-content: center; }
@@ -182,11 +181,12 @@
       .nav-links { display: none; }
       .nav-hamburger { display: block; }
       .hero-clinica-bg { display: none; }
+      .hero-doctor-bg { background-size: cover; background-position: center top; -webkit-mask-image: none; mask-image: none; }
       .hero-interior::before { background: rgba(61,78,87,0.82); }
-      .hero-interior-inner { grid-template-columns: 1fr; }
-      .hero-text-col { padding: 40px 5% 32px; }
-      .hero-img-col { height: 280px; }
-      .hero-img-col img { object-position: center top; -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 15%); mask-image: linear-gradient(to bottom, transparent 0%, black 15%); }
+      .hero-interior-inner { grid-template-columns: 1fr; grid-template-rows: auto 280px; min-height: unset; }
+      .hero-text-col { padding: 40px 5% 24px; order: 1; }
+      .hero-img-col { order: 2; height: 380px; overflow: visible; }
+      .hero-img-col img { filter: grayscale(100%); object-fit: cover; object-position: center top; -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 15%); mask-image: linear-gradient(to bottom, transparent 0%, black 15%); }
       .form-row { grid-template-columns: 1fr; }
       .footer-grid { grid-template-columns: 1fr 1fr; }
     }
@@ -278,6 +278,7 @@
 <!-- HERO — mismo esquema que colgajos-anales.html -->
 <div class="hero-interior">
   <div class="hero-clinica-bg"></div>
+  <div class="hero-doctor-bg"></div>
   <div class="hero-interior-inner">
     <div class="hero-text-col">
       <div class="hero-lbl">Foro de pacientes · Almería</div>
