@@ -72,44 +72,6 @@
           }
         ],
         "medicalSpecialty": "Coloproctología",
-        "availableService": [
-          {
-            "@type": "MedicalProcedure",
-            "name": "Tratamiento de hemorroides sin cirugía",
-            "url": "https://www.proctologoalmeria.com/hemorroides.html",
-            "description": "Ligadura con banda elástica y esclerosis con microespuma. Sin cirugía, sin ingreso y con recuperación inmediata."
-          },
-          {
-            "@type": "MedicalProcedure",
-            "name": "Esclerosis hemorroidal con microespuma",
-            "url": "https://www.proctologoalmeria.com/esclerosis-hemorroidal.html",
-            "description": "Técnica mínimamente invasiva para el tratamiento de hemorroides internas en acto único."
-          },
-          {
-            "@type": "MedicalProcedure",
-            "name": "Ligadura hemorroidal con banda elástica",
-            "url": "https://www.proctologoalmeria.com/ligadura-hemorroidal.html",
-            "description": "Procedimiento ambulatorio para hemorroides internas sin cirugía ni ingreso hospitalario."
-          },
-          {
-            "@type": "MedicalProcedure",
-            "name": "Tratamiento de fisura anal con toxina botulínica",
-            "url": "https://www.proctologoalmeria.com/fisura-anal.html",
-            "description": "Inyección de toxina botulínica para la fisura anal crónica. Rompe el ciclo dolor-espasmo sin cirugía."
-          },
-          {
-            "@type": "MedicalProcedure",
-            "name": "Tratamiento de sinus pilonidal — Técnica GIPS",
-            "url": "https://www.proctologoalmeria.com/sinus-pilonidal.html",
-            "description": "Técnica GIPS mínimamente invasiva para el sinus pilonidal. Recuperación en 3-7 días."
-          },
-          {
-            "@type": "MedicalProcedure",
-            "name": "Segunda opinión en proctología",
-            "url": "https://www.proctologoalmeria.com/segunda-opinion.html",
-            "description": "Valoración especializada antes de operar. Hemorroides, fisura anal, sinus pilonidal y fístula anal."
-          }
-        ],
         "hasMap": "https://www.google.com/maps?q=Clínica+de+San+Pío+Almería",
         "priceRange": "$$",
         "currenciesAccepted": "EUR",
@@ -197,7 +159,7 @@
     .nav-cta:hover { background: var(--td); transform: translateY(-1px); }
     .nav-mobile-btn { display: none; background: none; border: none; cursor: pointer; padding: 6px; }
 
-    /* ── HERO SLIDER ── */
+    /* ── HERO ── */
     .hero {
       position: relative; height: 90vh; min-height: 560px;
       overflow: hidden; background: url('poster-hero.png') center/cover no-repeat;
@@ -205,7 +167,6 @@
     @media (max-width: 768px) {
       .hero { background-image: url('poster-hero-mobile.png'); }
     }
-    /* Poster overlay — se desvanece cuando el vídeo carga */
     .hero-poster {
       position: absolute; inset: 0; z-index: 4;
       background: url('poster-hero.png') center/cover no-repeat;
@@ -215,12 +176,6 @@
     @media (max-width: 768px) {
       .hero-poster { background-image: url('poster-hero-mobile.png'); }
     }
-    .hero-video {
-      position: absolute; inset: 0; width: 100%; height: 100%;
-      object-fit: cover; object-position: center;
-    }
-    .hero-video-mobile { display: none; }
-    /* YouTube iframe background */
     .yt-bg {
       position: absolute; inset: 0; width: 100%; height: 100%;
       overflow: hidden; z-index: 1;
@@ -228,14 +183,13 @@
     .yt-bg iframe {
       position: absolute;
       top: 50%; left: 50%;
-      width: 177.78vh; /* 16:9 ratio */
+      width: 177.78vh;
       height: 100vh;
       min-width: 100%; min-height: 56.25vw;
       transform: translate(-50%, -50%);
       border: none; pointer-events: none;
     }
     .yt-bg-mobile { display: none; }
-    /* Botón play móvil */
     .hero-play-btn {
       display: none;
       position: absolute; top: 20px; right: 20px; z-index: 7;
@@ -250,7 +204,7 @@
       .yt-bg { display: none; }
       .hero-play-btn { display: flex; }
       .yt-bg-mobile {
-        display: none; /* oculto hasta que el usuario pulse play */
+        display: none;
         position: absolute; inset: 0; width: 100%; height: 100%;
         overflow: hidden; z-index: 0;
       }
@@ -316,16 +270,6 @@
       text-shadow: none;
     }
     .btn-hero-o:hover { background: rgba(61,78,87,.1); }
-    .hero-dots {
-      position: absolute; bottom: 28px; left: 50%; transform: translateX(-50%);
-      display: flex; gap: 8px; z-index: 3;
-    }
-    .hero-dot {
-      width: 8px; height: 8px; border-radius: 50%;
-      background: rgba(255,255,255,.4); cursor: pointer;
-      transition: background .3s, transform .3s;
-    }
-    .hero-dot.active { background: var(--tl); transform: scale(1.3); }
 
     /* ── STATS ── */
     .stats {
@@ -405,8 +349,8 @@
     .servicio-icon svg { width: 24px; height: 24px; }
     .servicio-card h3 { font-family: var(--serif); font-size: 1.05rem; color: var(--g); margin-bottom: 7px; }
     .servicio-card p { font-size: 13px; color: var(--gl); line-height: 1.6; margin-bottom: 14px; }
-    .servicio-img { width: 100%; height: 160px; overflow: hidden; border-radius: 8px; margin-bottom: 14px; background: var(--bg); }
-    .servicio-img img { width: 100%; height: 100%; object-fit: cover; transition: transform .3s; }
+    .servicio-img { width: 100%; height: 160px; overflow: hidden; border-radius: 8px; margin-bottom: 14px; background: var(--bg); position: relative; }
+    .servicio-img img { width: 100%; height: 100%; object-fit: cover; transition: transform .3s; display: block; }
     .servicio-card:hover .servicio-img img { transform: scale(1.04); }
     .servicio-link { font-size: 12px; color: var(--t); font-weight: 600; display: flex; align-items: center; gap: 5px; }
 
@@ -541,7 +485,6 @@
       .footer-grid { grid-template-columns: 1fr 1fr; }
     }
 
-    /* MENÚ MÓVIL DESPLEGABLE */
     .nav-mobile-menu {
       display: none; position: fixed;
       top: 68px; left: 0; right: 0; bottom: 0;
@@ -562,8 +505,6 @@
     .nav-mobile-link:hover { color: var(--t); background: var(--tp); }
     .nav-mobile-link svg { transition: transform .2s; }
     .nav-mobile-link.open svg { transform: rotate(180deg); }
-
-    /* Submenú servicios */
     .nav-submenu {
       display: none; flex-direction: column;
       background: #FAFAFA; border-bottom: 0.5px solid #F0F0F0;
@@ -601,26 +542,21 @@
       gap: 20px; flex-wrap: wrap;
     }
     .cookie-text { flex: 1; min-width: 240px; }
-    .cookie-text p {
-      font-size: 13px; color: rgba(255,255,255,.8);
-      line-height: 1.6; margin: 0;
-    }
+    .cookie-text p { font-size: 13px; color: rgba(255,255,255,.8); line-height: 1.6; margin: 0; }
     .cookie-text a { color: var(--tl); text-decoration: underline; }
     .cookie-btns { display: flex; gap: 10px; flex-shrink: 0; flex-wrap: wrap; }
     .cookie-btn-accept {
       background: var(--t); color: #fff;
       border: none; border-radius: 50px;
       padding: 10px 22px; font-size: 13px; font-weight: 600;
-      cursor: pointer; font-family: var(--sans);
-      transition: background .2s;
+      cursor: pointer; font-family: var(--sans); transition: background .2s;
     }
     .cookie-btn-accept:hover { background: var(--td); }
     .cookie-btn-reject {
       background: transparent; color: rgba(255,255,255,.6);
       border: 1px solid rgba(255,255,255,.3); border-radius: 50px;
       padding: 10px 18px; font-size: 13px; font-weight: 500;
-      cursor: pointer; font-family: var(--sans);
-      transition: all .2s;
+      cursor: pointer; font-family: var(--sans); transition: all .2s;
     }
     .cookie-btn-reject:hover { border-color: rgba(255,255,255,.6); color: #fff; }
     @media (max-width: 600px) {
@@ -672,17 +608,16 @@
 
   <!-- MENÚ MÓVIL -->
   <div class="nav-mobile-menu" id="mobileMenu">
-    <!-- Servicios con submenú -->
     <div class="nav-mobile-link" onclick="toggleSubmenu()">
       Servicios
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#3D4E57" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
     </div>
     <div class="nav-submenu" id="serviciosSubmenu">
       <a href="hemorroides.html" onclick="closeMobileMenu()">Hemorroides</a>
-      <a href="esclerosis-hemorroidal.html" class="sub-sub" onclick="closeMobileMenu()">↳ Esclerosis con microespuma</a>
-      <a href="ligadura-hemorroidal.html" class="sub-sub" onclick="closeMobileMenu()">↳ Ligadura con banda elástica</a>
+      <a href="esclerosis-hemorroidal.html" onclick="closeMobileMenu()">↳ Esclerosis con microespuma</a>
+      <a href="ligadura-hemorroidal.html" onclick="closeMobileMenu()">↳ Ligadura con banda elástica</a>
       <a href="fisura-anal.html" onclick="closeMobileMenu()">Fisura Anal</a>
-      <a href="toxina-botulinica-fisura.html" class="sub-sub" onclick="closeMobileMenu()">↳ Inyección toxina botulínica</a>
+      <a href="toxina-botulinica-fisura.html" onclick="closeMobileMenu()">↳ Inyección toxina botulínica</a>
       <a href="sinus-pilonidal.html" onclick="closeMobileMenu()">Sinus Pilonidal</a>
       <a href="colgajos-anales.html" onclick="closeMobileMenu()">Colgajos Anales</a>
       <a href="polipos-anales.html" onclick="closeMobileMenu()">Pólipos Anales</a>
@@ -699,28 +634,22 @@
 
   <!-- HERO -->
   <section class="hero" aria-label="Presentación">
-    <!-- Poster overlay — se desvanece al cargar el vídeo -->
     <div class="hero-poster" id="heroPoster"></div>
-    <!-- Vídeo fondo desktop — YouTube -->
     <div class="yt-bg">
       <iframe id="ytDesktop"
         src="https://www.youtube.com/embed/33tS-wMqsGk?autoplay=1&mute=1&loop=1&playlist=33tS-wMqsGk&controls=0&showinfo=0&rel=0&modestbranding=1&iv_load_policy=3&disablekb=1&playsinline=1&enablejsapi=1&origin=https://onestephemorroides.github.io"
         allow="autoplay; encrypted-media; picture-in-picture"
-        allowfullscreen
-        title="Vídeo fondo desktop">
+        allowfullscreen title="Vídeo fondo desktop">
       </iframe>
     </div>
-    <!-- Vídeo fondo móvil — YouTube Shorts -->
-    <div class="yt-bg-mobile">
+    <div class="yt-bg-mobile" id="ytMobileWrap">
       <iframe id="ytMobile"
         src="https://www.youtube.com/embed/X7GQAKGTjSs?autoplay=1&mute=1&loop=1&playlist=X7GQAKGTjSs&controls=0&showinfo=0&rel=0&modestbranding=1&iv_load_policy=3&disablekb=1&playsinline=1&enablejsapi=1&origin=https://onestephemorroides.github.io"
         allow="autoplay; encrypted-media; picture-in-picture"
-        allowfullscreen
-        title="Vídeo fondo móvil">
+        allowfullscreen title="Vídeo fondo móvil">
       </iframe>
     </div>
     <div class="hero-overlay"></div>
-    <!-- Botón play para móvil -->
     <button class="hero-play-btn" id="heroPlayBtn" aria-label="Reproducir vídeo" onclick="activarVideoMovil()">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="#fff"><polygon points="5 3 19 12 5 21 5 3"/></svg>
     </button>
@@ -786,8 +715,12 @@
     <p class="section-p">El <a href="sobre-mi.html" style="color:inherit;text-decoration:none;border-bottom:1px dotted var(--t);">Dr. Jaime Jorge Cerrudo</a> trata las patologías más frecuentes de la región anal y perianal mediante técnicas mínimamente invasivas, en consulta y sin ingreso hospitalario.</p>
     <div class="servicios-grid">
 
+      <!-- HEMORROIDES — slider automático entre img-ligadura e img-esclerosis -->
       <a href="hemorroides.html" class="servicio-card">
-        <div class="servicio-img"><img src="img-ligadura.png" alt="Hemorroides — ligadura con banda elástica"/></div>
+        <div class="servicio-img">
+          <img src="img-ligadura.png"   alt="Hemorroides — ligadura con banda elástica" class="slide-img slide-img-0" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity 1s ease;opacity:1;"/>
+          <img src="img-esclerosis.png" alt="Hemorroides — esclerosis con microespuma"  class="slide-img slide-img-0" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity 1s ease;opacity:0;"/>
+        </div>
         <h3>Hemorroides</h3>
         <p>Ligadura con banda elástica y esclerosis con microespuma. Sin cirugía, sin ingreso y con recuperación inmediata.</p>
         <span class="servicio-link">Ver tratamiento <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1AACAD" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
@@ -858,7 +791,7 @@
   <section class="sobre" id="sobre">
     <div class="sobre-inner">
       <div class="sobre-photo-wrap">
-        <img src="foto-doctor.png" alt="Dr. Jaime Jorge Cerrudo — Proctólogo especialista en Almería"/>
+        <img src="foto-doctor.png" class="sobre-photo" alt="Dr. Jaime Jorge Cerrudo — Proctólogo especialista en Almería"/>
         <div class="sobre-photo-badge">
           <div class="num">+13</div>
           <div class="txt">años de experiencia</div>
@@ -919,7 +852,7 @@
     </div>
     <div style="text-align:center;margin-top:28px;">
       <a href="https://www.google.com/search?q=Dr.+Jaime+Jorge+Cerrudo+Proctólogo+Almería" target="_blank" rel="noopener"
-        style="display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.25);color:rgba(255,255,255,.8);padding:10px 20px;border-radius:50px;font-size:13px;font-weight:500;transition:background .2s;">
+        style="display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.25);color:rgba(255,255,255,.8);padding:10px 20px;border-radius:50px;font-size:13px;font-weight:500;">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
         Ver todas las reseñas en Google
       </a>
@@ -936,7 +869,6 @@
         <form id="contactoForm" action="https://formspree.io/f/xbdboger" method="POST">
           <input type="hidden" name="_subject" value="Nueva consulta desde proctologoalmeria.com"/>
           <input type="hidden" name="_cc" value="hola@clinicadesanpio.es"/>
-          <input type="hidden" name="_next" value="https://www.proctologoalmeria.com/index.html?enviado=1"/>
           <input type="hidden" name="_language" value="es"/>
           <div class="form-group">
             <label for="nombre">Nombre completo *</label>
@@ -1034,8 +966,7 @@
   <div class="mapa-section">
     <iframe
       src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3165.123!2d-2.4648327!3d36.8387819!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd7a9dbf4298035f%3A0xb26b4154d889fed9!2sCl%C3%ADnica%20de%20San%20P%C3%ADo!5e0!3m2!1ses!2ses!4v1"
-      allowfullscreen loading="lazy"
-      title="Clínica de San Pío — Almería">
+      allowfullscreen loading="lazy" title="Clínica de San Pío — Almería">
     </iframe>
   </div>
 
@@ -1044,10 +975,7 @@
     <div class="footer-grid">
       <div class="footer-brand">
         <div class="nav-brand" style="margin-bottom:14px;">
-          <div class="nav-logo-ring">
-            <div class="nav-logo-cut"></div>
-            <div class="nav-logo-inner"></div>
-          </div>
+          <div class="nav-logo-ring"><div class="nav-logo-cut"></div><div class="nav-logo-inner"></div></div>
           <div>
             <div class="nav-text-name" style="color:#fff;"><a href="sobre-mi.html" style="color:inherit;text-decoration:none;border-bottom:1px dotted var(--t);">Dr. Jaime Jorge Cerrudo</a></div>
             <div class="nav-text-sub">Proctólogo · Almería</div>
@@ -1081,7 +1009,7 @@
         <h4>Contacto</h4>
         <ul>
           <li><a href="tel:+34950264245">950 264 245</a></li>
-          <li><a href="https://wa.me/34639518954?text=Hola%2C%20me%20gustar%C3%ADa%20pedir%20cita%20en%20la%20consulta%20de%20proctolog%C3%ADa%20con%20el%20Dr.%20Jaime%20Jorge%20Cerrudo.">WhatsApp 639 518 954</a></li>
+          <li><a href="https://wa.me/34639518954?text=Hola%2C%20me%20gustar%C3%ADa%20pedir%20cita%20con%20el%20Dr.%20Cerrudo">WhatsApp 639 518 954</a></li>
           <li><a href="mailto:hola@clinicadesanpio.es">hola@clinicadesanpio.es</a></li>
           <li><a href="https://clinicadesanpio.es" target="_blank" rel="noopener">clinicadesanpio.es</a></li>
         </ul>
@@ -1107,12 +1035,22 @@
     </a>
   </div>
 
+  <!-- BANNER COOKIES -->
+  <div id="cookie-banner">
+    <div class="cookie-inner">
+      <div class="cookie-text">
+        <p>Utilizamos cookies técnicas propias necesarias para el funcionamiento de la web. <a href="cookies.html">Política de cookies</a> y <a href="privacidad.html">Política de privacidad</a>.</p>
+      </div>
+      <div class="cookie-btns">
+        <button class="cookie-btn-accept" onclick="aceptarCookies()">Aceptar</button>
+        <button class="cookie-btn-reject" onclick="rechazarCookies()">Solo necesarias</button>
+      </div>
+    </div>
+  </div>
+
   <script>
-    // MENÚ MÓVIL
-    function toggleMobileMenu() {
-      var menu = document.getElementById('mobileMenu');
-      menu.classList.toggle('open');
-    }
+    // NAV MÓVIL
+    function toggleMobileMenu() { document.getElementById('mobileMenu').classList.toggle('open'); }
     function closeMobileMenu() {
       document.getElementById('mobileMenu').classList.remove('open');
       document.getElementById('serviciosSubmenu').classList.remove('open');
@@ -1124,7 +1062,8 @@
       sub.classList.toggle('open');
       btn.classList.toggle('open');
     }
-    // Activar vídeo móvil al pulsar play
+
+    // VÍDEO MÓVIL
     function activarVideoMovil() {
       var ytMobile = document.querySelector('.yt-bg-mobile');
       var btn = document.getElementById('heroPlayBtn');
@@ -1136,23 +1075,18 @@
       }
     }
 
-    // YouTube IFrame API — forzar autoplay en iOS
+    // YOUTUBE API
     var tag = document.createElement('script');
     tag.src = "https://www.youtube.com/iframe_api";
     document.head.appendChild(tag);
     var playerDesktop, playerMobile;
     function onYouTubeIframeAPIReady() {
-      playerDesktop = new YT.Player('ytDesktop', {
-        events: { 'onReady': function(e) { e.target.mute(); e.target.playVideo(); } }
-      });
-      playerMobile = new YT.Player('ytMobile', {
-        events: { 'onReady': function(e) { e.target.mute(); e.target.playVideo(); } }
-      });
+      playerDesktop = new YT.Player('ytDesktop', { events: { 'onReady': function(e) { e.target.mute(); e.target.playVideo(); } } });
+      playerMobile  = new YT.Player('ytMobile',  { events: { 'onReady': function(e) { e.target.mute(); e.target.playVideo(); } } });
     }
-    // Forzar play en primer toque — iOS Safari
     document.addEventListener('touchstart', function() {
       try { if (playerDesktop) playerDesktop.playVideo(); } catch(e){}
-      try { if (playerMobile) playerMobile.playVideo(); } catch(e){}
+      try { if (playerMobile)  playerMobile.playVideo();  } catch(e){}
     }, { once: true });
 
     window.addEventListener('load', function() {
@@ -1160,77 +1094,52 @@
         var poster = document.getElementById('heroPoster');
         if (poster) {
           poster.style.opacity = '0';
-          setTimeout(function() {
-            poster.style.display = 'none';
-          }, 1500);
+          setTimeout(function() { poster.style.display = 'none'; }, 1500);
         }
       }, 1500);
     });
 
-    // FORMSPREE — envío del formulario
-    const form = document.getElementById('contactoForm');
+    // FORMSPREE CONTACTO
+    var form = document.getElementById('contactoForm');
     if (form) {
       form.addEventListener('submit', async function(e) {
         e.preventDefault();
-        const btn = form.querySelector('.form-submit');
-        const msg = document.getElementById('formMsg');
-        btn.disabled = true;
-        btn.textContent = 'Enviando...';
+        var btn = form.querySelector('.form-submit');
+        var msg = document.getElementById('formMsg');
+        btn.disabled = true; btn.textContent = 'Enviando...';
         try {
-          const res = await fetch(form.action, {
-            method: 'POST',
-            body: new FormData(form),
-            headers: { 'Accept': 'application/json' }
-          });
+          var res = await fetch(form.action, { method: 'POST', body: new FormData(form), headers: { 'Accept': 'application/json' } });
           if (res.ok) {
-            msg.style.display = 'block';
-            msg.style.background = '#F0FAFA';
-            msg.style.color = '#0D7A7B';
-            msg.style.border = '1px solid rgba(26,172,173,.3)';
+            msg.style.display = 'block'; msg.style.background = '#F0FAFA'; msg.style.color = '#0D7A7B'; msg.style.border = '1px solid rgba(26,172,173,.3)';
             msg.innerHTML = '✅ Mensaje enviado correctamente. Le contactaremos en breve.';
-            form.reset();
-            btn.textContent = 'Enviado';
-          } else {
-            throw new Error();
-          }
+            form.reset(); btn.textContent = 'Enviado';
+          } else { throw new Error(); }
         } catch {
-          msg.style.display = 'block';
-          msg.style.background = '#FFF8F0';
-          msg.style.color = '#D97706';
-          msg.style.border = '1px solid #FDE68A';
+          msg.style.display = 'block'; msg.style.background = '#FFF8F0'; msg.style.color = '#D97706'; msg.style.border = '1px solid #FDE68A';
           msg.innerHTML = '⚠️ Error al enviar. Por favor llame al <strong>950 264 245</strong>.';
-          btn.disabled = false;
-          btn.textContent = 'Enviar mensaje';
+          btn.disabled = false; btn.textContent = 'Enviar mensaje';
         }
       });
     }
-  </script>
-  <!-- BANNER COOKIES -->
-  <div id="cookie-banner">
-    <div class="cookie-inner">
-      <div class="cookie-text">
-        <p>Utilizamos cookies técnicas propias necesarias para el funcionamiento de la web. Si continúas navegando, aceptas su uso. Puedes consultar nuestra <a href="cookies.html">Política de cookies</a> y <a href="privacidad.html">Política de privacidad</a>.</p>
-      </div>
-      <div class="cookie-btns">
-        <button class="cookie-btn-accept" onclick="aceptarCookies()">Aceptar</button>
-        <button class="cookie-btn-reject" onclick="rechazarCookies()">Solo necesarias</button>
-      </div>
-    </div>
-  </div>
-  <script>
-    function aceptarCookies() {
-      localStorage.setItem('cookie_consent', 'accepted');
-      document.getElementById('cookie-banner').classList.remove('visible');
-    }
-    function rechazarCookies() {
-      localStorage.setItem('cookie_consent', 'rejected');
-      document.getElementById('cookie-banner').classList.remove('visible');
-    }
+
+    // COOKIES
+    function aceptarCookies() { localStorage.setItem('cookie_consent','accepted'); document.getElementById('cookie-banner').classList.remove('visible'); }
+    function rechazarCookies() { localStorage.setItem('cookie_consent','rejected'); document.getElementById('cookie-banner').classList.remove('visible'); }
     window.addEventListener('DOMContentLoaded', function() {
-      if (!localStorage.getItem('cookie_consent')) {
-        document.getElementById('cookie-banner').classList.add('visible');
-      }
+      if (!localStorage.getItem('cookie_consent')) document.getElementById('cookie-banner').classList.add('visible');
     });
+
+    // SLIDER HEMORROIDES — alterna img-ligadura e img-esclerosis cada 3 segundos
+    (function() {
+      var imgs = document.querySelectorAll('.slide-img-0');
+      if (imgs.length < 2) return;
+      var idx = 0;
+      setInterval(function() {
+        imgs[idx].style.opacity = '0';
+        idx = (idx + 1) % imgs.length;
+        imgs[idx].style.opacity = '1';
+      }, 3000);
+    })();
   </script>
 </body>
 </html>
