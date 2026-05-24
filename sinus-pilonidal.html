@@ -13,46 +13,16 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
   <script type="application/ld+json">
   {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "MedicalWebPage",
-        "name": "Tratamiento Sinus Pilonidal Almería — Técnica GIPS",
-        "description": "Tratamiento del sinus pilonidal en Almería con técnica GIPS mínimamente invasiva. Recuperación en 3-7 días. Dr. Jaime Jorge Cerrudo, Clínica de San Pío.",
-        "url": "https://www.proctologoalmeria.com/sinus-pilonidal.html",
-        "inLanguage": "es",
-        "about": {
-          "@type": "MedicalCondition",
-          "name": "Sinus Pilonidal",
-          "alternateName": "Quiste pilonidal",
-          "possibleTreatment": [
-            { "@type": "MedicalTherapy", "name": "Técnica GIPS mínimamente invasiva" }
-          ]
-        },
-        "author": { "@type": "Physician", "name": "Dr. Jaime Jorge Cerrudo", "@id": "https://www.proctologoalmeria.com/#physician", "image": "https://www.proctologoalmeria.com/foto-doctor.png", "telephone": "+34950264245", "priceRange": "$$", "address": {"@type": "PostalAddress", "streetAddress": "Calle Minero N\u00ba2, 1\u00baA-C", "addressLocality": "Almer\u00eda", "addressRegion": "Andaluc\u00eda", "postalCode": "04001", "addressCountry": "ES"} },
-        "breadcrumb": {
-          "@type": "BreadcrumbList",
-          "itemListElement": [
-            { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://www.proctologoalmeria.com/" },
-            { "@type": "ListItem", "position": 2, "name": "Sinus Pilonidal", "item": "https://www.proctologoalmeria.com/sinus-pilonidal.html" }
-          ]
-        }
-      },
-      {
-        "@type": "MedicalProcedure",
-        "name": "Técnica GIPS para sinus pilonidal en Almería",
-        "description": "Tratamiento mínimamente invasivo del sinus pilonidal. Incisiones de 3-5 mm, recuperación en 3-7 días y reincorporación laboral rápida. Sin herida abierta ni curas diarias.",
-        "url": "https://www.proctologoalmeria.com/sinus-pilonidal.html",
-        "procedureType": "NoninvasiveProcedure",
-        "howPerformed": "Técnica GIPS con incisiones mínimas bajo anestesia local. Sin ingreso hospitalario.",
-        "bodyLocation": "Región sacrococcígea",
-        "performer": { "@type": "Physician", "name": "Dr. Jaime Jorge Cerrudo", "@id": "https://www.proctologoalmeria.com/#physician", "image": "https://www.proctologoalmeria.com/foto-doctor.png", "telephone": "+34950264245", "priceRange": "$$", "address": {"@type": "PostalAddress", "streetAddress": "Calle Minero N\u00ba2, 1\u00baA-C", "addressLocality": "Almer\u00eda", "addressRegion": "Andaluc\u00eda", "postalCode": "04001", "addressCountry": "ES"} },
-        "location": { "@id": "https://www.proctologoalmeria.com/#clinica" }
-      }
-    ]
+    "@context":"https://schema.org",
+    "@type":"MedicalWebPage",
+    "name":"Tratamiento del Sinus Pilonidal en Almería",
+    "description":"Tratamiento del sinus pilonidal mediante técnica GIPS mínimamente invasiva. Dr. Jaime Jorge Cerrudo, Almería.",
+    "url":"https://www.proctologoalmeria.com/sinus-pilonidal.html",
+    "about":{"@type":"MedicalCondition","name":"Sinus Pilonidal","alternateName":"Quiste pilonidal"},
+    "author":{"@type":"Physician","name":"Dr. Jaime Jorge Cerrudo"}
   }
   </script>
-    <style>
+  <style>
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
     :root {
       --t: #1AACAD; --tl: #2ECFCF; --tp: #F0FAFA; --td: #0D7A7B;
@@ -333,6 +303,8 @@
       <li><a href="blog.html">Blog</a></li>
       <li><a href="foro.html">Foro</a></li>
       <li><a href="index.html#contacto">Contacto</a></li>
+    
+      <li><a href="en/pilonidal-sinus.html" class="nav-lang">🇬🇧 EN</a></li>
     </ul>
     <a href="tel:+34950264245" class="nav-cta">Pedir Cita</a>
     <button class="nav-hamburger" onclick="toggleMobileMenu()" aria-label="Menú">
@@ -364,6 +336,7 @@
     <a href="blog.html" class="nav-mobile-link" onclick="closeMobileMenu()">Blog</a>
     <a href="foro.html" class="nav-mobile-link" onclick="closeMobileMenu()">Foro</a>
     <a href="index.html#contacto" class="nav-mobile-link" onclick="closeMobileMenu()">Contacto</a>
+    <a href="en/pilonidal-sinus.html" class="nav-mobile-link" onclick="closeMobileMenu()">🇬🇧 Ver en inglés</a>
   </div>
 
   <!-- BREADCRUMB -->
