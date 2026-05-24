@@ -71,6 +71,14 @@
   </url>
 
   <url>
+    <loc>https://www.proctologoalmeria.com/colgajos-anales.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.proctologoalmeria.com/colgajos-anales.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.proctologoalmeria.com/en/anal-flaps.html"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
     <loc>https://www.proctologoalmeria.com/polipos-anales.html</loc>
     <xhtml:link rel="alternate" hreflang="es" href="https://www.proctologoalmeria.com/polipos-anales.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.proctologoalmeria.com/en/anal-polyps.html"/>
@@ -95,13 +103,6 @@
   </url>
 
   <url>
-    <loc>https://www.proctologoalmeria.com/colgajos-anales.html</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://www.proctologoalmeria.com/colgajos-anales.html"/>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
     <loc>https://www.proctologoalmeria.com/cirugia-menor.html</loc>
     <xhtml:link rel="alternate" hreflang="es" href="https://www.proctologoalmeria.com/cirugia-menor.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.proctologoalmeria.com/en/minor-surgery.html"/>
@@ -114,6 +115,54 @@
     <xhtml:link rel="alternate" hreflang="es" href="https://www.proctologoalmeria.com/segunda-opinion.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.proctologoalmeria.com/en/second-opinion.html"/>
     <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.proctologoalmeria.com/blog.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.proctologoalmeria.com/blog.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.proctologoalmeria.com/en/blog.html"/>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.proctologoalmeria.com/sintomas-hemorroides.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.proctologoalmeria.com/sintomas-hemorroides.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.proctologoalmeria.com/en/haemorrhoid-symptoms.html"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://www.proctologoalmeria.com/fisura-anal-dolor-tratamiento.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.proctologoalmeria.com/fisura-anal-dolor-tratamiento.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.proctologoalmeria.com/en/anal-fissure-pain-treatment.html"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://www.proctologoalmeria.com/sinus-pilonidal-cirugia-alternativa.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.proctologoalmeria.com/sinus-pilonidal-cirugia-alternativa.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.proctologoalmeria.com/en/pilonidal-sinus-surgery-alternative.html"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://www.proctologoalmeria.com/cuando-operar-hemorroides.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.proctologoalmeria.com/cuando-operar-hemorroides.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.proctologoalmeria.com/en/when-to-operate-haemorrhoids.html"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://www.proctologoalmeria.com/foro.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.proctologoalmeria.com/foro.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.proctologoalmeria.com/en/forum.html"/>
+    <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
 
@@ -180,6 +229,14 @@
   </url>
 
   <url>
+    <loc>https://www.proctologoalmeria.com/en/anal-flaps.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.proctologoalmeria.com/en/anal-flaps.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.proctologoalmeria.com/colgajos-anales.html"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
     <loc>https://www.proctologoalmeria.com/en/anal-polyps.html</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.proctologoalmeria.com/en/anal-polyps.html"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://www.proctologoalmeria.com/polipos-anales.html"/>
@@ -216,6 +273,54 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://www.proctologoalmeria.com/en/second-opinion.html"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://www.proctologoalmeria.com/segunda-opinion.html"/>
     <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.proctologoalmeria.com/en/blog.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.proctologoalmeria.com/en/blog.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.proctologoalmeria.com/blog.html"/>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.proctologoalmeria.com/en/haemorrhoid-symptoms.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.proctologoalmeria.com/en/haemorrhoid-symptoms.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.proctologoalmeria.com/sintomas-hemorroides.html"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://www.proctologoalmeria.com/en/anal-fissure-pain-treatment.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.proctologoalmeria.com/en/anal-fissure-pain-treatment.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.proctologoalmeria.com/fisura-anal-dolor-tratamiento.html"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://www.proctologoalmeria.com/en/pilonidal-sinus-surgery-alternative.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.proctologoalmeria.com/en/pilonidal-sinus-surgery-alternative.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.proctologoalmeria.com/sinus-pilonidal-cirugia-alternativa.html"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://www.proctologoalmeria.com/en/when-to-operate-haemorrhoids.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.proctologoalmeria.com/en/when-to-operate-haemorrhoids.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.proctologoalmeria.com/cuando-operar-hemorroides.html"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://www.proctologoalmeria.com/en/forum.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.proctologoalmeria.com/en/forum.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.proctologoalmeria.com/foro.html"/>
+    <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
 
