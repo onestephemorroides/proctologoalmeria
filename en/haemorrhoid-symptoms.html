@@ -5,13 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Haemorrhoid symptoms: how to recognise them and when to seek advice | Almería</title>
   <meta name="description" content="Haemorrhoid symptoms: bleeding, itching, lump or pain when defecating. Learn to distinguish internal and external haemorrhoids and when to consult a proctologist in Almería."/>
-  <meta name="keywords" content="síntomas hemorroides, síntomas hemorroides internas, síntomas hemorroides externas, como saber si tienes hemorroides, sangrado rectal hemorroides, dolor hemorroides Almería, hemorroides bulto sensación, proctologo sintomas hemorroides Almería"/>
+  <meta name="keywords" content="haemorrhoid symptoms, internal haemorrhoids symptoms, external haemorrhoids, rectal bleeding, anal itching, proctologist Almería"/>
   <meta name="robots" content="index, follow"/>
   <link rel="canonical" href="https://www.proctologoalmeria.com/sintomas-hemorroides.html"/>
   <meta property="og:type" content="article"/>
-  <meta property="og:title" content="¿Cómo saber si tengo hemorroides? Síntomas y cuándo consultar"/>
-  <meta property="og:description" content="El sangrado al defecar, el picor anal o la sensación de bulto son los síntomas más frecuentes de hemorroides. Aprende a reconocerlos y cuándo consultar al especialista en Almería."/>
-  <meta property="og:url" content="https://www.proctologoalmeria.com/sintomas-hemorroides.html"/>
+  <meta property="og:title" content="How do I know if I have haemorrhoids? Symptoms and when to seek advice"/>
+  <meta property="og:description" content="Rectal bleeding, anal itching or the sensation of a lump are the most common haemorrhoid symptoms. Learn when to consult a specialist in Almería."/>
+  <meta property="og:url" content="https://www.proctologoalmeria.com/en/haemorrhoid-symptoms.html"/>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -388,52 +388,77 @@
 </style>
 </head>
 <body>
-
-<nav class="nav">
+<!-- NAV -->
+  <nav class="nav">
     <a href="index.html" class="nav-brand">
       <div class="nav-logo-ring"><div class="nav-logo-cut"></div><div class="nav-logo-inner"></div></div>
       <div><div class="nav-text-name">Dr. Jaime Jorge Cerrudo</div><div class="nav-text-sub">Proctologist · Almería</div></div>
     </a>
     <ul class="nav-links">
-      <li class="nav-dropdown"><a href="index.html#treatments">Treatments</a>
-        <div class="nav-dropdown-menu"><div class="nav-dropdown-menu-inner">
-          <a href="hemorrhoids.html">Haemorrhoids</a>
-          <a href="anal-fissure.html">Anal Fissure</a>
-          <a href="pilonidal-sinus.html">Pilonidal Sinus</a>
-          <a href="second-opinion.html">Second Opinion</a>
-        </div></div>
+      <li class="nav-dropdown">
+        <a href="index.html#servicios">Treatments</a>
+        <div class="nav-dropdown-menu">
+          <div class="nav-dropdown-menu-inner">
+            <a href="hemorroides.html">Haemorrhoids</a>
+            <a href="esclerosis-hemorroidal.html" class="sub-item">↳ Esclerosis con microespuma</a>
+            <a href="ligadura-hemorroidal.html" class="sub-item">↳ Ligadura con banda elástica</a>
+            <a href="fisura-anal.html">Anal Fissure</a>
+            <a href="toxina-botulinica-fisura.html" class="sub-item">↳ Inyección toxina botulínica</a>
+            <a href="sinus-pilonidal.html">Pilonidal Sinus</a>
+            <a href="colgajos-anales.html">Anal Skin Tags</a>
+            <a href="polipos-anales.html">Anal Polyps</a>
+            <a href="condilomas-anales.html">Anal Warts</a>
+            <a href="hidradenitis-perianal.html">Perianal Hidradenitis</a>
+            <a href="cirugia-menor.html">Minor Surgery</a>
+            <a href="segunda-opinion.html">Second Opinion</a>
+          </div>
+        </div>
       </li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="blog.html" style="color:var(--t);font-weight:600;">Blog</a></li>
+      <li><a href="sobre-mi.html">About</a></li>
       <li><a href="blog.html">Blog</a></li>
-      <li><a href="forum.html">Forum</a></li>
-      <li><a href="index.html#contact">Contact</a></li>
-      <li><a href="../sintomas-hemorroides.html" class="nav-lang">🇪🇸 ES</a></li>
+      <li><a href="foro.html">Forum</a></li>
+      <li><a href="index.html#contacto">Contact</a></li>
     </ul>
     <a href="tel:+34950264245" class="nav-cta">Book Appointment</a>
-    <button class="nav-hamburger" onclick="toggleMobileMenu()" aria-label="Menu">
+    <button class="nav-hamburger" onclick="toggleMobileMenu()" aria-label="Menú">
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#3D4E57" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
     </button>
   </nav>
-
-<div class="nav-mobile-menu" id="mobileMenu">
-    <a href="index.html" class="nav-mobile-link" onclick="closeMobileMenu()">Home</a>
+<!-- MENÚ MÓVIL -->
+  <div class="nav-mobile-menu" id="mobileMenu">
+    <div class="nav-mobile-link" onclick="toggleSubmenu()">
+      Servicios
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#3D4E57" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+    </div>
+    <div class="nav-submenu" id="serviciosSubmenu">
+      <a href="hemorroides.html" onclick="closeMobileMenu()">Haemorrhoids</a>
+      <a href="esclerosis-hemorroidal.html" class="sub-sub" onclick="closeMobileMenu()">↳ Esclerosis con microespuma</a>
+      <a href="ligadura-hemorroidal.html" class="sub-sub" onclick="closeMobileMenu()">↳ Ligadura con banda elástica</a>
+      <a href="fisura-anal.html" onclick="closeMobileMenu()">Anal Fissure</a>
+      <a href="toxina-botulinica-fisura.html" class="sub-sub" onclick="closeMobileMenu()">↳ Inyección toxina botulínica</a>
+      <a href="sinus-pilonidal.html" onclick="closeMobileMenu()">Pilonidal Sinus</a>
+      <a href="colgajos-anales.html" onclick="closeMobileMenu()">Anal Skin Tags</a>
+      <a href="polipos-anales.html" onclick="closeMobileMenu()">Anal Polyps</a>
+      <a href="condilomas-anales.html" onclick="closeMobileMenu()">Anal Warts</a>
+      <a href="hidradenitis-perianal.html" onclick="closeMobileMenu()">Perianal Hidradenitis</a>
+      <a href="cirugia-menor.html" onclick="closeMobileMenu()">Minor Surgery</a>
+      <a href="segunda-opinion.html" onclick="closeMobileMenu()">Second Opinion</a>
+    </div>
+    <a href="sobre-mi.html" class="nav-mobile-link" onclick="closeMobileMenu()">About</a>
     <a href="blog.html" class="nav-mobile-link" onclick="closeMobileMenu()">Blog</a>
-    <a href="blog.html" class="nav-mobile-link" onclick="closeMobileMenu()">Blog</a>
-    <a href="forum.html" class="nav-mobile-link" onclick="closeMobileMenu()">Forum</a>
-    <a href="index.html#contact" class="nav-mobile-link" onclick="closeMobileMenu()">Contact</a>
-    <a href="../sintomas-hemorroides.html" class="nav-mobile-link" onclick="closeMobileMenu()">🇪🇸 Ver en español</a>
+    <a href="foro.html" class="nav-mobile-link" onclick="closeMobileMenu()">Forum</a>
+    <a href="index.html#contacto" class="nav-mobile-link" onclick="closeMobileMenu()">Contact</a>
   </div>
 
-<div class="breadcrumb">
-    <a href="index.html">Home</a><span>›</span>
-    <a href="blog.html">Blog</a><span>›</span>
+  <!-- BREADCRUMB -->
+  <div class="breadcrumb">
+    <a href="index.html">Inicio</a><span>›</span>
+    <a href="index.html#servicios">Treatments</a><span>›</span>
     <strong style="color:var(--g)">Haemorrhoids</strong>
   </div>
-
 <div class="article-hero">
   <div class="article-breadcrumb">
-    <a href="index.html">Home</a>
+    <a href="index.html">Inicio</a>
     <span>›</span>
     <a href="blog.html">Blog</a>
     <span>›</span>
@@ -452,44 +477,40 @@
     </div>
   </div>
 </div>
-
-<div class="article-body">
-      <p>Haemorrhoids are one of the most common conditions seen in a proctology clinic, yet they are also among the most under-diagnosed. Many people live with symptoms for months or years without knowing exactly what is wrong, or without daring to seek advice.</p>
-      <h2>What are haemorrhoids?</h2>
-      <p>Haemorrhoids are normal vascular structures of the anal canal. Everyone has them: they are cushions of tissue that help control the passage of stools. The problem arises when they become inflamed, enlarge, or prolapse, producing troublesome symptoms.</p>
-      <p>There are two types: <strong>internal haemorrhoids</strong>, inside the anal canal and generally painless, and <strong>external haemorrhoids</strong>, outside the anus, which can cause pain and irritation.</p>
-      <h2>Most common symptoms</h2>
-      <ul>
-        <li><strong>Rectal bleeding:</strong> the most common symptom. Bright red blood on the paper or in the toilet bowl.</li>
-        <li><strong>Anal itching or burning:</strong> caused by moisture and irritation in the perianal area.</li>
-        <li><strong>Sensation of a lump:</strong> in more advanced haemorrhoids, tissue may protrude during defecation.</li>
-        <li><strong>Pain:</strong> internal haemorrhoids rarely cause pain. Intense pain suggests thrombosis or anal fissure.</li>
-        <li><strong>Feeling of incomplete evacuation.</strong></li>
-      </ul>
-      <div class="callout callout-warning">⚠️ Rectal bleeding should never be ignored. Although in most cases it is due to haemorrhoids, it is important to consult a specialist to rule out other causes.</div>
-      <h2>Grades of haemorrhoids</h2>
-      <ul>
-        <li><strong>Grade I:</strong> they bleed but do not prolapse.</li>
-        <li><strong>Grade II:</strong> they prolapse during defecation but reduce spontaneously.</li>
-        <li><strong>Grade III:</strong> they prolapse and require manual reduction.</li>
-        <li><strong>Grade IV:</strong> they cannot be reduced and remain outside the anal canal.</li>
-      </ul>
-      <h2>When should I seek advice?</h2>
-      <p>Consult a proctologist if you have: recurrent rectal bleeding, severe pain, a lump that cannot be reduced, symptoms lasting more than two weeks, or changes in bowel habit alongside bleeding.</p>
-      <h2>Is there treatment without surgery?</h2>
-      <p>In the vast majority of cases, grade I, II and III haemorrhoids are treated <strong>without surgery</strong> using <a href="hemorrhoids.html#rubber-band">rubber band ligation</a> or <a href="hemorrhoids.html#foam-sclerotherapy">foam sclerotherapy</a>, at the clinic, in the same appointment as the diagnosis, without hospital admission and with immediate recovery.</p>
-    
-
+<article class="article-body">
+  <p>Las hemorroides son una de las patologías más frecuentes en consulta de proctología, pero también una de las más infradiagnosticadas. Muchas personas conviven durante meses o años con síntomas sin saber exactamente qué les ocurre o sin atreverse a consultar.</p>
+  <h2>¿Qué son las hemorroides?</h2>
+  <p>Las hemorroides son estructuras vasculares normales del canal anal. Todos tenemos hemorroides: son cojinetes de tejido que ayudan a controlar el paso de heces. El problema aparece cuando se inflaman, se agrandan o prolapsan, generando síntomas molestos.</p>
+  <p>Existen dos tipos: <strong>hemorroides internas</strong>, dentro del canal anal y generalmente indoloras, y <strong>hemorroides externas</strong>, fuera del ano y que pueden provocar dolor e irritación.</p>
+  <h2>Síntomas más frecuentes</h2>
+  <ul>
+    <li><strong>Sangrado rectal:</strong> el síntoma más común. Sangre roja brillante en el papel o en el inodoro.</li>
+    <li><strong>Picor o escozor anal:</strong> causado por la humedad e irritación de la zona perianal.</li>
+    <li><strong>Sensación de bulto:</strong> en hemorroides avanzadas, el tejido puede sobresalir al defecar.</li>
+    <li><strong>Dolor:</strong> las hemorroides internas raramente duelen. El dolor intenso sugiere trombosis o fisura anal.</li>
+    <li><strong>Sensación de defecación incompleta.</strong></li>
+  </ul>
+  <div class="article-callout"><p>⚠️ El sangrado rectal nunca debe ignorarse. Aunque en la mayoría de los casos se debe a hemorroides, es importante consultar para descartar otras causas.</p></div>
+  <h2>Grados de las hemorroides</h2>
+  <ul>
+    <li><strong>Grado I:</strong> sangran pero no prolapsan.</li>
+    <li><strong>Grado II:</strong> prolapsan al defecar pero se reducen espontáneamente.</li>
+    <li><strong>Grado III:</strong> prolapsan y requieren reducción manual.</li>
+    <li><strong>Grado IV:</strong> no pueden reducirse, permanecen fuera del canal anal.</li>
+  </ul>
+  <h2>¿Cuándo consultar?</h2>
+  <p>Consulta a un proctólogo si tienes: sangrado rectal recurrente, dolor intenso, bulto que no se reduce, síntomas de más de dos semanas o cambios en el ritmo intestinal junto con sangrado.</p>
+  <h2>¿Hay tratamiento sin cirugía?</h2>
+  <p>En la gran mayoría de los casos, las hemorroides de grado I, II y III se tratan <strong>sin cirugía</strong> mediante <a href="ligadura-hemorroidal.html" style="color:var(--t)">ligadura con banda elástica</a> o <a href="esclerosis-hemorroidal.html" style="color:var(--t)">esclerosis con microespuma</a>, en consulta, en el mismo acto del diagnóstico, sin ingreso y con recuperación inmediata.</p>
   <div class="article-cta-box">
-    <h3>Do you have symptoms or questions about your case?</h3>
-    <p>Consult Dr. Jaime Jorge Cerrudo. Diagnosis and treatment in a single appointment at Clínica de San Pío, Almería.</p>
+    <h3>¿Tienes síntomas o dudas sobre tu caso?</h3>
+    <p>Consulta con el Dr. Jaime Jorge Cerrudo. Diagnóstico y tratamiento en el mismo acto en la Clínica de San Pío, Almería.</p>
     <a href="tel:+34950264245">
       <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .84h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.64a16 16 0 006.29 6.29l1.16-1.16a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
-      Book appointment — 950 264 245
+      Pedir cita — 950 264 245
     </a>
   </div>
-</div>
-
+</article>
 <section class="article-related">
   <h2>You may also be interested in</h2>
   <div class="article-related-grid">
@@ -507,8 +528,6 @@
     </a>
   </div>
 </section>
-
-
 <!-- FOOTER -->
   <footer>
     <div class="footer-bottom">
@@ -523,7 +542,7 @@
 <!-- BOTONES FLOTANTES -->
   <div class="float-btns">
     <a href="tel:+34950264245" class="float-btn float-btn-tel" aria-label="Llamar"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .84h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.64a16 16 0 006.29 6.29l1.16-1.16a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg></a>
-    <a href="https://wa.me/34639518954?text=Hola%2C%20me%20gustar%C3%ADa%20pedir%20cita%20en%20la%20consulta%20de%20proctolog%C3%ADa%20con%20el%20Dr.%20Jaime%20Jorge%20Cerrudo." target="_blank" rel="noopener" class="float-btn float-btn-wa" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg></a>
+    <a href="https://wa.me/34639518954?text=Hello%2C%20I%20would%20like%20to%20book%20an%20appointment%20with%20Dr.%20Cerrudo." target="_blank" rel="noopener" class="float-btn float-btn-wa" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg></a>
   </div>
 <script>
     // MENÚ MÓVIL
@@ -550,7 +569,251 @@
   <div id="cookie-banner">
     <div class="cookie-inner">
       <div class="cookie-text">
-        <p>We use essential cookies. By continuing to browse, you accept their use. See our <a href="../cookies.html">Cookie Policy</a> y <a href="../privacidad.html">Privacy Policy</a>.</p>
+        <p>We use essential cookies required for the website to function. By continuing to browse, you accept their use. See our <a href="../cookies.html">Cookie Policy</a> y <a href="../privacidad.html">Privacy Policy</a>.</p>
+      </div>
+      <div class="cookie-btns">
+        <button class="cookie-btn-accept" onclick="aceptarCookies()">Accept</button>
+        <button class="cookie-btn-reject" onclick="rechazarCookies()">Essential only</button>
+      </div>
+    </div>
+  </div>
+  <script>
+    function aceptarCookies() {
+      localStorage.setItem('cookie_consent', 'accepted');
+      document.getElementById('cookie-banner').classList.remove('visible');
+    }
+    function rechazarCookies() {
+      localStorage.setItem('cookie_consent', 'rejected');
+      document.getElementById('cookie-banner').classList.remove('visible');
+    }
+    window.addEventListener('DOMContentLoaded', function() {
+      if (!localStorage.getItem('cookie_consent')) {
+        document.getElementById('cookie-banner').classList.add('visible');
+      }
+    });
+  </script>
+</body>
+</html<div class="article-body">
+      <p>Haemorrhoids are one of the most common conditions seen in a proctology clinic, yet they are also among the most under-diagnosed. Many people live with symptoms for months or years without knowing exactly what is wrong, or without daring to seek advice.</p>
+
+      <h2>What are haemorrhoids?</h2>
+      <p>Haemorrhoids are normal vascular structures of the anal canal. Everyone has them: they are cushions of tissue that help control the passage of stools. The problem arises when they become inflamed, enlarge, or prolapse, producing troublesome symptoms.</p>
+      <p>There are two types: <strong>internal haemorrhoids</strong>, inside the anal canal and generally painless, and <strong>external haemorrhoids</strong>, outside the anus, which can cause pain and irritation.</p>
+
+      <h2>Most common symptoms</h2>
+      <ul>
+        <li><strong>Rectal bleeding:</strong> the most common symptom. Bright red blood on the paper or in the toilet bowl.</li>
+        <li><strong>Anal itching or burning:</strong> caused by moisture and irritation in the perianal area.</li>
+        <li><strong>Sensation of a lump:</strong> in more advanced haemorrhoids, tissue may protrude during defecation.</li>
+        <li><strong>Pain:</strong> internal haemorrhoids rarely cause pain. Intense pain suggests thrombosis or anal fissure.</li>
+        <li><strong>Feeling of incomplete evacuation.</strong></li>
+      </ul>
+
+      <div class="callout callout-warning">
+        <strong>Important:</strong> Rectal bleeding should never be ignored. Although in most cases it is due to haemorrhoids, it is important to consult a specialist to rule out other causes.
+      </div>
+
+      <h2>Grades of haemorrhoids</h2>
+      <ul>
+        <li><strong>Grade I:</strong> they bleed but do not prolapse.</li>
+        <li><strong>Grade II:</strong> they prolapse during defecation but reduce spontaneously.</li>
+        <li><strong>Grade III:</strong> they prolapse and require manual reduction.</li>
+        <li><strong>Grade IV:</strong> they cannot be reduced and remain outside the anal canal.</li>
+      </ul>
+
+      <h2>When should I seek advice?</h2>
+      <p>Consult a proctologist if you have: recurrent rectal bleeding, severe pain, a lump that cannot be reduced, symptoms lasting more than two weeks, or changes in bowel habit alongside bleeding.</p>
+
+      <h2>Is there treatment without surgery?</h2>
+      <p>In the vast majority of cases, grade I, II and III haemorrhoids are treated <strong>without surgery</strong> using <a href="hemorrhoids.html#rubber-band">rubber band ligation</a> or <a href="hemorrhoids.html#foam-sclerotherapy">foam sclerotherapy</a>, at the clinic, in the same appointment as the diagnosis, without hospital admission and with immediate recovery.</p>
+
+      <div class="article-cta-box">
+        <h3>Do you have symptoms or questions about your case?</h3>
+        <p>Consult Dr. Jaime Jorge Cerrudo. Diagnosis and treatment in a single appointment at Clínica de San Pío, Almería.</p>
+        <a href="tel:+34950264245">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .84h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.64a16 16 0 006.29 6.29l1.16-1.16a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          Book appointment — 950 264 245
+        </a>
+      </div>
+    </div>
+      <div><div class="nav-text-name">Dr. Jaime Jorge Cerrudo</div><div class="nav-text-sub">Proctologist · Almería</div></div>
+    </a>
+    <ul class="nav-links">
+      <li class="nav-dropdown">
+        <a href="index.html#servicios">Treatments</a>
+        <div class="nav-dropdown-menu">
+          <div class="nav-dropdown-menu-inner">
+            <a href="hemorroides.html">Haemorrhoids</a>
+            <a href="esclerosis-hemorroidal.html" class="sub-item">↳ Esclerosis con microespuma</a>
+            <a href="ligadura-hemorroidal.html" class="sub-item">↳ Ligadura con banda elástica</a>
+            <a href="fisura-anal.html">Anal Fissure</a>
+            <a href="toxina-botulinica-fisura.html" class="sub-item">↳ Inyección toxina botulínica</a>
+            <a href="sinus-pilonidal.html">Pilonidal Sinus</a>
+            <a href="colgajos-anales.html">Anal Skin Tags</a>
+            <a href="polipos-anales.html">Anal Polyps</a>
+            <a href="condilomas-anales.html">Anal Warts</a>
+            <a href="hidradenitis-perianal.html">Perianal Hidradenitis</a>
+            <a href="cirugia-menor.html">Minor Surgery</a>
+            <a href="segunda-opinion.html">Second Opinion</a>
+          </div>
+        </div>
+      </li>
+      <li><a href="sobre-mi.html">About</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="foro.html">Forum</a></li>
+      <li><a href="index.html#contacto">Contact</a></li>
+    </ul>
+    <a href="tel:+34950264245" class="nav-cta">Book Appointment</a>
+    <button class="nav-hamburger" onclick="toggleMobileMenu()" aria-label="Menú">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#3D4E57" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </nav>
+<!-- MENÚ MÓVIL -->
+  <div class="nav-mobile-menu" id="mobileMenu">
+    <div class="nav-mobile-link" onclick="toggleSubmenu()">
+      Servicios
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#3D4E57" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+    </div>
+    <div class="nav-submenu" id="serviciosSubmenu">
+      <a href="hemorroides.html" onclick="closeMobileMenu()">Haemorrhoids</a>
+      <a href="esclerosis-hemorroidal.html" class="sub-sub" onclick="closeMobileMenu()">↳ Esclerosis con microespuma</a>
+      <a href="ligadura-hemorroidal.html" class="sub-sub" onclick="closeMobileMenu()">↳ Ligadura con banda elástica</a>
+      <a href="fisura-anal.html" onclick="closeMobileMenu()">Anal Fissure</a>
+      <a href="toxina-botulinica-fisura.html" class="sub-sub" onclick="closeMobileMenu()">↳ Inyección toxina botulínica</a>
+      <a href="sinus-pilonidal.html" onclick="closeMobileMenu()">Pilonidal Sinus</a>
+      <a href="colgajos-anales.html" onclick="closeMobileMenu()">Anal Skin Tags</a>
+      <a href="polipos-anales.html" onclick="closeMobileMenu()">Anal Polyps</a>
+      <a href="condilomas-anales.html" onclick="closeMobileMenu()">Anal Warts</a>
+      <a href="hidradenitis-perianal.html" onclick="closeMobileMenu()">Perianal Hidradenitis</a>
+      <a href="cirugia-menor.html" onclick="closeMobileMenu()">Minor Surgery</a>
+      <a href="segunda-opinion.html" onclick="closeMobileMenu()">Second Opinion</a>
+    </div>
+    <a href="sobre-mi.html" class="nav-mobile-link" onclick="closeMobileMenu()">About</a>
+    <a href="blog.html" class="nav-mobile-link" onclick="closeMobileMenu()">Blog</a>
+    <a href="foro.html" class="nav-mobile-link" onclick="closeMobileMenu()">Forum</a>
+    <a href="index.html#contacto" class="nav-mobile-link" onclick="closeMobileMenu()">Contact</a>
+  </div>
+
+  <!-- BREADCRUMB -->
+  <div class="breadcrumb">
+    <a href="index.html">Inicio</a><span>›</span>
+    <a href="index.html#servicios">Treatments</a><span>›</span>
+    <strong style="color:var(--g)">Haemorrhoids</strong>
+  </div>
+<div class="article-hero">
+  <div class="article-breadcrumb">
+    <a href="index.html">Inicio</a>
+    <span>›</span>
+    <a href="blog.html">Blog</a>
+    <span>›</span>
+    <span style="color:rgba(255,255,255,.7)">Haemorrhoids</span>
+  </div>
+  <div class="article-meta">
+    <span class="article-tag">Haemorrhoids</span>
+    <span class="article-meta-info">5 min read · May 2026</span>
+  </div>
+  <h1>How do I know if I have haemorrhoids? Symptoms and when to seek advice</h1>
+  <div class="article-author">
+    <img src="../foto-doctor.png" alt="Dr. Jaime Jorge Cerrudo"/>
+    <div class="article-author-info">
+      <p>Dr. Jaime Jorge Cerrudo</p>
+      <span>Proctologist · Clínica de San Pío, Almería</span>
+    </div>
+  </div>
+</div>
+<article class="article-body">
+  <p>Las hemorroides son una de las patologías más frecuentes en consulta de proctología, pero también una de las más infradiagnosticadas. Muchas personas conviven durante meses o años con síntomas sin saber exactamente qué les ocurre o sin atreverse a consultar.</p>
+  <h2>¿Qué son las hemorroides?</h2>
+  <p>Las hemorroides son estructuras vasculares normales del canal anal. Todos tenemos hemorroides: son cojinetes de tejido que ayudan a controlar el paso de heces. El problema aparece cuando se inflaman, se agrandan o prolapsan, generando síntomas molestos.</p>
+  <p>Existen dos tipos: <strong>hemorroides internas</strong>, dentro del canal anal y generalmente indoloras, y <strong>hemorroides externas</strong>, fuera del ano y que pueden provocar dolor e irritación.</p>
+  <h2>Síntomas más frecuentes</h2>
+  <ul>
+    <li><strong>Sangrado rectal:</strong> el síntoma más común. Sangre roja brillante en el papel o en el inodoro.</li>
+    <li><strong>Picor o escozor anal:</strong> causado por la humedad e irritación de la zona perianal.</li>
+    <li><strong>Sensación de bulto:</strong> en hemorroides avanzadas, el tejido puede sobresalir al defecar.</li>
+    <li><strong>Dolor:</strong> las hemorroides internas raramente duelen. El dolor intenso sugiere trombosis o fisura anal.</li>
+    <li><strong>Sensación de defecación incompleta.</strong></li>
+  </ul>
+  <div class="article-callout"><p>⚠️ El sangrado rectal nunca debe ignorarse. Aunque en la mayoría de los casos se debe a hemorroides, es importante consultar para descartar otras causas.</p></div>
+  <h2>Grados de las hemorroides</h2>
+  <ul>
+    <li><strong>Grado I:</strong> sangran pero no prolapsan.</li>
+    <li><strong>Grado II:</strong> prolapsan al defecar pero se reducen espontáneamente.</li>
+    <li><strong>Grado III:</strong> prolapsan y requieren reducción manual.</li>
+    <li><strong>Grado IV:</strong> no pueden reducirse, permanecen fuera del canal anal.</li>
+  </ul>
+  <h2>¿Cuándo consultar?</h2>
+  <p>Consulta a un proctólogo si tienes: sangrado rectal recurrente, dolor intenso, bulto que no se reduce, síntomas de más de dos semanas o cambios en el ritmo intestinal junto con sangrado.</p>
+  <h2>¿Hay tratamiento sin cirugía?</h2>
+  <p>En la gran mayoría de los casos, las hemorroides de grado I, II y III se tratan <strong>sin cirugía</strong> mediante <a href="ligadura-hemorroidal.html" style="color:var(--t)">ligadura con banda elástica</a> o <a href="esclerosis-hemorroidal.html" style="color:var(--t)">esclerosis con microespuma</a>, en consulta, en el mismo acto del diagnóstico, sin ingreso y con recuperación inmediata.</p>
+  <div class="article-cta-box">
+    <h3>¿Tienes síntomas o dudas sobre tu caso?</h3>
+    <p>Consulta con el Dr. Jaime Jorge Cerrudo. Diagnóstico y tratamiento en el mismo acto en la Clínica de San Pío, Almería.</p>
+    <a href="tel:+34950264245">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .84h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.64a16 16 0 006.29 6.29l1.16-1.16a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+      Pedir cita — 950 264 245
+    </a>
+  </div>
+</article>
+<section class="article-related">
+  <h2>Otros artículos que pueden interesarte</h2>
+  <div class="article-related-grid">
+    <a href="hemorroides.html" class="related-card">
+      <span>Haemorrhoids</span>
+      <h3>Ver todos los tratamientos para hemorroides</h3>
+    </a>
+    <a href="blog.html" class="related-card">
+      <span>Blog</span>
+      <h3>Ver todos los artículos del blog</h3>
+    </a>
+    <a href="segunda-opinion.html" class="related-card">
+      <span>Second Opinion</span>
+      <h3>¿Te han recomendado operar? Consulta antes</h3>
+    </a>
+  </div>
+</section>
+<!-- FOOTER -->
+  <footer>
+    <div class="footer-bottom">
+      <p>© 2026 <a href="sobre-mi.html" style="color:inherit;text-decoration:none;border-bottom:1px dotted var(--t);">Dr. Jaime Jorge Cerrudo</a> · Proctologist in Almería · proctologoalmeria.com</p>
+      <div class="footer-legal">
+        <a href="../aviso-legal.html">Legal notice</a>
+        <a href="../privacidad.html">Privacy</a>
+        <a href="../cookies.html">Cookies</a>
+      </div>
+    </div>
+  </footer>
+<!-- BOTONES FLOTANTES -->
+  <div class="float-btns">
+    <a href="tel:+34950264245" class="float-btn float-btn-tel" aria-label="Llamar"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .84h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.64a16 16 0 006.29 6.29l1.16-1.16a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg></a>
+    <a href="https://wa.me/34639518954?text=Hello%2C%20I%20would%20like%20to%20book%20an%20appointment%20with%20Dr.%20Cerrudo." target="_blank" rel="noopener" class="float-btn float-btn-wa" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg></a>
+  </div>
+<script>
+    // MENÚ MÓVIL
+    function toggleMobileMenu() { document.getElementById('mobileMenu').classList.toggle('open'); }
+    function closeMobileMenu() {
+      document.getElementById('mobileMenu').classList.remove('open');
+      document.getElementById('serviciosSubmenu').classList.remove('open');
+      document.querySelectorAll('.nav-mobile-link').forEach(function(el){ el.classList.remove('open'); });
+    }
+    function toggleSubmenu() {
+      var sub = document.getElementById('serviciosSubmenu');
+      var btn = document.querySelector('.nav-mobile-link');
+      sub.classList.toggle('open');
+      btn.classList.toggle('open');
+    }
+    // FAQ
+    function toggleFaq(el) {
+      el.classList.toggle('open');
+      var ans = el.nextElementSibling;
+      ans.classList.toggle('open');
+    }
+  </script>
+<!-- BANNER COOKIES -->
+  <div id="cookie-banner">
+    <div class="cookie-inner">
+      <div class="cookie-text">
+        <p>We use essential cookies required for the website to function. By continuing to browse, you accept their use. See our <a href="../cookies.html">Cookie Policy</a> y <a href="../privacidad.html">Privacy Policy</a>.</p>
       </div>
       <div class="cookie-btns">
         <button class="cookie-btn-accept" onclick="aceptarCookies()">Accept</button>
