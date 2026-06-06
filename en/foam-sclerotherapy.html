@@ -64,12 +64,12 @@
     .hero-interior { position: relative; overflow: hidden; background: var(--g); min-height: 420px; }
     /* Fondo consulta desenfocado */
     .hero-clinica-bg { display: block; position: absolute; inset: 0; z-index: 0; background: url('../foto-clinica.jpg') center/cover no-repeat; filter: grayscale(100%) brightness(0.35); }
-    /* Vídeo desktop — expandido para cubrir todo el ancho */
+    /* Video desktop — expandido para cubrir todo el ancho */
     .yt-bg { display: block; position: absolute; inset: 0; z-index: 1; overflow: hidden; pointer-events: none; }
     .yt-bg iframe { position: absolute; top: 35%; left: 50%; width: 100vw; height: 56.25vw; min-height: 100%; min-width: 177.78vh; transform: translate(-50%, -50%); border: none; }
-    /* Sin degradados laterales — el vídeo cubre todo */
+    /* Sin degradados laterales — el video cubre todo */
     .yt-bg::before { display: none; }
-    /* Vídeo móvil — oculto en desktop */
+    /* Video mobile — oculto en desktop */
     .yt-bg-mobile { display: none; position: absolute; inset: 0; z-index: 1; overflow: hidden; pointer-events: none; }
     .yt-bg-mobile iframe { position: absolute; top: 50%; left: 50%; height: 177.78vw; width: 100%; min-height: 100%; transform: translate(-50%, -50%); border: none; }
     .yt-bg-mobile::before { content: ''; position: absolute; inset: 0; z-index: 2; background: linear-gradient(to bottom, rgba(61,78,87,0.75) 0%, transparent 25%, transparent 75%, rgba(61,78,87,0.75) 100%); pointer-events: none; }
@@ -141,7 +141,7 @@
     .float-btn-tel { background: var(--tel); box-shadow: 0 4px 16px rgba(30,111,217,.4); }
     .float-btn svg { width: 22px; height: 22px; }
 
-    /* Botón play móvil */
+    /* Mobile play button */
     .hero-play-btn {
       display: none;
       position: absolute; top: 20px; right: 20px; z-index: 7;
@@ -156,16 +156,16 @@
       html, body { overflow-x: hidden; }
       .nav-links { display: none; }
       .nav-hamburger { display: block; }
-      /* Hero móvil — altura suficiente para vídeo vertical */
+      /* Hero mobile — altura suficiente para video vertical */
       .hero-interior { min-height: 520px; }
-      /* Ocultar vídeo desktop */
+      /* Ocultar video desktop */
       .yt-bg { display: none !important; }
-      /* Botón play — siempre visible en móvil */
+      /* Botón play — siempre visible en mobile */
       .hero-play-btn {
         display: flex !important;
         position: absolute; top: 80px; right: 20px; z-index: 10;
       }
-      /* Vídeo móvil: oculto hasta pulsar play */
+      /* Video mobile: oculto hasta pulsar play */
       .yt-bg-mobile {
         display: none;
         position: absolute; inset: 0; z-index: 1;
@@ -250,17 +250,17 @@
           <a href="foam-sclerotherapy.html" class="sub-item">↳ Esclerosis con microespuma</a>
           <a href="rubber-band-ligation.html" class="sub-item">↳ Rubber band ligation</a>
           <a href="anal-fissure.html">Fisura Anal</a>
-          <a href="botulinum-toxin-fissure.html" class="sub-item">↳ Inyección toxina botulínica</a>
+          <a href="botulinum-toxin-fissure.html" class="sub-item">↳ Botulinum toxin injection</a>
           <a href="pilonidal-sinus.html">Sinus Pilonidal</a>
           <a href="anal-flaps.html">Colgajos Anales</a>
-          <a href="anal-polyps.html">Pólipos Anales</a>
+          <a href="anal-polyps.html">Anal Polyps</a>
           <a href="anal-warts.html">Condilomas Anales</a>
           <a href="hidradenitis.html">Hidradenitis Perianal</a>
-          <a href="minor-surgery.html">Cirugía Menor</a>
-          <a href="second-opinion.html">Segunda Opinión</a>
+          <a href="minor-surgery.html">Minor Surgery</a>
+          <a href="second-opinion.html">Second Opinion</a>
         </div></div>
       </li>
-      <li><a href="about.html">Sobre mí</a></li>
+      <li><a href="about.html">About</a></li>
       <li><a href="blog.html">Blog</a></li>
       <li><a href="forum.html">Foro</a></li>
       <li><a href="index.html#contact">Contacto</a></li>
@@ -279,16 +279,16 @@
       <a href="foam-sclerotherapy.html" class="sub-sub" onclick="closeMobileMenu()">↳ Esclerosis con microespuma</a>
       <a href="rubber-band-ligation.html" class="sub-sub" onclick="closeMobileMenu()">↳ Rubber band ligation</a>
       <a href="anal-fissure.html" onclick="closeMobileMenu()">Fisura Anal</a>
-      <a href="botulinum-toxin-fissure.html" class="sub-sub" onclick="closeMobileMenu()">↳ Inyección toxina botulínica</a>
+      <a href="botulinum-toxin-fissure.html" class="sub-sub" onclick="closeMobileMenu()">↳ Botulinum toxin injection</a>
       <a href="pilonidal-sinus.html" onclick="closeMobileMenu()">Sinus Pilonidal</a>
       <a href="anal-flaps.html" onclick="closeMobileMenu()">Colgajos Anales</a>
-      <a href="anal-polyps.html" onclick="closeMobileMenu()">Pólipos Anales</a>
+      <a href="anal-polyps.html" onclick="closeMobileMenu()">Anal Polyps</a>
       <a href="anal-warts.html" onclick="closeMobileMenu()">Condilomas Anales</a>
       <a href="hidradenitis.html" onclick="closeMobileMenu()">Hidradenitis Perianal</a>
-      <a href="minor-surgery.html" onclick="closeMobileMenu()">Cirugía Menor</a>
-      <a href="second-opinion.html" onclick="closeMobileMenu()">Segunda Opinión</a>
+      <a href="minor-surgery.html" onclick="closeMobileMenu()">Minor Surgery</a>
+      <a href="second-opinion.html" onclick="closeMobileMenu()">Second Opinion</a>
     </div>
-    <a href="about.html" class="nav-mobile-link" onclick="closeMobileMenu()">Sobre mí</a>
+    <a href="about.html" class="nav-mobile-link" onclick="closeMobileMenu()">About</a>
     <a href="blog.html" class="nav-mobile-link" onclick="closeMobileMenu()">Blog</a>
     <a href="forum.html" class="nav-mobile-link" onclick="closeMobileMenu()">Foro</a>
     <a href="index.html#contact" class="nav-mobile-link" onclick="closeMobileMenu()">Contacto</a>
@@ -307,10 +307,10 @@
       <iframe src="https://www.youtube.com/embed/c5hZmPkDUN4?autoplay=1&mute=1&loop=1&playlist=c5hZmPkDUN4&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1&enablejsapi=1" allow="autoplay; encrypted-media" allowfullscreen title="Esclerosis hemorroidal con microespuma desktop"></iframe>
     </div>
     <div class="yt-bg-mobile">
-      <iframe src="https://www.youtube.com/embed/YJwYu-JdrDA?autoplay=1&mute=1&loop=1&playlist=YJwYu-JdrDA&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1&enablejsapi=1" allow="autoplay; encrypted-media" allowfullscreen title="Esclerosis hemorroidal con microespuma móvil"></iframe>
+      <iframe src="https://www.youtube.com/embed/YJwYu-JdrDA?autoplay=1&mute=1&loop=1&playlist=YJwYu-JdrDA&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1&enablejsapi=1" allow="autoplay; encrypted-media" allowfullscreen title="Esclerosis hemorroidal con microespuma mobile"></iframe>
     </div>
     <div class="hero-overlay"></div>
-    <button class="hero-play-btn" id="heroPlayBtn" aria-label="Reproducir vídeo" onclick="activarVideoMovil()">
+    <button class="hero-play-btn" id="heroPlayBtn" aria-label="Reproducir video" onclick="activarVideoMovil()">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="#fff"><polygon points="5 3 19 12 5 21 5 3"/></svg>
     </button>
     <div class="hero-interior-inner">
@@ -330,10 +330,10 @@
 
     <h2>What is haemorrhoid foam sclerotherapy?</h2>
     <p>Haemorrhoid foam sclerotherapy is an outpatient technique that involves <strong>treating internal haemorrhoids</strong> through the injection of a sclerosing agent (usually polidocanol) in microfoam form directly into the haemorrhoidal tissue.</p>
-    <p>The microfoam induces a <strong>controlled inflammatory reaction</strong> en la pared del vaso hemorroidal, que lleva a su fibrosación y obliteración progresiva. Dr. resultado es la reducción del sangrado y del volumen hemorroidal sin necesidad de cirugía.</p>
+    <p>The microfoam induces a <strong>controlled inflammatory reaction</strong> en la pared del vaso hemorroidal, que lleva a su fibrosis y obliteration progresiva. Dr. resultado es la reduction del sangrado y del volumen hemorroidal sin necesidad de cirugía.</p>
 
     <div class="img-wrap">
-      <img src="../img-esclerosis.png" alt="Ilustración esclerosis hemorroidal con microespuma — inyección de agente esclerosante"/>
+      <img src="../img-esclerosis.png" alt="Ilustración esclerosis hemorroidal con microespuma — injection de agente esclerosante"/>
       <div class="img-wrap-caption">Haemorrhoid sclerotherapy: injection of sclerosing microfoam into haemorrhoidal tissue</div>
     </div>
 
@@ -375,12 +375,12 @@
     <div class="divider"></div>
 
     <h2>Results and efficacy</h2>
-    <p>Foam sclerotherapy has a <strong>high efficacy rate for controlling haemorrhoidal bleeding</strong>, especialmente en grados I y II. Dr. sangrado suele desaparecer o reducirse significativamente tras 1-2 sesiones.</p>
+    <p>Foam sclerotherapy has a <strong>high efficacy rate for controlling haemorrhoidal bleeding</strong>, especialmente en grados I y II. Dr. sangrado suele desaparecer o reducirse significativamente tras 1-2 sessions.</p>
     <p>In some patients the procedure may need to be repeated. The recurrence rate can be minimised with lifestyle changes: a fibre-rich diet, adequate hydration, and avoiding constipation.</p>
 
     <div class="dark-block">
       <h2>ONEstep® Clinic — Diagnosis and treatment in the same appointment</h2>
-      <p>Dr. <a href="about.html" style="color:var(--tl);">Dr. Jaime Jorge Cerrudo</a> realiza la exploración, el diagnóstico y la esclerosis con microespuma en la misma consulta cuando es posible, sin necesidad de programar una segunda cita.</p>
+      <p>Dr. <a href="about.html" style="color:var(--tl);">Dr. Jaime Jorge Cerrudo</a> realiza la examination, el diagnosis y la esclerosis con microespuma en la misma consulta cuando es posible, sin necesidad de programar una segunda cita.</p>
       <div class="dark-features">
         <div class="dark-feat"><div class="dark-dot"></div><p>No general anaesthesia or hospital admission</p></div>
         <div class="dark-feat"><div class="dark-dot"></div><p>Immediate recovery</p></div>
@@ -395,19 +395,19 @@
 
     <div class="faq-item">
       <div class="faq-q" onclick="toggleFaq(this)"><span>Is the injection painful?</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1AACAD" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></div>
-      <div class="faq-a">La inyección se realiza en la submucosa del canal anal, donde no hay terminaciones nerviosas del dolor. La mayoría de los pacientes no sienten nada durante el procedimiento. Puede aparecer una leve sensación de presión o peso durante las primeras horas.</div>
+      <div class="faq-a">La injection se realiza en la submucosa del canal anal, donde no hay terminaciones nerviosas del dolor. La majority de los pacientes no sienten nada durante el procedimiento. Puede aparecer una leve sensation de pressure o peso durante las primeras horas.</div>
     </div>
     <div class="faq-item">
       <div class="faq-q" onclick="toggleFaq(this)"><span>When does bleeding stop?</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1AACAD" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></div>
-      <div class="faq-a">La mejora del sangrado suele notarse en los primeros 7-10 días tras la inyección. En la mayoría de los casos el sangrado desaparece o se reduce significativamente tras una o dos sesiones.</div>
+      <div class="faq-a">La mejora del sangrado suele notarse en los primeros 7-10 days tras la injection. En la majority de los casos el sangrado desaparece o se reduce significativamente tras una o dos sessions.</div>
     </div>
     <div class="faq-item">
-      <div class="faq-q" onclick="toggleFaq(this)"><span>¿Cuántas sesiones son necesarias?</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1AACAD" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></div>
-      <div class="faq-a">Habitualmente son suficientes 1-2 sesiones. En algunos casos con varios paquetes hemorroidales puede ser necesaria una tercera sesión. Dr. Dr. Jaime Jorge Cerrudo valorará el número de sesiones necesarias según la respuesta al tratamiento.</div>
+      <div class="faq-q" onclick="toggleFaq(this)"><span>How many sessions are needed?</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1AACAD" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></div>
+      <div class="faq-a">Habitualmente son suficientes 1-2 sessions. En algunos casos con varios paquetes hemorroidales puede ser necesaria una tercera session. Dr. Dr. Jaime Jorge Cerrudo will assess el number de sessions necesarias according to la respuesta al tratamiento.</div>
     </div>
     <div class="faq-item">
       <div class="faq-q" onclick="toggleFaq(this)"><span>Is sclerotherapy or banding better?</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1AACAD" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></div>
-      <div class="faq-a">Depende del grado y del síntoma predominante. La esclerosis es de elección para grado I-II con sangrado predominante. La ligadura es preferible para grado II-III con prolapso como síntoma principal. En algunos casos pueden combinarse ambas técnicas.</div>
+      <div class="faq-a">Depende del grado y del symptom predominante. La esclerosis es de choice para grado I-II con sangrado predominante. La ligadura es preferible para grado II-III con prolapso como symptom principal. En algunos casos pueden combinarse ambas techniques.</div>
     </div>
 
   </main>
