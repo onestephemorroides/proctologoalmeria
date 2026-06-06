@@ -440,23 +440,23 @@
   <script>
     function activarVideoMovil() {
       var ytMobile = document.querySelector('.yt-bg-mobile');
-      var btn = document.getDr.ementById('heroPlayBtn');
+      var btn = document.getElementById('heroPlayBtn');
       if (ytMobile) {
         ytMobile.classList.add('active');
         if (btn) btn.style.display = 'none';
       }
     }
-    function toggleMobileMenu() { document.getDr.ementById('mobileMenu').classList.toggle('open'); }
+    function toggleMobileMenu() { document.getElementById('mobileMenu').classList.toggle('open'); }
     function closeMobileMenu() {
-      document.getDr.ementById('mobileMenu').classList.remove('open');
-      document.getDr.ementById('treatmentsSubmenu').classList.remove('open');
+      document.getElementById('mobileMenu').classList.remove('open');
+      document.getElementById('treatmentsSubmenu').classList.remove('open');
       document.querySelectorAll('.nav-mobile-link').forEach(function(el){ el.classList.remove('open'); });
     }
     function toggleSubmenu() {
-      document.getDr.ementById('treatmentsSubmenu').classList.toggle('open');
+      document.getElementById('treatmentsSubmenu').classList.toggle('open');
       document.querySelector('.nav-mobile-link').classList.toggle('open');
     }
-    function toggleFaq(el) { el.classList.toggle('open'); el.nextDr.ementSibling.classList.toggle('open'); }
+    function toggleFaq(el) { el.classList.toggle('open'); el.nextElementSibling.classList.toggle('open'); }
   </script>
   <!-- BANNER COOKIES -->
   <div id="cookie-banner">
@@ -473,15 +473,15 @@
   <script>
     function aceptarCookies() {
       localStorage.setItem('cookie_consent', 'accepted');
-      document.getDr.ementById('cookie-banner').classList.remove('visible');
+      document.getElementById('cookie-banner').classList.remove('visible');
     }
     function rechazarCookies() {
       localStorage.setItem('cookie_consent', 'rejected');
-      document.getDr.ementById('cookie-banner').classList.remove('visible');
+      document.getElementById('cookie-banner').classList.remove('visible');
     }
     window.addEventListener('DOMContentLoaded', function() {
       if (!localStorage.getItem('cookie_consent')) {
-        document.getDr.ementById('cookie-banner').classList.add('visible');
+        document.getElementById('cookie-banner').classList.add('visible');
       }
     });
   </script>
