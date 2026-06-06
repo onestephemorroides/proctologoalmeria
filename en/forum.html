@@ -251,7 +251,7 @@
 
 <!-- MENÚ MÓVIL -->
 <div class="nav-mobile-menu" id="mobileMenu">
-  <div class="nav-mobile-link" onclick="toggleSubmenu()">Servicios
+  <div class="nav-mobile-link" onclick="toggleSubmenu()">Treatments
     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#3D4E57" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
   </div>
   <div class="nav-submenu" id="treatmentsSubmenu">
@@ -490,7 +490,7 @@
       <p class="form-privacidad">Your data will be processed in accordance with our <a href="../privacidad.html">Privacy Policy</a> and will not be passed to third parties. Questions published in the forum will be fully anonymised.</p>
       <button type="submit" class="form-submit">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
-        Enviar pregunta
+        Send question
       </button>
       <div class="form-exito" id="foroFormMsg" role="alert">✅ Your question has been sent successfully. We will reply within 48–72 working hours. Thank you for trusting the ONEstep® clinic.</div>
     </form>
@@ -609,7 +609,7 @@
         else { throw new Error(); }
       } catch(err) {
         msg.style.display='block'; msg.style.background='#FFF8F0'; msg.style.color='#D97706'; msg.style.border='1.5px solid #FDE68A';
-        msg.innerHTML='⚠️ Error al enviar. Por favor llame al <strong>950 264 245</strong>.';
+        msg.innerHTML='⚠️ Error sending. Please call <strong>950 264 245</strong>.';
         btn.disabled=false; btn.innerHTML='Send question';
       }
     });
