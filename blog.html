@@ -360,9 +360,9 @@
   .blog-hero-doctor-bg {
     position: absolute; inset: 0; z-index: 1;
     background: url('foto-doctor.png') 5% center/28% auto no-repeat;
-    opacity: 0.35;
-    -webkit-mask-image: linear-gradient(to right, black 10%, transparent 45%);
-    mask-image: linear-gradient(to right, black 10%, transparent 45%);
+    opacity: 0.65;
+    -webkit-mask-image: linear-gradient(to right, black 30%, rgba(0,0,0,0.5) 55%, transparent 75%);
+    mask-image: linear-gradient(to right, black 30%, rgba(0,0,0,0.5) 55%, transparent 75%);
   }
   .blog-hero-patient-bg {
     position: absolute; inset: 0; z-index: 1;
@@ -373,7 +373,7 @@
   }
   .blog-hero-overlay {
     position: absolute; inset: 0; z-index: 2;
-    background: linear-gradient(135deg, rgba(61,78,87,0.75) 0%, rgba(26,172,173,0.25) 100%);
+    background: linear-gradient(135deg, rgba(61,78,87,0.55) 0%, rgba(26,172,173,0.15) 100%);
   }
   .blog-hero-inner {
     position: relative; z-index: 3;
@@ -398,7 +398,7 @@
     text-shadow: 0 1px 4px rgba(0,0,0,.3);
   }
   @media (max-width: 768px) {
-    .blog-hero-doctor-bg { opacity: 0.2; }
+    .blog-hero-doctor-bg { opacity: 0.65; }
     .blog-hero-patient-bg { opacity: 0.15; }
   }
   .blog-section { padding: 64px 5%; background: var(--bg); }
