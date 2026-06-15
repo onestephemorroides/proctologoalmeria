@@ -20,13 +20,16 @@ def extraer_contenido_articulo(url):
 
     # Buscar imagen principal del articulo
     imagen_url = ""
-    img = soup.find("img", src=lambda s: s and "img/" in s)
-    if img:
+    # Buscar cualquier img que no sea la foto del doctor
+    for img in soup.find_all("img"):
         src = img.get("src", "")
+        if not src or "foto-doctor" in src or "logo" in src.lower():
+            continue
         if src.startswith("http"):
             imagen_url = src
         else:
             imagen_url = f"{BASE_URL}/{src.lstrip('/')}"
+        break
     print(f"Imagen encontrada: {imagen_url}" if imagen_url else "Sin imagen detectada")
 
     parrafos = soup.find_all("p")
