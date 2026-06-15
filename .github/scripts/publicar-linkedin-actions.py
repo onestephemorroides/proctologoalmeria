@@ -1,13 +1,7 @@
 #!/usr/bin/env python3
-"""
-Script para GitHub Actions: lee el último artículo añadido,
-genera un post con Claude y lo publica en LinkedIn.
-"""
-
 import requests
 import os
 import sys
-import json
 from bs4 import BeautifulSoup
 
 LINKEDIN_TOKEN     = os.environ["LINKEDIN_TOKEN"]
@@ -15,36 +9,36 @@ LINKEDIN_MEMBER_ID = "1562040614"
 ANTHROPIC_API_KEY  = os.environ["ANTHROPIC_API_KEY"]
 
 def extraer_contenido_articulo(url):
-    print(f"📖 Leyendo artículo: {url}")
+    print(f"Leyendo articulo: {url}")
     headers = {"User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36"}
     r = requests.get(url, timeout=15, headers=headers)
     r.raise_for_status()
     soup = BeautifulSoup(r.text, "html.parser")
     titulo = soup.find("h1")
-    titulo = titulo.get_text(strip=True) if titulo else "Artículo del blog"
+    titulo = titulo.get_text(strip=True) if titulo else "Articulo del blog"
     parrafos = soup.find_all("p")
     texto = " ".join(p.get_text(strip=True) for p in parrafos if len(p.get_text(strip=True)) > 60)[:3000]
-    print(f"✅ Artículo leído: {titulo}")
+    print(f"Articulo leido: {titulo}")
     return titulo, texto
 
 def generar_post_linkedin(titulo, texto, url):
-    print("🤖 Generando post con Claude...")
-    prompt = f"""Eres el Dr. Jaime Jorge Cerrudo, proctólogo y cirujano colorrectal en Almería con más de 13 años de experiencia. Tu clínica ONEstep® permite diagnóstico y tratamiento en una sola visita, sin anestesia general ni hospitalización.
+    print("Generando post con Claude...")
+    prompt = f"""Eres el Dr. Jaime Jorge Cerrudo, proctologo y cirujano colorrectal en Almeria con mas de 13 anos de experiencia. Tu clinica ONEstep permite diagnostico y tratamiento en una sola visita, sin anestesia general ni hospitalizacion.
 
-Escribe un post para LinkedIn basado en este artículo de tu blog. El post debe:
+Escribe un post para LinkedIn basado en este articulo de tu blog. El post debe:
 - Tener entre 150-250 palabras
-- Empezar con una frase que enganche (pregunta, dato sorprendente o afirmación directa)
-- Transmitir autoridad médica pero con lenguaje accesible
-- Mencionar ONEstep® de forma natural, no forzada
-- Terminar con una llamada a la acción sutil indicando el enlace al artículo
-- Incluir 3-5 hashtags relevantes al final
-- NO usar asteriscos ni markdown, solo texto plano con saltos de línea
+- Empezar con una frase que enganche
+- Transmitir autoridad medica pero con lenguaje accesible
+- Mencionar ONEstep de forma natural
+- Terminar con el enlace al articulo
+- Incluir 3-5 hashtags al final
+- Solo texto plano con saltos de linea, sin asteriscos ni markdown
 
-Título del artículo: {titulo}
-Contenido del artículo: {texto[:2000]}
-URL del artículo: {url}
+Titulo: {titulo}
+Contenido: {texto[:2000]}
+URL: {url}
 
-Escribe solo el post, sin explicaciones ni comentarios adicionales."""
+Escribe solo el post, sin comentarios adicionales."""
 
     r = requests.post(
         "https://api.anthropic.com/v1/messages",
@@ -62,11 +56,13 @@ Escribe solo el post, sin explicaciones ni comentarios adicionales."""
     )
     r.raise_for_status()
     post = r.json()["content"][0]["text"].strip()
-    print("✅ Post generado")
+    print("Post generado")
     return post
 
 def publicar_en_linkedin(post_texto):
-    print("📤 Publicando en LinkedIn...")
+    print("Publicando en LinkedIn...")
+
+    # Endpoint correcto con version de API
     payload = {
         "author": f"urn:li:person:{LINKEDIN_MEMBER_ID}",
         "lifecycleState": "PUBLISHED",
@@ -80,35 +76,38 @@ def publicar_en_linkedin(post_texto):
             "com.linkedin.ugc.MemberNetworkVisibility": "PUBLIC"
         }
     }
+
     r = requests.post(
         "https://api.linkedin.com/v2/ugcPosts",
         headers={
             "Authorization": f"Bearer {LINKEDIN_TOKEN}",
             "Content-Type": "application/json",
-            "X-Restli-Protocol-Version": "2.0.0"
+            "X-Restli-Protocol-Version": "2.0.0",
+            "LinkedIn-Version": "202401"
         },
         json=payload,
         timeout=15
     )
+
     if r.status_code == 201:
-        print("✅ ¡Post publicado en LinkedIn con éxito!")
+        print("Post publicado en LinkedIn con exito!")
+        return True
     else:
-        print(f"❌ Error al publicar: {r.status_code} - {r.text}")
+        print(f"Error al publicar: {r.status_code} - {r.text}")
         sys.exit(1)
 
 def main():
     if len(sys.argv) < 2:
-        print("❌ Falta la URL del artículo")
-        print("Uso: python3 publicar-linkedin-actions.py https://www.proctologoalmeria.com/articulo.html")
+        print("Falta la URL del articulo")
         sys.exit(1)
 
     url = sys.argv[1]
     titulo, texto = extraer_contenido_articulo(url)
     post = generar_post_linkedin(titulo, texto, url)
 
-    print("\n--- POST QUE SE PUBLICARÁ ---")
+    print("\n--- POST QUE SE PUBLICARA ---")
     print(post)
-    print("----------------------------\n")
+    print("-----------------------------\n")
 
     publicar_en_linkedin(post)
 
