@@ -7,20 +7,24 @@ from bs4 import BeautifulSoup
 ANTHROPIC_API_KEY = os.environ["ANTHROPIC_API_KEY"]
 MAKE_WEBHOOK_URL  = "https://hook.eu1.make.com/5zum9uznus0g9wmdivcrfrzyd18jggl6"
 BASE_URL          = "https://www.proctologoalmeria.com"
+GITHUB_RAW        = "https://raw.githubusercontent.com/onestephemorroides/proctologoalmeria/main"
 
 def extraer_contenido_articulo(url):
     print(f"Leyendo articulo: {url}")
-    headers = {"User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36"}
-    r = requests.get(url, timeout=15, headers=headers)
+    # Extraer el nombre del archivo de la URL
+    filename = url.split("/")[-1]
+    
+    # Leer desde GitHub raw (no tiene restricciones de acceso)
+    raw_url = f"{GITHUB_RAW}/{filename}"
+    r = requests.get(raw_url, timeout=15)
     r.raise_for_status()
     soup = BeautifulSoup(r.text, "html.parser")
 
     titulo = soup.find("h1")
     titulo = titulo.get_text(strip=True) if titulo else "Articulo del blog"
 
-    # Buscar imagen principal del articulo
+    # Buscar imagen principal (excluir foto del doctor y logos)
     imagen_url = ""
-    # Buscar cualquier img que no sea la foto del doctor
     for img in soup.find_all("img"):
         src = img.get("src", "")
         if not src or "foto-doctor" in src or "logo" in src.lower():
@@ -30,6 +34,7 @@ def extraer_contenido_articulo(url):
         else:
             imagen_url = f"{BASE_URL}/{src.lstrip('/')}"
         break
+
     print(f"Imagen encontrada: {imagen_url}" if imagen_url else "Sin imagen detectada")
 
     parrafos = soup.find_all("p")
@@ -76,7 +81,7 @@ Escribe solo el post, sin comentarios adicionales."""
     return post
 
 def enviar_a_make(post_texto, url_articulo, imagen_url):
-    print("Enviando a Make para publicar en LinkedIn...")
+    print(f"Enviando a Make — imagen: {imagen_url}")
     payload = {
         "post": post_texto,
         "url": url_articulo,
