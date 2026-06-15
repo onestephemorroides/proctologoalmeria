@@ -4,9 +4,8 @@ import os
 import sys
 from bs4 import BeautifulSoup
 
-LINKEDIN_TOKEN     = os.environ["LINKEDIN_TOKEN"]
-LINKEDIN_MEMBER_ID = "1562040614"
-ANTHROPIC_API_KEY  = os.environ["ANTHROPIC_API_KEY"]
+ANTHROPIC_API_KEY = os.environ["ANTHROPIC_API_KEY"]
+MAKE_WEBHOOK_URL  = "https://hook.eu1.make.com/5zum9uznus0g9wmdivcrfrzyd18jggl6"
 
 def extraer_contenido_articulo(url):
     print(f"Leyendo articulo: {url}")
@@ -59,41 +58,18 @@ Escribe solo el post, sin comentarios adicionales."""
     print("Post generado")
     return post
 
-def publicar_en_linkedin(post_texto):
-    print("Publicando en LinkedIn...")
-
-    # ugcPosts con urn:li:member (scope w_member_social)
-    payload = {
-        "author": f"urn:li:member:{LINKEDIN_MEMBER_ID}",
-        "lifecycleState": "PUBLISHED",
-        "specificContent": {
-            "com.linkedin.ugc.ShareContent": {
-                "shareCommentary": {"text": post_texto},
-                "shareMediaCategory": "NONE"
-            }
-        },
-        "visibility": {
-            "com.linkedin.ugc.MemberNetworkVisibility": "PUBLIC"
-        }
-    }
-
+def enviar_a_make(post_texto, url_articulo):
+    print("Enviando a Make para publicar en LinkedIn...")
     r = requests.post(
-        "https://api.linkedin.com/v2/ugcPosts",
-        headers={
-            "Authorization": f"Bearer {LINKEDIN_TOKEN}",
-            "Content-Type": "application/json",
-            "X-Restli-Protocol-Version": "2.0.0"
-        },
-        json=payload,
-        timeout=15
+        MAKE_WEBHOOK_URL,
+        json={"post": post_texto, "url": url_articulo},
+        timeout=30
     )
-
-    print(f"Status: {r.status_code}")
-    if r.status_code == 201:
-        print("Post publicado en LinkedIn con exito!")
-        return True
+    print(f"Status Make: {r.status_code}")
+    if r.status_code == 200:
+        print("Enviado correctamente a Make!")
     else:
-        print(f"Error al publicar: {r.status_code} - {r.text}")
+        print(f"Error Make: {r.text}")
         sys.exit(1)
 
 def main():
@@ -109,7 +85,7 @@ def main():
     print(post)
     print("-----------------------------\n")
 
-    publicar_en_linkedin(post)
+    enviar_a_make(post, url)
 
 if __name__ == "__main__":
     main()
