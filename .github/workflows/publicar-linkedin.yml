@@ -1,0 +1,41 @@
+name: Publicar en LinkedIn
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - '*.html'
+
+jobs:
+  publicar:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: Detectar articulo nuevo
+        id: detectar
+        run: |
+          ARCHIVO=$(git diff --name-only HEAD~1 HEAD | grep -E '^[a-z].*\.html$' | grep -vE '^(blog|index|404|privacidad|cookies|aviso-legal|contacto|sobre-mi|hemorroides|fisura-anal|sinus-pilonidal|condilomas-anales|polipos-anales|hidradenitis-perianal|ligadura-hemorroidal|esclerosis-hemorroidal|toxina-botulinica|segunda-opinion|cirugia-menor|colgajos-anales|sangrado-rectal)\.html$' | head -1)
+          if [ -z "$ARCHIVO" ]; then
+            echo "publicar=false" >> $GITHUB_OUTPUT
+          else
+            echo "url=https://www.proctologoalmeria.com/${ARCHIVO}" >> $GITHUB_OUTPUT
+            echo "publicar=true" >> $GITHUB_OUTPUT
+            echo "Articulo detectado: $ARCHIVO"
+          fi
+
+      - name: Instalar dependencias
+        if: steps.detectar.outputs.publicar == 'true'
+        run: pip install requests beautifulsoup4
+
+      - name: Publicar en LinkedIn
+        if: steps.detectar.outputs.publicar == 'true'
+        env:
+          LINKEDIN_TOKEN: ${{ secrets.LINKEDIN_TOKEN }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          python3 .github/scripts/publicar-linkedin-actions.py "${{ steps.detectar.outputs.url }}"
