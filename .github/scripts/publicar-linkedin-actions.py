@@ -6,6 +6,7 @@ from bs4 import BeautifulSoup
 
 ANTHROPIC_API_KEY = os.environ["ANTHROPIC_API_KEY"]
 MAKE_WEBHOOK_URL  = "https://hook.eu1.make.com/5zum9uznus0g9wmdivcrfrzyd18jggl6"
+BASE_URL          = "https://www.proctologoalmeria.com"
 
 def extraer_contenido_articulo(url):
     print(f"Leyendo articulo: {url}")
@@ -13,12 +14,25 @@ def extraer_contenido_articulo(url):
     r = requests.get(url, timeout=15, headers=headers)
     r.raise_for_status()
     soup = BeautifulSoup(r.text, "html.parser")
+
     titulo = soup.find("h1")
     titulo = titulo.get_text(strip=True) if titulo else "Articulo del blog"
+
+    # Buscar imagen principal del articulo
+    imagen_url = ""
+    img = soup.find("img", src=lambda s: s and "img/" in s)
+    if img:
+        src = img.get("src", "")
+        if src.startswith("http"):
+            imagen_url = src
+        else:
+            imagen_url = f"{BASE_URL}/{src.lstrip('/')}"
+    print(f"Imagen encontrada: {imagen_url}" if imagen_url else "Sin imagen detectada")
+
     parrafos = soup.find_all("p")
     texto = " ".join(p.get_text(strip=True) for p in parrafos if len(p.get_text(strip=True)) > 60)[:3000]
     print(f"Articulo leido: {titulo}")
-    return titulo, texto
+    return titulo, texto, imagen_url
 
 def generar_post_linkedin(titulo, texto, url):
     print("Generando post con Claude...")
@@ -58,13 +72,14 @@ Escribe solo el post, sin comentarios adicionales."""
     print("Post generado")
     return post
 
-def enviar_a_make(post_texto, url_articulo):
+def enviar_a_make(post_texto, url_articulo, imagen_url):
     print("Enviando a Make para publicar en LinkedIn...")
-    r = requests.post(
-        MAKE_WEBHOOK_URL,
-        json={"post": post_texto, "url": url_articulo},
-        timeout=30
-    )
+    payload = {
+        "post": post_texto,
+        "url": url_articulo,
+        "imagen_url": imagen_url
+    }
+    r = requests.post(MAKE_WEBHOOK_URL, json=payload, timeout=30)
     print(f"Status Make: {r.status_code}")
     if r.status_code == 200:
         print("Enviado correctamente a Make!")
@@ -78,14 +93,14 @@ def main():
         sys.exit(1)
 
     url = sys.argv[1]
-    titulo, texto = extraer_contenido_articulo(url)
+    titulo, texto, imagen_url = extraer_contenido_articulo(url)
     post = generar_post_linkedin(titulo, texto, url)
 
     print("\n--- POST QUE SE PUBLICARA ---")
     print(post)
     print("-----------------------------\n")
 
-    enviar_a_make(post, url)
+    enviar_a_make(post, url, imagen_url)
 
 if __name__ == "__main__":
     main()
