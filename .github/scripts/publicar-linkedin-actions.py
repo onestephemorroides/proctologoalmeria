@@ -64,7 +64,7 @@ def publicar_en_linkedin(post_texto):
 
     # Endpoint correcto con version de API
     payload = {
-        "author": f"urn:li:person:{LINKEDIN_MEMBER_ID}",
+        "author": f"urn:li:member:{LINKEDIN_MEMBER_ID}",
         "lifecycleState": "PUBLISHED",
         "specificContent": {
             "com.linkedin.ugc.ShareContent": {
