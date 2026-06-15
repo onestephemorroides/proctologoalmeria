@@ -62,34 +62,34 @@ Escribe solo el post, sin comentarios adicionales."""
 def publicar_en_linkedin(post_texto):
     print("Publicando en LinkedIn...")
 
-    # Endpoint correcto con version de API
+    # Endpoint REST nuevo de LinkedIn (v202401)
     payload = {
-        "author": f"urn:li:member:{LINKEDIN_MEMBER_ID}",
-        "lifecycleState": "PUBLISHED",
-        "specificContent": {
-            "com.linkedin.ugc.ShareContent": {
-                "shareCommentary": {"text": post_texto},
-                "shareMediaCategory": "NONE"
-            }
+        "author": f"urn:li:person:{LINKEDIN_MEMBER_ID}",
+        "commentary": post_texto,
+        "visibility": "PUBLIC",
+        "distribution": {
+            "feedDistribution": "MAIN_FEED",
+            "targetEntities": [],
+            "thirdPartyDistributionChannels": []
         },
-        "visibility": {
-            "com.linkedin.ugc.MemberNetworkVisibility": "PUBLIC"
-        }
+        "lifecycleState": "PUBLISHED",
+        "isReshareDisabledByAuthor": False
     }
 
     r = requests.post(
-        "https://api.linkedin.com/v2/ugcPosts",
+        "https://api.linkedin.com/rest/posts",
         headers={
             "Authorization": f"Bearer {LINKEDIN_TOKEN}",
             "Content-Type": "application/json",
-            "X-Restli-Protocol-Version": "2.0.0",
-            "LinkedIn-Version": "202401"
+            "LinkedIn-Version": "202401",
+            "X-Restli-Protocol-Version": "2.0.0"
         },
         json=payload,
         timeout=15
     )
 
-    if r.status_code == 201:
+    print(f"Status: {r.status_code}")
+    if r.status_code in [200, 201]:
         print("Post publicado en LinkedIn con exito!")
         return True
     else:
