@@ -1,0 +1,87 @@
+#!/usr/bin/env python3
+"""Rehace unicamente el segmento D (foto doctor) con la URL en un teal
+mas vivo, y vuelve a encadenar con los segmentos A, B y C ya generados en v7."""
+import os, subprocess, sys, math
+from PIL import ImageFont
+
+BASE = "/opt/proctologoalmeria"
+OUT  = f"{BASE}/Videos/condilomas-reel"
+TXT  = f"{OUT}/txt8"
+FONT = "/usr/share/fonts/opentype/montserrat/Montserrat-SemiBold.otf"
+FS, LH = 60, 80
+URL_COLOR = "0x4DCCE6"          # mismo tono del logo, mas saturado / vivo
+os.makedirs(TXT, exist_ok=True)
+
+
+def W(t, fs):  return ImageFont.truetype(FONT, fs).getlength(t)
+def xc(t, fs): return int((1080 - W(t, fs)) / 2)
+
+
+def wr(name, content):
+    p = f"{TXT}/{name}.txt"
+    with open(p, "w", encoding="utf-8") as f:
+        f.write(content)
+    return p
+
+
+def dt(path, x, y, ini, fin, fs):
+    return (f"drawtext=fontfile={FONT}:textfile={path}:fontsize={fs}:fontcolor=white:"
+            f"borderw=3:bordercolor=black@0.55:shadowcolor=black@0.45:shadowx=3:shadowy=3:"
+            f"x={x}:y={y}:enable='between(t,{ini},{fin})'")
+
+
+def dt_url(path, x, y, ini, fin, fs):
+    return (f"drawtext=fontfile={FONT}:textfile={path}:fontsize={fs}:fontcolor={URL_COLOR}:"
+            f"shadowcolor=gray@0.6:shadowx=2:shadowy=2:"
+            f"x={x}:y={y}:enable='between(t,{ini},{fin})'")
+
+
+def typew(key, lines, ini, fin, y, fs=FS, lh=LH, reveal=1.5, step=2):
+    xs = [xc(l, fs) for l in lines]
+    total = sum(len(l) for l in lines)
+    n = math.ceil(total / step)
+    d = reveal / n
+    out = []
+    for i in range(1, n + 1):
+        rest = i * step
+        a = ini + (i - 1) * d
+        b = ini + i * d if i < n else fin
+        for j, l in enumerate(lines):
+            vis = l[: max(0, min(len(l), rest))]
+            rest -= len(l)
+            if vis:
+                out.append(dt(wr(f"{key}_{i:03d}_{j}", vis), xs[j],
+                              y + j * lh, round(a, 3), round(b, 3), fs))
+    return out
+
+
+T7 = ["Diagnóstico y tratamiento", "en la misma visita"]
+URL = "www.proctologoalmeria.com"
+
+
+def run(cmd, label):
+    print(f">>> {label}", flush=True)
+    r = subprocess.run(cmd, shell=True, capture_output=True, text=True)
+    if r.returncode != 0:
+        print("ERROR:", r.stderr[-1500:], flush=True)
+        sys.exit(1)
+    print(f"    OK {label}", flush=True)
+
+
+V = "-c:v libx264 -preset medium -crf 19 -pix_fmt yuv420p -r 30 -an -y"
+ZP = ("crop='min(iw,ih*9/16)':'min(ih,iw*16/9)',scale=2160:3840:flags=lanczos,"
+      "zoompan=z='min(zoom+0.00028,1.09)':d=135:x='iw/2-(iw/zoom/2)':"
+      "y='ih/2-(ih/zoom/2)':s=1080x1920:fps=30")
+
+fd = ([dt_url(wr("url_l0", URL), xc(URL, 46), 400, 0.3, 4.4, 46)]
+      + typew("t7", T7, 0.3, 4.4, y=1150))
+run(f'ffmpeg -i {BASE}/Fotos-base/foto-doctor-2.jpeg '
+    f'-vf "{ZP},{",".join(fd)}" {V} {OUT}/v8_segD.mp4', "SEG D (URL mas viva)")
+
+run(f'ffmpeg -i {OUT}/v7_segA.mp4 -i {OUT}/v7_segB.mp4 -i {OUT}/v7_segC.mp4 -i {OUT}/v8_segD.mp4 '
+    f'-filter_complex "[0:v][1:v]xfade=transition=fade:duration=0.6:offset=7.4[ab];'
+    f'[ab][2:v]xfade=transition=fade:duration=0.6:offset=13.8[abc];'
+    f'[abc][3:v]xfade=transition=fade:duration=0.6:offset=17.7[v]" '
+    f'-map "[v]" {V} {OUT}/reel-condilomas-v8.mp4', "XFADE")
+
+print("\nLISTO", flush=True)
