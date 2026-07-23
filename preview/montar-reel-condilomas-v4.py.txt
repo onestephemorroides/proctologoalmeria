@@ -1,0 +1,110 @@
+#!/usr/bin/env python3
+import os, subprocess, sys, math
+from PIL import ImageFont
+
+BASE = "/opt/proctologoalmeria"
+OUT  = f"{BASE}/Videos/condilomas-reel"
+TXT  = f"{OUT}/txt4"
+FONT = "/usr/share/fonts/opentype/montserrat/Montserrat-SemiBold.otf"
+COLOR = "0x4EA7B7"
+FS, LH, Y_TOP = 60, 80, 520
+os.makedirs(TXT, exist_ok=True)
+
+
+def W(text, fs):
+    return ImageFont.truetype(FONT, fs).getlength(text)
+
+
+def xc(text, fs):
+    return int((1080 - W(text, fs)) / 2)
+
+
+def wr(name, content):
+    p = f"{TXT}/{name}.txt"
+    with open(p, "w", encoding="utf-8") as f:
+        f.write(content)
+    return p
+
+
+def dt(path, x, y, ini, fin, fs):
+    return (f"drawtext=fontfile={FONT}:textfile={path}:fontsize={fs}:fontcolor={COLOR}:"
+            f"borderw=5:bordercolor=black@0.9:shadowcolor=black@0.55:shadowx=2:shadowy=2:"
+            f"x={x}:y={y}:enable='between(t,{ini},{fin})'")
+
+
+def plain(key, lines, ini, fin, y=Y_TOP, fs=FS):
+    """Una drawtext POR LINEA: los ficheros no contienen saltos de linea,
+    por eso ya no aparece el glifo cuadrado al final del primer renglon."""
+    return [dt(wr(f"{key}_l{i}", l), xc(l, fs), y + i * LH, ini, fin, fs)
+            for i, l in enumerate(lines)]
+
+
+def typew(key, lines, ini, fin, y=Y_TOP, fs=FS, reveal=1.5, step=2):
+    xs = [xc(l, fs) for l in lines]
+    total = sum(len(l) for l in lines)
+    n = math.ceil(total / step)
+    d = reveal / n
+    out = []
+    for i in range(1, n + 1):
+        rest = i * step
+        a = ini + (i - 1) * d
+        b = ini + i * d if i < n else fin
+        for j, l in enumerate(lines):
+            vis = l[: max(0, min(len(l), rest))]
+            rest -= len(l)
+            if vis:
+                out.append(dt(wr(f"{key}_{i:03d}_{j}", vis), xs[j],
+                              y + j * LH, round(a, 3), round(b, 3), fs))
+    return out
+
+
+T1 = ["¿Bultitos nuevos", "en la zona anal?"]
+T2 = ["Podrían ser condilomas", "no los dejes crecer"]
+T3 = ["No duelen, pero crecen", "y se multiplican"]
+T4 = ["Y los de dentro", "pasan desapercibidos"]
+T5 = ["Se diagnostican", "mediante anoscopia"]
+T6 = ["Electrofulguración:", "se retiran en el acto"]
+T7 = ["Diagnóstico y tratamiento", "en la misma visita"]
+URL = ["www.proctologoalmeria.com"]
+
+
+def run(cmd, label):
+    print(f">>> {label}", flush=True)
+    r = subprocess.run(cmd, shell=True, capture_output=True, text=True)
+    if r.returncode != 0:
+        print("ERROR:", r.stderr[-1500:], flush=True)
+        sys.exit(1)
+    print(f"    OK {label}", flush=True)
+
+
+V = "-c:v libx264 -preset medium -crf 19 -pix_fmt yuv420p -r 30 -an -y"
+
+fa = typew("t1", T1, 0.2, 3.0) + plain("t2", T2, 3.2, 5.5) + typew("t3", T3, 5.7, 7.9)
+run(f'ffmpeg -ss 0 -t 3.5 -i {BASE}/Videos/veo-condilomas-externo.mp4 '
+    f'-vf "setpts=2.285714*PTS,scale=1080:1920:flags=lanczos,{",".join(fa)}" '
+    f'{V} {OUT}/v4_segA.mp4', "SEG A")
+
+fb = plain("t4", T4, 0.2, 3.3) + typew("t5", T5, 3.5, 6.9)
+run(f'ffmpeg -ss 2 -t 5 -i {BASE}/Videos/veo-condilomas-interno-v3.mp4 '
+    f'-vf "setpts=1.4*PTS,scale=1080:1920:flags=lanczos,{",".join(fb)}" '
+    f'{V} {OUT}/v4_segB.mp4', "SEG B")
+
+ZP = ("crop='min(iw,ih*9/16)':'min(ih,iw*16/9)',scale=2160:3840:flags=lanczos,"
+      "zoompan=z='min(zoom+0.00028,1.09)':d=135:x='iw/2-(iw/zoom/2)':"
+      "y='ih/2-(ih/zoom/2)':s=1080x1920:fps=30")
+
+fc = plain("t6", T6, 0.3, 4.4, y=890)
+run(f'ffmpeg -i {BASE}/Fotos-base/foto-electrofulguracion.jpg '
+    f'-vf "{ZP},{",".join(fc)}" {V} {OUT}/v4_segC.mp4', "SEG C")
+
+fd = plain("url", URL, 0.3, 4.4, y=480, fs=46) + typew("t7", T7, 0.3, 4.4, y=1150)
+run(f'ffmpeg -i {BASE}/Fotos-base/foto-doctor-2.jpeg '
+    f'-vf "{ZP},{",".join(fd)}" {V} {OUT}/v4_segD.mp4', "SEG D")
+
+run(f'ffmpeg -i {OUT}/v4_segA.mp4 -i {OUT}/v4_segB.mp4 -i {OUT}/v4_segC.mp4 -i {OUT}/v4_segD.mp4 '
+    f'-filter_complex "[0:v][1:v]xfade=transition=fade:duration=0.6:offset=7.4[ab];'
+    f'[ab][2:v]xfade=transition=fade:duration=0.6:offset=13.8[abc];'
+    f'[abc][3:v]xfade=transition=fade:duration=0.6:offset=17.7[v]" '
+    f'-map "[v]" {V} {OUT}/reel-condilomas-v4.mp4', "XFADE")
+
+print("\nLISTO", flush=True)
