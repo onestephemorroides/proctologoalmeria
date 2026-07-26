@@ -1,0 +1,285 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+MUSICOTECA  ·  sistema de musica de fondo para proctologoalmeria
+================================================================
+
+Busca musica en archive.org que sea LEGALMENTE SEGURA para la clinica y
+la deja lista para montar en los reels.
+
+Por que hace falta filtrar
+--------------------------
+Las licencias de archive.org las declara quien sube el fichero y con
+frecuencia son erroneas: hay sesiones de DJ y programas de radio llenos
+de musica comercial etiquetados como "dominio publico". Usar eso seria
+una infraccion aunque la etiqueta diga lo contrario.
+
+Este sistema aplica tres filtros:
+
+  1. LICENCIA  Solo CC0, CC-BY y CC-BY-SA. Se descartan de raiz:
+               -NC (prohibe uso comercial: una clinica ES uso comercial)
+               -ND (prohibe obras derivadas: nosotros recortamos y mezclamos)
+
+  2. FORMATO   Se descartan sesiones de DJ, programas de radio, podcasts,
+               entrevistas y recopilatorios por titulo y por duracion.
+               Son la principal fuente de licencias mal declaradas.
+
+  3. DURACION  Entre 1 y 10 minutos. Un fichero de 2 horas es una sesion,
+               no una pista.
+
+Cada pista guardada registra autor, licencia y URL de origen, de modo que
+siempre existe un rastro documental de por que se podia usar.
+
+Uso
+---
+  musicoteca.py buscar soul tranquilo        Busca (no descarga)
+  musicoteca.py oir <id>                     Preview de 25s escuchable
+  musicoteca.py probar <id> <reel.mp4>       Monta la pista sobre un reel
+  musicoteca.py guardar <id>                 Añade a la libreria
+  musicoteca.py catalogo                     Libreria actual
+  musicoteca.py creditos                     Texto de atribucion requerido
+"""
+import json, os, re, subprocess, sys, urllib.parse, urllib.request
+
+BASE     = "/opt/proctologoalmeria"
+MUSICAS  = f"{BASE}/musicas"
+CATALOGO = f"{BASE}/musicoteca.json"
+TMP      = "/tmp/musicoteca"
+UA       = {"User-Agent": "Mozilla/5.0"}
+REPO     = "onestephemorroides/proctologoalmeria"
+TOKEN    = os.environ.get("GH_TOKEN", "")
+
+os.makedirs(TMP, exist_ok=True)
+os.makedirs(MUSICAS, exist_ok=True)
+
+# --- Licencias admisibles: uso comercial + permiten derivados -------------
+LICENCIAS_OK = (
+    'licenseurl:(*publicdomain* OR '
+    '"http://creativecommons.org/licenses/by/3.0/" OR '
+    '"http://creativecommons.org/licenses/by/4.0/" OR '
+    '"https://creativecommons.org/licenses/by/4.0/" OR '
+    '"http://creativecommons.org/licenses/by-sa/3.0/" OR '
+    '"http://creativecommons.org/licenses/by-sa/4.0/")'
+)
+
+# --- Palabras que delatan sesiones/programas, no pistas ------------------
+VETADAS = re.compile(
+    r"\b(mix|mixtape|set|session|sessions|show|radio|podcast|episode|"
+    r"interview|live\s*@|live at|vol\.?\s*\d|volume\s*\d|dj\b|"
+    r"entrevista|programa|capitulo|especial|megamix|mixed by)\b", re.I)
+
+
+def _get(url, timeout=30):
+    return urllib.request.urlopen(
+        urllib.request.Request(url, headers=UA), timeout=timeout)
+
+
+def etiqueta_licencia(u):
+    u = (u or "").lower()
+    if "publicdomain" in u or "zero" in u: return "CC0"
+    if "/by-sa/" in u: return "CC-BY-SA"
+    if "/by/"    in u: return "CC-BY"
+    return "?"
+
+
+def buscar(terminos, limite=25):
+    """Busca pistas candidatas aplicando los tres filtros."""
+    palabras = " ".join(terminos)
+    subjects = " OR ".join(f'subject:"{t}"' for t in terminos)
+    query = (f'({subjects} OR title:({palabras})) AND mediatype:audio '
+             f'AND {LICENCIAS_OK}')
+    p = {"q": query, "rows": limite * 4, "output": "json"}
+    url = ("https://archive.org/advancedsearch.php?" + urllib.parse.urlencode(p)
+           + "&fl[]=identifier&fl[]=title&fl[]=creator&fl[]=licenseurl")
+    docs = json.load(_get(url))["response"]["docs"]
+
+    out, vistos = [], set()
+    for d in docs:
+        t = str(d.get("title", ""))
+        ident = d.get("identifier")
+        if not ident or ident in vistos:
+            continue
+        if VETADAS.search(t):            # filtro 2: no sesiones ni programas
+            continue
+        vistos.add(ident)
+        out.append({
+            "id": ident,
+            "titulo": t[:70],
+            "autor": str(d.get("creator", "?"))[:40],
+            "licencia": etiqueta_licencia(d.get("licenseurl")),
+            "url": f"https://archive.org/details/{ident}",
+        })
+        if len(out) >= limite:
+            break
+    return out
+
+
+def pista_mp3(ident):
+    """Devuelve (url_mp3, duracion_seg) del mejor fichero del item."""
+    meta = json.load(_get(f"https://archive.org/metadata/{ident}"))
+    mejor = None
+    for f in meta.get("files", []):
+        if not f.get("name", "").lower().endswith((".mp3", ".ogg", ".flac")):
+            continue
+        try:
+            dur = float(f.get("length", 0) or 0)
+        except ValueError:                      # a veces viene "mm:ss"
+            partes = str(f.get("length", "0")).split(":")
+            dur = sum(float(x) * 60 ** i for i, x in enumerate(reversed(partes)))
+        if not (60 <= dur <= 600):              # filtro 3: 1-10 minutos
+            continue
+        if mejor is None or dur > mejor[1]:
+            mejor = (f["name"], dur)
+    if not mejor:
+        return None, 0
+    server = meta.get("server", "archive.org")
+    d = meta.get("dir", "")
+    return f"https://{server}{d}/{urllib.parse.quote(mejor[0])}", mejor[1]
+
+
+def descargar(ident):
+    url, dur = pista_mp3(ident)
+    if not url:
+        print("Sin pista valida (1-10 min) en este item."); return None, 0
+    dest = f"{TMP}/{ident}.mp3"
+    if not os.path.exists(dest):
+        print(f"descargando... ({dur/60:.1f} min)")
+        with _get(url, 120) as r, open(dest, "wb") as f:
+            f.write(r.read())
+    return dest, dur
+
+
+def _sh(cmd):
+    return subprocess.run(cmd, shell=True, capture_output=True, text=True)
+
+
+def _subir(local, nombre):
+    """Publica en /preview para poder escucharlo desde el movil."""
+    if not TOKEN:
+        print(f"(local: {local})"); return None
+    import base64
+    c = base64.b64encode(open(local, "rb").read()).decode()
+    path = f"preview/{nombre}"
+    sha = None
+    try:
+        r = urllib.request.Request(
+            f"https://api.github.com/repos/{REPO}/contents/{path}",
+            headers={"Authorization": f"token {TOKEN}"})
+        sha = json.load(urllib.request.urlopen(r))["sha"]
+    except Exception:
+        pass
+    payload = {"message": f"musicoteca {nombre}", "content": c}
+    if sha: payload["sha"] = sha
+    r = urllib.request.Request(
+        f"https://api.github.com/repos/{REPO}/contents/{path}",
+        data=json.dumps(payload).encode(),
+        headers={"Authorization": f"token {TOKEN}",
+                 "Content-Type": "application/json"}, method="PUT")
+    urllib.request.urlopen(r)
+    return f"https://www.proctologoalmeria.com/preview/{nombre}"
+
+
+def oir(ident):
+    """Preview de 25s desde el minuto 1 (evita intros lentas)."""
+    src, dur = descargar(ident)
+    if not src: return
+    ini = 60 if dur > 120 else 10
+    out = f"{TMP}/oir-{ident}.mp3"
+    _sh(f'ffmpeg -v error -ss {ini} -t 25 -i "{src}" '
+        f'-af "afade=t=in:st=0:d=1,afade=t=out:st=24:d=1" -b:a 128k -y "{out}"')
+    print(_subir(out, f"mus-{ident}.mp3") or out)
+
+
+def probar(ident, reel):
+    """Monta la pista sobre un reel real para juzgarla en contexto."""
+    src, dur = descargar(ident)
+    if not src: return
+    if not os.path.exists(reel):
+        print("No existe el reel:", reel); return
+    ini = 60 if dur > 120 else 10
+    out = f"{TMP}/probar-{ident}.mp4"
+    d = subprocess.run(
+        f'ffprobe -v error -show_entries format=duration -of default=nw=1:nk=1 "{reel}"',
+        shell=True, capture_output=True, text=True).stdout.strip()
+    largo = float(d or 22)
+    r = _sh(f'ffmpeg -v error -i "{reel}" -ss {ini} -i "{src}" '
+            f'-filter_complex "[1:a]afade=t=in:st=0:d=1,'
+            f'afade=t=out:st={largo-1.5:.1f}:d=1.5,volume=0.7[a]" '
+            f'-map 0:v -map "[a]" -t {largo} -c:v copy -c:a aac -b:a 192k -y "{out}"')
+    if r.returncode:
+        print("ERROR:", r.stderr[-400:]); return
+    print(_subir(out, f"probar-{ident}.mp4") or out)
+
+
+def _catalogo():
+    return json.load(open(CATALOGO)) if os.path.exists(CATALOGO) else []
+
+
+def guardar(ident):
+    src, dur = descargar(ident)
+    if not src: return
+    meta = json.load(_get(f"https://archive.org/metadata/{ident}")).get("metadata", {})
+    dest = f"{MUSICAS}/{ident}.mp3"
+    subprocess.run(["cp", src, dest], check=False)
+    cat = _catalogo()
+    if any(x["id"] == ident for x in cat):
+        print("Ya estaba en el catalogo."); return
+    cat.append({
+        "id": ident,
+        "fichero": dest,
+        "titulo": str(meta.get("title", ""))[:80],
+        "autor": str(meta.get("creator", "desconocido"))[:60],
+        "licencia": etiqueta_licencia(meta.get("licenseurl")),
+        "origen": f"https://archive.org/details/{ident}",
+        "duracion_seg": int(dur),
+    })
+    json.dump(cat, open(CATALOGO, "w"), ensure_ascii=False, indent=2)
+    print(f"Guardada: {dest}")
+
+
+def catalogo():
+    cat = _catalogo()
+    if not cat:
+        print("Catalogo vacio."); return
+    for x in cat:
+        print(f"  {x['id'][:34]:36s} {x['licencia']:9s} "
+              f"{x['duracion_seg']//60}:{x['duracion_seg']%60:02d}  {x['autor'][:24]}")
+
+
+def creditos():
+    """CC-BY y CC-BY-SA obligan a acreditar. Esto genera el texto."""
+    cat = _catalogo()
+    pend = [x for x in cat if x["licencia"] in ("CC-BY", "CC-BY-SA")]
+    if not pend:
+        print("Ninguna pista del catalogo requiere atribucion (todas CC0).")
+        return
+    print("Incluir este texto en la descripcion de los videos que usen "
+          "estas pistas:\n")
+    for x in pend:
+        print(f'  Musica: "{x["titulo"]}" de {x["autor"]} '
+              f'({x["licencia"]}) — {x["origen"]}')
+
+
+CMD = {"buscar": None, "oir": oir, "probar": probar,
+       "guardar": guardar, "catalogo": catalogo, "creditos": creditos}
+
+if __name__ == "__main__":
+    if len(sys.argv) < 2 or sys.argv[1] not in CMD:
+        print(__doc__); sys.exit(0)
+    c = sys.argv[1]
+    if c == "buscar":
+        res = buscar(sys.argv[2:] or ["soul"])
+        if not res:
+            print("Sin resultados usables."); sys.exit(0)
+        print(f"\n{len(res)} pistas con licencia apta para uso comercial:\n")
+        for r in res:
+            print(f"  [{r['licencia']:8s}] {r['titulo']}")
+            print(f"     autor: {r['autor']}")
+            print(f"     id:    {r['id']}\n")
+        print("Escuchar:  musicoteca.py oir <id>")
+    elif c == "probar":
+        probar(sys.argv[2], sys.argv[3])
+    elif c in ("oir", "guardar"):
+        CMD[c](sys.argv[2])
+    else:
+        CMD[c]()
