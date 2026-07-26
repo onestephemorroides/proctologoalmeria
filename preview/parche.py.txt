@@ -1,0 +1,56 @@
+#!/usr/bin/env python3
+"""Parche de musicoteca.py: la busqueda pasa a apoyarse en el catalogo
+Jamendo replicado en archive.org (294.000 pistas de musica real con
+licencia verificada por la propia plataforma), en lugar del fondo general
+de archive.org, donde las licencias declaradas por los usuarios son poco
+fiables (sesiones de DJ, sermones y temas comerciales mal etiquetados)."""
+
+p = "/opt/proctologoalmeria/musicoteca.py"
+c = open(p, encoding="utf-8").read()
+
+viejo = '''def buscar(terminos, limite=25):
+    """Busca pistas candidatas aplicando los tres filtros."""
+    palabras = " ".join(terminos)
+    subjects = " OR ".join(f'subject:"{t}"' for t in terminos)
+    query = (f'({subjects} OR title:({palabras})) AND mediatype:audio '
+             f'AND {LICENCIAS_OK}')'''
+
+nuevo = '''def buscar(terminos, limite=25, solo_jamendo=True):
+    """Busca pistas candidatas aplicando los filtros.
+
+    Por defecto restringe la busqueda al catalogo de Jamendo replicado en
+    archive.org: son ~294.000 pistas de musica real cuya licencia verifica
+    la propia plataforma. El fondo general de archive.org se descarta
+    porque cualquiera puede subir un fichero y declarar la licencia que
+    quiera, lo que llena los resultados de sesiones de DJ, programas de
+    radio y temas comerciales etiquetados por error como dominio publico.
+    """
+    palabras = " ".join(terminos)
+    subjects = " OR ".join(f'subject:"{t}"' for t in terminos)
+    fuente = "identifier:jamendo-* AND " if solo_jamendo else ""
+    query = (f'{fuente}({subjects} OR title:({palabras})) AND mediatype:audio '
+             f'AND {LICENCIAS_OK}')'''
+
+assert c.count(viejo) == 1, f"ancla buscar(): {c.count(viejo)}"
+c = c.replace(viejo, nuevo, 1)
+
+# permitir "buscar --todo ..." para ampliar al fondo general si hiciera falta
+viejo2 = '''    if c == "buscar":
+        res = buscar(sys.argv[2:] or ["soul"])'''
+nuevo2 = '''    if c == "buscar":
+        args = sys.argv[2:]
+        todo = "--todo" in args
+        if todo:
+            args.remove("--todo")
+            print("(busqueda ampliada al fondo general: licencias menos fiables)")
+        res = buscar(args or ["soul"], solo_jamendo=not todo)'''
+assert c.count(viejo2) == 1, "ancla main"
+c = c.replace(viejo2, nuevo2, 1)
+
+open(p, "w", encoding="utf-8").write(c)
+print("parche aplicado")
+
+import ast
+ast.parse(open(p, encoding="utf-8").read())
+print("sintaxis OK")
+print("jamendo en script:", c.count("jamendo-*"))
