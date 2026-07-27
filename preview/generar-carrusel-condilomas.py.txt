@@ -1,0 +1,252 @@
+#!/usr/bin/env python3
+"""
+Genera carrusel 6 slides (1080x1920) sobre condilomas anales.
+Guarda en Videos/carrusel-condilomas/slide-01.png ... slide-06.png
+"""
+
+import os
+from pathlib import Path
+from PIL import Image, ImageDraw, ImageFont
+
+# -- Config -------------------------------------------------------------
+BASE_DIR = Path(__file__).parent
+FOTOS    = BASE_DIR / "Fotos-base"
+OUT_DIR  = BASE_DIR / "Videos" / "carrusel-condilomas"
+OUT_DIR.mkdir(parents=True, exist_ok=True)
+
+W, H = 1080, 1920
+
+TEAL      = (26, 172, 173)
+TEAL_DK   = (15, 110, 111)
+NAVY      = (13, 27, 42)
+WHITE     = (255, 255, 255)
+DARK_GRAY = (61, 78, 87)
+MID_GRAY  = (110, 128, 138)
+LIGHT_BG  = (245, 245, 245)
+OFF_WHITE = (240, 245, 248)
+
+FONT_DIR = Path("/usr/share/fonts/opentype/montserrat")
+FONTS = {
+    "bold":  FONT_DIR / "Montserrat-Bold.otf",
+    "reg":   FONT_DIR / "Montserrat-Medium.otf",
+    "light": FONT_DIR / "Montserrat-Regular.otf" if (FONT_DIR / "Montserrat-Regular.otf").exists()
+             else FONT_DIR / "Montserrat-Medium.otf",
+}
+_cache = {}
+
+
+def fnt(size, weight="reg"):
+    key = (size, weight)
+    if key not in _cache:
+        _cache[key] = ImageFont.truetype(str(FONTS[weight]), size)
+    return _cache[key]
+
+
+def text_w(f, text):
+    return f.getlength(text)
+
+
+def wrap_lines(text, f, max_px):
+    words, lines, cur = text.split(), [], ""
+    for w in words:
+        test = (cur + " " + w).strip()
+        if text_w(f, test) <= max_px:
+            cur = test
+        else:
+            if cur: lines.append(cur)
+            cur = w
+    if cur: lines.append(cur)
+    return lines
+
+
+def draw_text(draw, text, y, f, color=WHITE, align="center", max_w=940, x0=80, line_h=None):
+    line_h = line_h or int(f.size * 128 / 1000)
+    for para in text.split("\n"):
+        for line in wrap_lines(para, f, max_w):
+            lw = text_w(f, line)
+            x = (W - lw) / 2 if align == "center" else x0
+            draw.text((x, y), line, font=f, fill=color)
+            y += line_h
+    return y
+
+
+def rule(draw, y, w=160, color=TEAL, thickness=4, cx=W // 2):
+    draw.rectangle([(cx - w / 2, y), (cx + w / 2, y + thickness)], fill=color)
+
+
+def logo(canvas, w=220, bottom=H - 80):
+    p = FOTOS / "logo-onestep.png"
+    if not p.exists():
+        return
+    logo_img = Image.open(p).convert("RGBA")
+    ratio = w / logo_img.width
+    logo_img = logo_img.resize((w, int(logo_img.height * ratio)))
+    canvas.paste(logo_img, (int((W - w) / 2), int(bottom - logo_img.height)), logo_img)
+
+
+def fill_canvas(path, anchor="center"):
+    """Rellena W x H recortando (cover) desde una imagen."""
+    img = Image.open(path).convert("RGB")
+    scale = max(W / img.width, H / img.height)
+    img = img.resize((int(img.width * scale), int(img.height * scale)), Image.LANCZOS)
+    if anchor == "top":
+        top = 0
+    else:
+        top = (img.height - H) // 2
+    left = (img.width - W) // 2
+    img = img.crop((left, top, left + W, top + H))
+    return img.convert("RGBA")
+
+
+def flat_overlay(img, alpha=0.55, color=(0, 0, 0)):
+    ov = Image.new("RGBA", img.size, (*color, int(255 * alpha)))
+    return Image.alpha_composite(img, ov)
+
+
+def bottom_gradient(img, opacity=0.88, start_pct=0.38):
+    grad = Image.new("L", (1, H), 0)
+    start = int(H * start_pct)
+    for y in range(H):
+        if y < start:
+            v = 0
+        else:
+            v = int(255 * opacity * (y - start) / (H - start))
+        grad.putpixel((0, y), v)
+    grad = grad.resize((W, H))
+    ov = Image.new("RGBA", img.size, (*NAVY, 0))
+    ov.putalpha(grad)
+    return Image.alpha_composite(img, ov)
+
+
+# -- Slides ---------------------------------------------------------------
+
+def slide_01():
+    """PORTADA"""
+    canvas = fill_canvas(FOTOS / "img-condilomas-anales-hero.png")
+    canvas = flat_overlay(canvas, 0.45)
+    d = ImageDraw.Draw(canvas)
+    y = draw_text(d, "ONEstep® · Proctología · Almería", 240, fnt(30, "light"), (180, 210, 210))
+    y += 40
+    y = draw_text(d, "Condilomas anales", y, fnt(84, "bold"), WHITE)
+    rule(d, y + 10, w=180)
+    y += 44
+    draw_text(d, "No los dejes crecer.", y, fnt(48, "light"), (200, 235, 235))
+    logo(canvas, w=220, bottom=H - 90)
+    return canvas
+
+
+def slide_02():
+    """QUE SON - frame del modelo 3D"""
+    canvas = fill_canvas(FOTOS / "frames" / "frame-condilomas-externo.png")
+    canvas = flat_overlay(canvas, 0.42, color=NAVY)
+    canvas = bottom_gradient(canvas, opacity=0.85, start_pct=0.48)
+    d = ImageDraw.Draw(canvas)
+    d.rectangle([(0, 0), (W, 200)], fill=(*NAVY, 255))
+    draw_text(d, "¿Qué son?", 66, fnt(64, "bold"), WHITE)
+    d.rectangle([(0, 200), (W, 208)], fill=(*TEAL, 255))
+    y = 1050
+    y = draw_text(d, "Verrugas causadas", y, fnt(56, "bold"), WHITE, max_w=920)
+    y += 4
+    y = draw_text(d, "por el VPH", y, fnt(56, "bold"), WHITE, max_w=920)
+    y += 12
+    draw_text(d, "Alrededor del ano y también\ndentro del canal anal",
+              y, fnt(42, "light"), (200, 235, 235), max_w=920)
+    return canvas
+
+
+def slide_03():
+    """POR QUE SE DETECTAN TARDE"""
+    canvas = fill_canvas(FOTOS / "frames" / "frame-condilomas-externo.png")
+    canvas = flat_overlay(canvas, 0.55, color=NAVY)
+    d = ImageDraw.Draw(canvas)
+    y = draw_text(d, "Se detectan tarde", 420, fnt(74, "bold"), WHITE)
+    rule(d, y + 10, w=160)
+    y += 48
+    draw_text(d, "Casi nunca duelen.", y, fnt(48, "bold"), (200, 235, 235))
+    y += 70
+    items = [
+        "Picor ocasional",
+        "Humedad",
+        "Sangrado leve con el roce",
+        "O ningún síntoma",
+    ]
+    for item in items:
+        d.ellipse([(300, y + 16), (320, y + 36)], fill=(*TEAL, 255))
+        d.text((345, y), item, font=fnt(42, "reg"), fill=WHITE)
+        y += 70
+    return canvas
+
+
+def slide_04():
+    """LO QUE NO SE VE - anoscopia"""
+    canvas = fill_canvas(FOTOS / "foto-clinica.jpg")
+    canvas = flat_overlay(canvas, 0.50)
+    d = ImageDraw.Draw(canvas)
+    y = draw_text(d, "Lo que no se ve", 360, fnt(78, "bold"), WHITE)
+    rule(d, y + 10, w=180)
+    y += 56
+    y = draw_text(d, "Las lesiones dentro del canal anal\npasan desapercibidas.",
+                  y, fnt(42, "reg"), WHITE, max_w=920)
+    y += 60
+    draw_text(d, "Se detectan con anoscopia:\nsencilla, en consulta, sin anestesia.",
+              y, fnt(40, "light"), (200, 235, 235), max_w=920)
+    logo(canvas, w=200, bottom=H - 90)
+    return canvas
+
+
+def slide_05():
+    """TRATAMIENTO - cremas vs electrofulguracion"""
+    canvas = fill_canvas(FOTOS / "foto-electrofulguracion.jpg")
+    canvas = flat_overlay(canvas, 0.50, color=NAVY)
+    d = ImageDraw.Draw(canvas)
+    d.rectangle([(0, 0), (W, 200)], fill=(*NAVY, 255))
+    draw_text(d, "El tratamiento", 66, fnt(64, "bold"), WHITE)
+    d.rectangle([(0, 200), (W, 208)], fill=(*TEAL, 255))
+    y = 980
+    y = draw_text(d, "Cremas", y, fnt(50, "bold"), (255, 210, 210), max_w=920)
+    y += 6
+    y = draw_text(d, "Semanas de aplicaciones,\nagresivas para la piel perianal",
+                  y, fnt(36, "light"), (230, 230, 230), max_w=920)
+    y += 60
+    y = draw_text(d, "Electrofulguración", y, fnt(50, "bold"), (200, 245, 245), max_w=920)
+    y += 6
+    draw_text(d, "Retirada directa en el acto,\nanestesia local, bien tolerada",
+              y, fnt(36, "light"), (230, 230, 230), max_w=920)
+    return canvas
+
+
+def slide_06():
+    """ONEstep - cierre"""
+    canvas = fill_canvas(FOTOS / "foto-doctor-2.jpeg", anchor="top")
+    canvas = bottom_gradient(canvas, opacity=0.90, start_pct=0.36)
+    d = ImageDraw.Draw(canvas)
+    y = 1010
+    y = draw_text(d, "Diagnóstico y tratamiento", y, fnt(60, "bold"), WHITE)
+    y = draw_text(d, "en la misma visita", y - 4, fnt(60, "bold"), WHITE)
+    rule(d, y + 10, w=180)
+    y += 44
+    draw_text(d, "Valoración · Anoscopia · Sin ingreso", y, fnt(38, "light"), (195, 235, 235), max_w=960)
+    return canvas
+
+
+SLIDES = [
+    (slide_01, "Portada"),
+    (slide_02, "Que son"),
+    (slide_03, "Se detectan tarde"),
+    (slide_04, "Lo que no se ve"),
+    (slide_05, "Tratamiento"),
+    (slide_06, "ONEstep cierre"),
+]
+
+
+def main():
+    for i, (fn, desc) in enumerate(SLIDES, 1):
+        canvas = fn().convert("RGB")
+        out = OUT_DIR / f"slide-{i:02d}.png"
+        canvas.save(out, "PNG")
+        print(f"  slide {i} ({desc}) -> {out}")
+    print("\nLISTO:", OUT_DIR)
+
+
+if __name__ == "__main__":
+    main()
