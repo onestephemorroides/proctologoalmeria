@@ -1,0 +1,128 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""Genera el articulo EN sobre condilomas/anoscopia a partir de la
+plantilla del articulo EN de pliegues."""
+import re
+
+TPL = "/tmp/tpl_en.html"
+OUT = "/tmp/condilomas-anoscopia-EN.html"
+
+URL_ES = "https://www.proctologoalmeria.com/condilomas-anales-anoscopia-lesiones-internas.html"
+URL_EN = "https://www.proctologoalmeria.com/en/anal-warts-anoscopy-internal-lesions.html"
+TITULO = "Anal warts: why anoscopy matters and what happens if you wait"
+DESC = ("Warts inside the anal canal are not visible on external examination and are a "
+        "frequent cause of recurrence. Anoscopy detects them in clinic. Treating them "
+        "early avoids major surgery.")
+
+c = open(TPL, encoding="utf-8").read()
+
+# ---------- HEAD ----------
+c = re.sub(r"<title>.*?</title>", f"<title>{TITULO} | Dr. Jaime Jorge Cerrudo</title>",
+           c, count=1, flags=re.S)
+c = re.sub(r'<meta name="description" content="[^"]*"',
+           f'<meta name="description" content="{DESC}"', c, count=1)
+c = re.sub(r'<meta name="keywords" content="[^"]*"',
+           '<meta name="keywords" content="anal warts, anal condyloma, HPV anal, anoscopy, '
+           'warts inside anus, electrofulguration warts, proctologist almeria"', c, count=1)
+
+c = c.replace("https://www.proctologoalmeria.com/en/anal-skin-tags-what-they-are.html", URL_EN)
+c = c.replace("https://www.proctologoalmeria.com/pliegues-del-ano-colgajos-anales.html", URL_ES)
+
+c = re.sub(r'<meta property="og:title" content="[^"]*"',
+           f'<meta property="og:title" content="{TITULO}"', c, count=1)
+c = re.sub(r'<meta property="og:description" content="[^"]*"',
+           f'<meta property="og:description" content="{DESC}"', c, count=1)
+
+c = re.sub(r'"headline":\s*"[^"]*"', f'"headline": "{TITULO}"', c, count=1)
+c = re.sub(r'"name":\s*"Anal skin tags[^"]*"', f'"name": "{TITULO}"', c, count=1)
+c = re.sub(r'"description":\s*"[^"]*"', f'"description": "{DESC}"', c, count=1)
+c = re.sub(r'"image":\s*"[^"]*"',
+           '"image": "https://www.proctologoalmeria.com/img-condilomas-anales-hero.png"',
+           c, count=1)
+c = re.sub(r'"datePublished":\s*"[^"]*"', '"datePublished": "2026-07-27"', c, count=1)
+c = re.sub(r'"dateModified":\s*"[^"]*"', '"dateModified": "2026-07-27"', c, count=1)
+c = re.sub(r'"about":\s*\{[^}]*\}',
+           '"about": { "@type": "MedicalCondition", "name": "Anal warts" }', c, count=1)
+c = re.sub(r'"position": 3, "name": "[^"]*"',
+           '"position": 3, "name": "Anal warts and anoscopy"', c, count=1)
+
+# ---------- HERO ----------
+c = re.sub(r'<span style="color:rgba\(255,255,255,\.7\)">[^<]*</span>',
+           '<span style="color:rgba(255,255,255,.7)">Anal warts</span>', c, count=1)
+c = c.replace('<span class="article-tag">Anal skin tags</span>',
+              '<span class="article-tag">Anal warts</span>', 1)
+c = c.replace('<span class="article-meta-info">6 min read · June 2026</span>',
+              '<span class="article-meta-info">5 min read · July 2026</span>', 1)
+c = re.sub(r"<h1>.*?</h1>", f"<h1>{TITULO}</h1>", c, count=1, flags=re.S)
+
+# ---------- CUERPO ----------
+CUERPO = '''<article class="article-body">
+
+<p>When someone comes in with anal warts, they have usually noticed one or more lesions on the skin around the anus. But the human papillomavirus does not distinguish between outside and inside: warts also appear <strong>inside the anal canal</strong>, where they cannot be seen on inspection or felt on examination.</p>
+
+<p>This is why an apparently successful treatment can be followed by a recurrence within weeks. It is not that the treatment failed: lesions were left untreated where nobody looked.</p>
+
+<h2>What anoscopy is and why it is always performed</h2>
+
+<p>Anoscopy is a simple examination that allows the inside of the anal canal to be seen. It is carried out in the clinic itself, takes very little time, <strong>requires no anaesthesia and no prior preparation</strong> — no diets, no enemas — and identifies lesions that external inspection does not detect.</p>
+
+<div class="article-callout">
+  <p>In perianal condylomatosis, anoscopy is not an optional test. Treating only what is visible externally, while leaving internal lesions undiagnosed, is one of the most frequent causes of recurrence.</p>
+</div>
+
+<h2>Why waiting is a bad idea: from a clinic procedure to surgery</h2>
+
+<p>Warts are not stable lesions. They grow and multiply over time, and that is where the real difference lies between coming in early or late.</p>
+
+<h3>Few, small lesions</h3>
+<p>These are resolved by electrofulguration <strong>in the clinic itself, under local anaesthesia</strong>, in a single session. You walk home the same day and return to your usual activity immediately.</p>
+
+<h3>Extensive or confluent lesions</h3>
+<p>When the affected area is large, the outpatient approach is no longer viable. It then requires <strong>an operating theatre, general or spinal anaesthesia</strong> and, frequently, <strong>several sessions</strong> spread over time so as not to compromise healing in such a delicate area. The postoperative period is considerably more uncomfortable and recovery takes longer.</p>
+
+<p>Put another way: what today is a twenty-minute procedure in clinic can, within a few months, become a surgical operation requiring admission. <strong>The difference is not determined by the severity of the disease, but by how much time is allowed to pass.</strong></p>
+
+<h2>How we do it in clinic</h2>
+
+<p>Assessment of the perianal area, anoscopy to rule out internal lesions and, where appropriate, treatment in the same visit. No waiting list and no hospital admission.</p>
+
+<p>Follow-up appointments are part of the treatment: HPV can remain latent in normal-looking tissue, so new lesions may appear later on. Detecting them early means they can be treated simply — exactly the same principle: do not let them grow.</p>
+
+  <div class="article-cta-box">
+    <h3>Do you have perianal lesions or a diagnosis of HPV?</h3>
+    <p>Assessment, anoscopy and treatment in the same visit at Clínica de San Pío, Almería. No waiting and no admission.</p>
+    <a href="tel:+34950264245">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .84h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.64a16 16 0 006.29 6.29l1.16-1.16a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+      Book an appointment — +34 950 264 245
+    </a>
+  </div>
+</article>'''
+
+ini = c.index('<article class="article-body">')
+fin = c.index('</article>', ini) + len('</article>')
+c = c[:ini] + CUERPO + c[fin:]
+
+# ---------- RELACIONADOS ----------
+gi = c.index('<div class="article-related-grid">')
+gf = c.index('</div>', c.rindex('related-card', gi, c.index('</section>', gi))) + len('</div>')
+REL = '''<div class="article-related-grid">
+    <a href="anal-warts.html" class="related-card">
+      <span>Service</span>
+      <h3>Anal warts and HPV treatment in Almería</h3>
+    </a>
+    <a href="anal-skin-tags-what-they-are.html" class="related-card">
+      <span>Blog</span>
+      <h3>Anal skin tags: what they are and when to remove them</h3>
+    </a>
+    <a href="anal-fissure-pain-treatment.html" class="related-card">
+      <span>Blog</span>
+      <h3>Anal fissure: why it hurts and how it is treated</h3>
+    </a>
+  </div>'''
+c = c[:gi] + REL + c[gf:]
+
+open(OUT, "w", encoding="utf-8").write(c)
+print("generado:", OUT, len(c), "bytes")
+print("skin tag restantes:", len(re.findall(r'skin[- ]tag', c, re.I)))
+print("URL_EN:", c.count(URL_EN), "| URL_ES:", c.count(URL_ES))
+print("anoscopy menciones:", c.lower().count("anoscopy"))
