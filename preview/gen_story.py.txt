@@ -1,0 +1,59 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""Story de condilomas: 5,5 s, 1080x1920, sin sticker.
+Remite al nuevo Reel. Fondo = clip original limpio (el reel ya lleva
+textos incrustados, por eso no se reutiliza un fragmento suyo)."""
+import subprocess, sys, os
+from PIL import ImageFont
+
+BASE = "/opt/proctologoalmeria"
+OUT  = f"{BASE}/Videos/condilomas-story"
+TXT  = f"{OUT}/txt"
+FONT = "/usr/share/fonts/opentype/montserrat/Montserrat-SemiBold.otf"
+os.makedirs(TXT, exist_ok=True)
+
+
+def xc(t, fs):
+    return int((1080 - ImageFont.truetype(FONT, fs).getlength(t)) / 2)
+
+
+def wr(name, content):
+    p = f"{TXT}/{name}.txt"
+    with open(p, "w", encoding="utf-8") as f:
+        f.write(content)
+    return p
+
+
+def dt(path, x, y, fs, color="white", ini=0.0, fin=5.5):
+    return (f"drawtext=fontfile={FONT}:textfile={path}:fontsize={fs}:fontcolor={color}:"
+            f"borderw=3:bordercolor=black@0.55:shadowcolor=black@0.45:shadowx=3:shadowy=3:"
+            f"x={x}:y={y}:enable='between(t,{ini},{fin})'")
+
+
+ETIQUETA = "NUEVO REEL"
+L1 = "Condilomas anales:"
+L2 = "no los dejes crecer"
+CTA = "Míralo en el perfil"
+
+filtros = [
+    # etiqueta superior, en teal del logo
+    dt(wr("et", ETIQUETA), xc(ETIQUETA, 44), 430, 44, color="0x4DCCE6"),
+    # mensaje principal
+    dt(wr("l1", L1), xc(L1, 66), 560, 66),
+    dt(wr("l2", L2), xc(L2, 66), 645, 66),
+    # llamada a la accion, aparece a los 2 s
+    dt(wr("cta", CTA), xc(CTA, 46), 1320, 46, ini=2.0),
+]
+
+# 5.5 s a partir de 3.5 s del clip externo (lesiones ya visibles), ralentizado x1.57
+vf = ("setpts=1.571429*PTS,scale=1080:1920:flags=lanczos," + ",".join(filtros))
+cmd = (f'ffmpeg -ss 0 -t 3.5 -i {BASE}/Videos/veo-condilomas-externo.mp4 '
+       f'-vf "{vf}" -c:v libx264 -preset medium -crf 19 -pix_fmt yuv420p '
+       f'-r 30 -an -y {OUT}/story-condilomas.mp4')
+
+print(">>> generando story", flush=True)
+r = subprocess.run(cmd, shell=True, capture_output=True, text=True)
+if r.returncode:
+    print("ERROR:", r.stderr[-1500:], flush=True)
+    sys.exit(1)
+print("OK ->", f"{OUT}/story-condilomas.mp4", flush=True)
