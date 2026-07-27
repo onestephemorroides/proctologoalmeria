@@ -1,0 +1,130 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""Genera el articulo ES sobre condilomas/anoscopia reutilizando la
+plantilla del articulo de pliegues (misma maquetacion, nav y footer)."""
+import re
+
+TPL = "/tmp/tpl.html"
+OUT = "/tmp/condilomas-anoscopia-ES.html"
+
+URL_ES = "https://www.proctologoalmeria.com/condilomas-anales-anoscopia-lesiones-internas.html"
+URL_EN = "https://www.proctologoalmeria.com/en/anal-warts-anoscopy-internal-lesions.html"
+TITULO = "Condilomas anales: por qué la anoscopia es clave y qué pasa si esperas"
+DESC = ("Los condilomas dentro del canal anal no se ven a simple vista y son causa "
+        "frecuente de recaída. La anoscopia permite detectarlos en consulta. "
+        "Tratarlos pronto evita cirugías mayores.")
+
+c = open(TPL, encoding="utf-8").read()
+
+# ---------- HEAD ----------
+c = c.replace(
+    "<title>Pliegues del ano (colgajos anales): qué son, por qué aparecen y cuándo quitarlos | Dr. Jaime Jorge Cerrudo</title>",
+    f"<title>{TITULO} | Dr. Jaime Jorge Cerrudo</title>", 1)
+
+DESC_VIEJA = ("Los pliegues del ano (colgajos anales) son restos de piel benignos "
+              "que pueden causar picor y dificultar la higiene.")
+c = c.replace(DESC_VIEJA, DESC)          # description, og:description y schema
+
+c = c.replace("https://www.proctologoalmeria.com/pliegues-del-ano-colgajos-anales.html", URL_ES)
+c = c.replace("https://www.proctologoalmeria.com/en/anal-skin-tags-what-they-are.html", URL_EN)
+
+c = c.replace(
+    '<meta property="og:title" content="Pliegues del ano (colgajos anales): qué son, por qué aparecen y cuándo quitarlos"/>',
+    f'<meta property="og:title" content="{TITULO}"/>', 1)
+
+# schema: headline / about / breadcrumb
+c = re.sub(r'"headline":\s*"[^"]*"', f'"headline": "{TITULO}"', c, count=1)
+c = c.replace('"about": { "@type": "MedicalCondition", "name": "Colgajos anales" }',
+              '"about": { "@type": "MedicalCondition", "name": "Condilomas anales" }', 1)
+c = c.replace('"position": 3, "name": "Pliegues del ano"',
+              '"position": 3, "name": "Condilomas y anoscopia"', 1)
+
+# ---------- HERO ----------
+c = c.replace('<span style="color:rgba(255,255,255,.7)">Pólipos anales</span>',
+              '<span style="color:rgba(255,255,255,.7)">Condilomas anales</span>', 1)
+c = c.replace('<span class="article-tag">Colgajos anales</span>',
+              '<span class="article-tag">Condilomas anales</span>', 1)
+c = c.replace('<span class="article-meta-info">6 min lectura · Junio 2026</span>',
+              '<span class="article-meta-info">5 min lectura · Julio 2026</span>', 1)
+c = c.replace('<h1>Pliegues del ano (colgajos anales): qué son, por qué aparecen y cuándo quitarlos</h1>',
+              f'<h1>{TITULO}</h1>', 1)
+
+# imagen ancha superior
+c = c.replace('<img src="img/polipo-anal-blog.png" alt="Ilustración médica pólipo anal - Dr. Jaime Jorge Cerrudo"',
+              '<img src="img-condilomas-anales-hero.png" alt="Condilomas anales: anoscopia y lesiones internas - Dr. Jaime Jorge Cerrudo"', 1)
+
+# ---------- CUERPO ----------
+CUERPO = '''<article class="article-body">
+
+<p>Cuando alguien consulta por condilomas anales, lo habitual es que haya notado una o varias lesiones en la piel de alrededor del ano. Pero el virus del papiloma humano no distingue entre fuera y dentro: los condilomas también aparecen <strong>dentro del canal anal</strong>, donde no se ven a simple vista ni se palpan.</p>
+
+<p>Esa es la razón por la que un tratamiento aparentemente exitoso puede seguirse de una recaída a las pocas semanas. No es que el tratamiento fallara: es que quedaron lesiones sin tratar donde nadie miró.</p>
+
+<h2>Qué es la anoscopia y por qué se hace siempre</h2>
+
+<p>La anoscopia es una exploración sencilla que permite ver el interior del canal anal. Se realiza en la propia consulta, dura poco, <strong>no requiere anestesia ni preparación previa</strong> —nada de dietas ni enemas— y permite identificar lesiones que la inspección externa no detecta.</p>
+
+<div class="article-callout">
+  <p>En condilomatosis perianal la anoscopia no es una prueba opcional. Tratar solo lo externo dejando lesiones internas sin diagnosticar es una de las causas más frecuentes de recidiva.</p>
+</div>
+
+<h2>Por qué no conviene esperar: de un procedimiento de consulta a una cirugía</h2>
+
+<p>Los condilomas no son lesiones estables. Crecen y se multiplican con el tiempo, y ahí está la diferencia real entre consultar pronto o tarde.</p>
+
+<h3>Lesiones escasas y pequeñas</h3>
+<p>Se resuelven mediante electrofulguración <strong>en la propia consulta, con anestesia local</strong>, en una sola sesión. Sales caminando el mismo día y te reincorporas a tu actividad de inmediato.</p>
+
+<h3>Lesiones extensas o confluentes</h3>
+<p>Cuando la afectación es amplia, el abordaje ambulatorio deja de ser viable. Pasa a requerir <strong>quirófano, anestesia general o raquídea</strong> y, con frecuencia, <strong>varias sesiones</strong> separadas en el tiempo para no comprometer la cicatrización de una zona tan delicada. El postoperatorio es considerablemente más molesto y la recuperación, más larga.</p>
+
+<p>Dicho de otro modo: lo que hoy es un procedimiento de veinte minutos en consulta puede convertirse en unos meses en una intervención quirúrgica con ingreso. <strong>La diferencia no la marca la gravedad de la enfermedad, sino el tiempo que se deja pasar.</strong></p>
+
+<h2>Cómo lo hacemos en consulta</h2>
+
+<p>Valoración de la zona perianal, anoscopia para descartar lesiones internas y, si procede, tratamiento en el mismo acto. Sin lista de espera y sin ingreso.</p>
+
+<p>Las revisiones posteriores forman parte del tratamiento: el VPH puede permanecer latente en tejido de aspecto normal, de modo que pueden aparecer lesiones nuevas más adelante. Detectarlas pronto permite tratarlas de forma sencilla, y es exactamente el mismo principio: no dejarlas crecer.</p>
+
+  <div class="article-cta-box">
+    <h3>¿Tienes lesiones perianales o te han diagnosticado VPH?</h3>
+    <p>Valoración, anoscopia y tratamiento en el mismo acto en la Clínica de San Pío, Almería. Sin esperas ni ingresos.</p>
+    <a href="tel:+34950264245">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .84h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.64a16 16 0 006.29 6.29l1.16-1.16a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+      Pedir cita — 950 264 245
+    </a>
+  </div>
+</article>'''
+
+ini = c.index('<article class="article-body">')
+fin = c.index('</article>', ini) + len('</article>')
+c = c[:ini] + CUERPO + c[fin:]
+
+# ---------- RELACIONADOS ----------
+rel_viejo_ini = c.index('<div class="article-related-grid">')
+rel_viejo_fin = c.index('</div>', c.index('sintomas-hemorroides.html')) + len('</div>')
+REL = '''<div class="article-related-grid">
+    <a href="condilomas-anales.html" class="related-card">
+      <span>Servicio</span>
+      <h3>Condilomas y verrugas anales en Almería</h3>
+    </a>
+    <a href="pliegues-del-ano-colgajos-anales.html" class="related-card">
+      <span>Blog</span>
+      <h3>Pliegues del ano: qué son y cuándo quitarlos</h3>
+    </a>
+    <a href="fisura-anal-dolor-tratamiento.html" class="related-card">
+      <span>Blog</span>
+      <h3>Fisura anal: por qué duele y cómo se trata</h3>
+    </a>
+  </div>'''
+c = c[:rel_viejo_ini] + REL + c[rel_viejo_fin:]
+
+open(OUT, "w", encoding="utf-8").write(c)
+print("generado:", OUT, len(c), "bytes")
+
+# --- comprobaciones ---
+print("quedan referencias a pliegues en head/schema:",
+      c[:3000].lower().count("pliegue"))
+print("URL_ES presente:", c.count(URL_ES))
+print("URL_EN presente:", c.count(URL_EN))
+print("anoscopia menciones:", c.lower().count("anoscopia"))
