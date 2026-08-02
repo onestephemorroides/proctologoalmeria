@@ -1,0 +1,82 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""Genera un fotograma anatomico de atlas medico: canal anal con
+hemorroide interna prolapsada y sangrado leve.
+
+Se usa un modelo de IMAGEN (no de video) porque permite iterar barato
+hasta clavar la anatomia; despues ese fotograma puede animarse con
+imagen-a-video.
+"""
+import base64, io, os, sys
+from pathlib import Path
+from PIL import Image
+
+BASE = Path("/opt/proctologoalmeria")
+OUT = BASE / "Fotos-base" / "anatomia"
+OUT.mkdir(parents=True, exist_ok=True)
+
+# leer la clave del .env
+KEY = None
+for linea in (BASE / ".env").read_text().splitlines():
+    if linea.startswith("OPENAI_API_KEY="):
+        KEY = linea.split("=", 1)[1].strip().strip('"').strip("'")
+if not KEY:
+    print("ERROR: no hay OPENAI_API_KEY"); sys.exit(1)
+
+PROMPTS = {
+    "hemorroide-A": (
+        "Hyperrealistic medical atlas illustration, 3D anatomical render of the "
+        "anal canal in coronal cross-section. The internal sphincter and levator "
+        "muscles are shown as deep crimson striated muscle bundles with visible "
+        "fibre striations. In the centre, the anal canal lumen is lined with pale "
+        "pink glossy mucosa showing longitudinal columns. One prolapsed internal "
+        "haemorrhoid protrudes through the anal opening as a rounded engorged "
+        "vascular cushion, dark purplish-red, with a visible network of dilated "
+        "submucosal veins beneath a translucent mucosal surface, and a small "
+        "trace of fresh blood on its surface. Anatomical specimen isolated on a "
+        "clean neutral grey gradient background, no surrounding body, no skin, "
+        "no genitalia. Soft studio key light with rim light, subsurface "
+        "scattering in the tissue, shallow depth of field, ultra detailed "
+        "medical textbook render, Netter and Zygote anatomy illustration style."
+    ),
+    "hemorroide-B": (
+        "Ultra detailed 3D medical illustration for a clinical atlas: sagittal "
+        "cutaway of the rectum and anal canal. The rectal wall is opened to show "
+        "the internal anatomy: layered muscularis in deep red, submucosa in pale "
+        "yellow, and glossy pink rectal mucosa. A grade III internal haemorrhoid "
+        "is prolapsing through the anal verge, depicted as a bulging engorged "
+        "vascular cushion with a dense plexus of dilated blue-purple veins "
+        "visible through the thin translucent mucosa, and a small amount of "
+        "bright red blood trickling from its surface. Labelled-atlas aesthetic "
+        "but without any text. Isolated anatomical model on dark neutral "
+        "background, cinematic studio lighting, subsurface scattering, "
+        "photorealistic surgical illustration, extremely high detail, 8k."
+    ),
+}
+
+
+def generar(nombre, prompt):
+    from openai import OpenAI
+    client = OpenAI(api_key=KEY)
+    print(f">>> generando {nombre}...", flush=True)
+    try:
+        r = client.images.generate(
+            model="gpt-image-1", prompt=prompt,
+            size="1024x1536", quality="high", n=1,
+        )
+        img = Image.open(io.BytesIO(base64.b64decode(r.data[0].b64_json)))
+        p = OUT / f"{nombre}.png"
+        img.save(p)
+        print(f"    OK -> {p}  {img.size}", flush=True)
+        return True
+    except Exception as e:
+        print(f"    FALLO: {type(e).__name__}: {str(e)[:300]}", flush=True)
+        return False
+
+
+if __name__ == "__main__":
+    ok = 0
+    for n, p in PROMPTS.items():
+        if generar(n, p):
+            ok += 1
+    print(f"\n{ok} de {len(PROMPTS)} generadas", flush=True)
