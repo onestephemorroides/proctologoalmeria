@@ -1,0 +1,54 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""Story de 'despues del verano': 5.5s, 1080x1920, sin sticker.
+Reutiliza el clip limpio del gancho (sin texto incrustado)."""
+import subprocess, sys, os
+from PIL import ImageFont
+
+BASE = "/opt/proctologoalmeria"
+OUT  = f"{BASE}/Videos/verano-story"
+TXT  = f"{OUT}/txt"
+FONT = "/usr/share/fonts/opentype/montserrat/Montserrat-SemiBold.otf"
+os.makedirs(TXT, exist_ok=True)
+
+
+def xc(t, fs):
+    return int((1080 - ImageFont.truetype(FONT, fs).getlength(t)) / 2)
+
+
+def wr(name, content):
+    p = f"{TXT}/{name}.txt"
+    with open(p, "w", encoding="utf-8") as f:
+        f.write(content)
+    return p
+
+
+def dt(path, x, y, fs, color="white", ini=0.0, fin=5.5):
+    return (f"drawtext=fontfile={FONT}:textfile={path}:fontsize={fs}:fontcolor={color}:"
+            f"borderw=3:bordercolor=black@0.55:shadowcolor=black@0.45:shadowx=3:shadowy=3:"
+            f"x={x}:y={y}:enable='between(t,{ini},{fin})'")
+
+
+ETIQUETA = "NUEVO REEL"
+L1 = "Después del verano:"
+L2 = "todo en el acto"
+CTA = "Míralo en el perfil"
+
+filtros = [
+    dt(wr("et", ETIQUETA), xc(ETIQUETA, 44), 420, 44, color="0x4DCCE6"),
+    dt(wr("l1", L1), xc(L1, 58), 560, 58),
+    dt(wr("l2", L2), xc(L2, 58), 645, 58),
+    dt(wr("cta", CTA), xc(CTA, 46), 1320, 46, ini=2.0),
+]
+
+vf = ("crop='min(iw,ih*9/16)':'min(ih,iw*16/9)',scale=1080:1920:flags=lanczos," + ",".join(filtros))
+cmd = (f'ffmpeg -t 5.5 -i {BASE}/Videos/gancho-transicion.mp4 '
+       f'-vf "{vf}" -c:v libx264 -preset medium -crf 19 -pix_fmt yuv420p '
+       f'-r 30 -an -y {OUT}/story-verano.mp4')
+
+print(">>> generando story", flush=True)
+r = subprocess.run(cmd, shell=True, capture_output=True, text=True)
+if r.returncode:
+    print("ERROR:", r.stderr[-1500:], flush=True)
+    sys.exit(1)
+print("OK ->", f"{OUT}/story-verano.mp4", flush=True)
