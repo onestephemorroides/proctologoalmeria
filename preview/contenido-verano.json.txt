@@ -1,0 +1,11 @@
+{
+  "tema": "Después del verano: resumen multi-patología, todo en el acto",
+  "instagram": "☀️ Ha sido un verano estupendo... pero a veces, al volver, algo no vuelve con nosotros.\n\nHemorroides, fisuras, picor... son más frecuentes de lo que crees, y la mayoría se solucionan en la misma visita:\n\n🩺 Hemorroides → Ligadura o esclerosis\n💉 Fisura anal → Toxina botulínica\n🔬 Condilomas → Electrofulguración\n✂️ Pliegues anales → Extirpación local\n\nDiagnóstico y tratamiento, sin cirugía mayor, sin ingreso.\n\n📍 Clínica San Pío · Almería\n📞 950 264 245\n\n#proctologo #almeria #hemorroides #fisuraanal #condilomas #saludintima #ONEstep\n\nMúsica: \"A Relax\" de Sevennotes (CC-BY) — https://archive.org/details/jamendo-621950",
+  "instagram_caption": "☀️ Ha sido un verano estupendo... pero a veces, al volver, algo no vuelve con nosotros.\n\nHemorroides, fisuras, picor... son más frecuentes de lo que crees, y la mayoría se solucionan en la misma visita:\n\n🩺 Hemorroides → Ligadura o esclerosis\n💉 Fisura anal → Toxina botulínica\n🔬 Condilomas → Electrofulguración\n✂️ Pliegues anales → Extirpación local\n\nDiagnóstico y tratamiento, sin cirugía mayor, sin ingreso.\n\n📍 Clínica San Pío · Almería\n📞 950 264 245\n\nMúsica: \"A Relax\" de Sevennotes (CC-BY) — https://archive.org/details/jamendo-621950",
+  "youtube": {
+    "titulo": "Después del verano: hemorroides, fisuras, condilomas... todo en el acto",
+    "descripcion": "Hemorroides, fisuras, picor, condilomas o pliegues anales: resumen de las patologías más frecuentes tras el verano y cómo se tratan, la mayoría en la misma visita y sin cirugía mayor.\n\nDiagnóstico y tratamiento en el acto, en la Clínica San Pío, Almería.\n📞 950 264 245\n🌐 www.proctologoalmeria.com\n\nMúsica: \"A Relax\" de Sevennotes (CC-BY) — https://archive.org/details/jamendo-621950"
+  },
+  "youtube_hashtags": "#Shorts #Proctologia #Hemorroides #FisuraAnal #Condilomas #Almeria",
+  "estado": "COMPLETA — programada para la próxima franja óptima"
+}
