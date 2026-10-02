@@ -1,0 +1,154 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Reel "Despues del verano" - resumen multi-patologia, SOLO texto (sin voz
+todavia). Reutiliza clips ya generados; el unico tramo nuevo es el gancho.
+"""
+import os, subprocess, sys, math
+from PIL import ImageFont
+
+BASE = "/opt/proctologoalmeria"
+OUT  = f"{BASE}/Videos/verano-reel"
+TXT  = f"{OUT}/txt"
+FONT = "/usr/share/fonts/opentype/montserrat/Montserrat-SemiBold.otf"
+URL_COLOR = "0x4DCCE6"
+FS, LH = 56, 74
+os.makedirs(TXT, exist_ok=True)
+
+
+def xc(t, fs): return int((1080 - ImageFont.truetype(FONT, fs).getlength(t)) / 2)
+
+
+def wr(name, content):
+    p = f"{TXT}/{name}.txt"
+    open(p, "w", encoding="utf-8").write(content)
+    return p
+
+
+def dt(path, x, y, ini, fin, fs, color="white", strong=False):
+    if strong:
+        sty = "borderw=4:bordercolor=black@0.75:shadowcolor=black@0.65:shadowx=3:shadowy=3"
+    else:
+        sty = "borderw=3:bordercolor=black@0.55:shadowcolor=black@0.45:shadowx=3:shadowy=3"
+    return (f"drawtext=fontfile={FONT}:textfile={path}:fontsize={fs}:fontcolor={color}:"
+            f"{sty}:x={x}:y={y}:enable='between(t,{ini},{fin})'")
+
+
+def plain(key, lines, ini, fin, y, fs=FS, lh=LH, color="white", strong=False):
+    return [dt(wr(f"{key}_l{i}", l), xc(l, fs), y + i * lh, ini, fin, fs, color, strong)
+            for i, l in enumerate(lines)]
+
+
+def typew(key, lines, ini, fin, y, fs=FS, lh=LH, color="white", strong=False, reveal=1.3, step=2):
+    xs = [xc(l, fs) for l in lines]
+    total = sum(len(l) for l in lines)
+    n = max(1, math.ceil(total / step))
+    d = reveal / n
+    out = []
+    for i in range(1, n + 1):
+        rest = i * step
+        a = ini + (i - 1) * d
+        b = ini + i * d if i < n else fin
+        for j, l in enumerate(lines):
+            vis = l[: max(0, min(len(l), rest))]
+            rest -= len(l)
+            if vis:
+                out.append(dt(wr(f"{key}_{i:03d}_{j}", vis), xs[j],
+                              y + j * lh, round(a, 3), round(b, 3), fs, color, strong))
+    return out
+
+
+def run(cmd, label):
+    print(f">>> {label}", flush=True)
+    r = subprocess.run(cmd, shell=True, capture_output=True, text=True)
+    if r.returncode:
+        print("ERROR:", r.stderr[-1500:], flush=True); sys.exit(1)
+    print(f"    OK {label}", flush=True)
+
+
+V = "-c:v libx264 -preset medium -crf 19 -pix_fmt yuv420p -r 30 -an -y"
+
+# ---------- SEG A: GANCHO (0-6s) ----------
+# circulo rojo transparente sobre la zona del glúteo, solo en la mitad B/N (t>=2.5)
+CIRCULO = ("drawbox=x='iw*0.42':y='ih*0.55':w='iw*0.22':h='ih*0.22':"
+           "color=red@0.0:t=fill:enable='lt(t,2.5)',"
+           "drawbox=x='iw*0.40':y='ih*0.50':w='iw*0.26':h='ih*0.30':"
+           "color=red@0.30:t=fill:enable='gte(t,2.5)'")
+tA = plain("tA1", ["¿Molestias", "ahí abajo?"], 2.6, 6.0, y=1500, fs=64, strong=True)
+run(f'ffmpeg -i {BASE}/Videos/gancho-transicion.mp4 '
+    f'-vf "crop=\'min(iw,ih*9/16)\':\'min(ih,iw*16/9)\',scale=1080:1920:flags=lanczos,{CIRCULO},{",".join(tA)}" '
+    f'{V} {OUT}/segA.mp4', "SEG A gancho")
+
+# ---------- SEG B: frase intermedia (6-9.5s), fondo oscuro neutro ----------
+tB = typew("tB1", ["Hemorroides, fisuras, picor...", "más frecuentes de lo que crees"],
+           0.3, 3.0, y=860, fs=46, strong=True)
+run(f'ffmpeg -f lavfi -i color=c=0x0D1B2A:s=1080x1920:d=3.5 '
+    f'-vf "{",".join(tB)}" {V} {OUT}/segB.mp4', "SEG B frase")
+
+# ---------- SEG C: HEMORROIDES (ligadura, 5s -> loop no hace falta, dura justo) ----------
+tC = plain("tC1", ["Hemorroides"], 0.3, 4.9, y=180, fs=58, strong=True)
+tC += plain("tC2", ["Ligadura · Esclerosis"], 0.3, 4.9, y=1680, fs=42, strong=True)
+run(f'ffmpeg -i {BASE}/Videos/ligadura-completa.mp4 '
+    f'-vf "scale=1080:1080:flags=lanczos,pad=1080:1920:0:420:color=0x0D1B2A,{",".join(tC)}" '
+    f'{V} {OUT}/segC.mp4', "SEG C hemorroides")
+
+# ---------- SEG D: FISURA ANAL (foto, con zoom) ----------
+ZP = ("scale=2160:3840:flags=lanczos,zoompan=z='min(zoom+0.0006,1.15)':d=120:"
+      "x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':s=1080x1920:fps=30")
+tD = plain("tD1", ["Fisura anal"], 0.3, 3.9, y=180, fs=58, strong=True)
+tD += plain("tD2", ["Toxina botulínica"], 0.3, 3.9, y=1680, fs=42, strong=True)
+run(f'ffmpeg -i {BASE}/Fotos-base/img-toxina-fisura.png -t 4 '
+    f'-vf "{ZP},{",".join(tD)}" {V} {OUT}/segD.mp4', "SEG D fisura")
+
+# ---------- SEG E: CONDILOMAS (recorte del reel ya existente) ----------
+tE = plain("tE1", ["Condilomas"], 0.3, 3.9, y=180, fs=58, strong=True)
+tE += plain("tE2", ["Electrofulguración"], 0.3, 3.9, y=1680, fs=42, strong=True)
+run(f'ffmpeg -ss 1 -t 4 -i {BASE}/Videos/reel-condilomas-FINAL.mp4 '
+    f'-vf "{",".join(tE)}" {V} {OUT}/segE.mp4', "SEG E condilomas")
+
+# ---------- SEG F: PLIEGUES / COLGAJOS (recorte del reel ya existente) ----------
+tF = plain("tF1", ["Pliegues anales"], 0.3, 3.9, y=180, fs=58, strong=True)
+tF += plain("tF2", ["Extirpación local"], 0.3, 3.9, y=1680, fs=42, strong=True)
+run(f'ffmpeg -ss 1 -t 4 -i {BASE}/Videos/reel-pliegues-final.mp4 '
+    f'-vf "{",".join(tF)}" {V} {OUT}/segF.mp4', "SEG F pliegues")
+
+# ---------- SEG G: CIERRE (foto doctor + logo) ----------
+ZPG = ("crop='min(iw,ih*9/16)':'min(ih,iw*16/9)',scale=2160:3840:flags=lanczos,"
+       "zoompan=z='min(zoom+0.00035,1.08)':d=150:x='iw/2-(iw/zoom/2)':"
+       "y='ih/2-(ih/zoom/2)':s=1080x1920:fps=30")
+tG = plain("tG1", ["Diagnóstico y tratamiento,", "misma visita"], 0.3, 5.0, y=1150, fs=48, strong=True)
+tG += [dt(wr("urlG", "📍 Almería · 950 264 245"), xc("📍 Almería · 950 264 245", 40), 1500,
+          0.3, 5.0, 40, color=URL_COLOR)]
+run(f'ffmpeg -i {BASE}/Fotos-base/foto-doctor-2.jpeg -t 5 '
+    f'-vf "{ZPG},{",".join(tG)}" {V} {OUT}/segG_base.mp4', "SEG G base")
+# overlay del logo sobre el cierre
+run(f'ffmpeg -i {OUT}/segG_base.mp4 -i {BASE}/Fotos-base/logo-onestep.png -filter_complex '
+    f'"[1:v]scale=220:-1[logo];[0:v][logo]overlay=(W-w)/2:120:enable=\'between(t,0.3,5.0)\'" '
+    f'{V} {OUT}/segG.mp4', "SEG G logo")
+
+# ---------- XFADE FINAL ----------
+segs = ["segA", "segB", "segC", "segD", "segE", "segF", "segG"]
+durs = []
+for s in segs:
+    d = subprocess.run(f'ffprobe -v error -show_entries format=duration -of default=nw=1:nk=1 {OUT}/{s}.mp4',
+                        shell=True, capture_output=True, text=True).stdout.strip()
+    durs.append(float(d))
+print("duraciones:", list(zip(segs, durs)), flush=True)
+
+XF = 0.5
+inputs = " ".join(f"-i {OUT}/{s}.mp4" for s in segs)
+filt = ""
+acc = durs[0]
+prev = "0:v"
+for i in range(1, len(segs)):
+    offset = acc - XF
+    nxt = f"v{i}"
+    filt += f"[{prev}][{i}:v]xfade=transition=fade:duration={XF}:offset={offset:.3f}[{nxt}];"
+    prev = nxt
+    acc += durs[i] - XF
+filt = filt.rstrip(";")
+
+run(f'ffmpeg {inputs} -filter_complex "{filt}" -map "[{prev}]" {V} {OUT}/reel-verano-SIN-VOZ.mp4',
+    "XFADE final")
+
+print(f"\nLISTO: {OUT}/reel-verano-SIN-VOZ.mp4  (duracion total aprox {acc:.1f}s)", flush=True)
