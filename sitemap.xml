@@ -237,24 +237,6 @@
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  <url>
-    <loc>https://www.proctologoalmeria.com/aviso-legal.html</loc>
-    <lastmod>2026-10-17</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
-  </url>
-  <url>
-    <loc>https://www.proctologoalmeria.com/privacidad.html</loc>
-    <lastmod>2026-10-17</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
-  </url>
-  <url>
-    <loc>https://www.proctologoalmeria.com/cookies.html</loc>
-    <lastmod>2026-10-17</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
-  </url>
 
   <!-- PÁGINAS EN INGLÉS -->
   <url>
