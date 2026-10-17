@@ -2,393 +2,493 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
 
-  <!-- ═══════════════════════════════════════════ -->
-  <!--  PÁGINAS EN ESPAÑOL                         -->
-  <!-- ═══════════════════════════════════════════ -->
-
+  <!-- PÁGINAS EN ESPAÑOL -->
   <url>
     <loc>https://www.proctologoalmeria.com/</loc>
     <xhtml:link rel="alternate" hreflang="es" href="https://www.proctologoalmeria.com/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.proctologoalmeria.com/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.proctologoalmeria.com/"/>
+    <lastmod>2026-10-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
-
   <url>
     <loc>https://www.proctologoalmeria.com/sobre-mi.html</loc>
     <xhtml:link rel="alternate" hreflang="es" href="https://www.proctologoalmeria.com/sobre-mi.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.proctologoalmeria.com/en/about.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.proctologoalmeria.com/sobre-mi.html"/>
+    <lastmod>2026-10-17</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.9</priority>
   </url>
-
   <url>
     <loc>https://www.proctologoalmeria.com/hemorroides.html</loc>
     <xhtml:link rel="alternate" hreflang="es" href="https://www.proctologoalmeria.com/hemorroides.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.proctologoalmeria.com/en/hemorrhoids.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.proctologoalmeria.com/hemorroides.html"/>
+    <lastmod>2026-10-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
-
-  <url>
-    <loc>https://www.proctologoalmeria.com/esclerosis-hemorroidal.html</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://www.proctologoalmeria.com/esclerosis-hemorroidal.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.proctologoalmeria.com/en/hemorrhoids.html"/>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://www.proctologoalmeria.com/ligadura-hemorroidal.html</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://www.proctologoalmeria.com/ligadura-hemorroidal.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.proctologoalmeria.com/en/hemorrhoids.html"/>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
   <url>
     <loc>https://www.proctologoalmeria.com/fisura-anal.html</loc>
     <xhtml:link rel="alternate" hreflang="es" href="https://www.proctologoalmeria.com/fisura-anal.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.proctologoalmeria.com/en/anal-fissure.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.proctologoalmeria.com/fisura-anal.html"/>
+    <lastmod>2026-10-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
-
-  <url>
-    <loc>https://www.proctologoalmeria.com/toxina-botulinica-fisura.html</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://www.proctologoalmeria.com/toxina-botulinica-fisura.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.proctologoalmeria.com/en/anal-fissure.html"/>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
   <url>
     <loc>https://www.proctologoalmeria.com/sinus-pilonidal.html</loc>
     <xhtml:link rel="alternate" hreflang="es" href="https://www.proctologoalmeria.com/sinus-pilonidal.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.proctologoalmeria.com/en/pilonidal-sinus.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.proctologoalmeria.com/sinus-pilonidal.html"/>
+    <lastmod>2026-10-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
-
   <url>
     <loc>https://www.proctologoalmeria.com/colgajos-anales.html</loc>
     <xhtml:link rel="alternate" hreflang="es" href="https://www.proctologoalmeria.com/colgajos-anales.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.proctologoalmeria.com/en/anal-flaps.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.proctologoalmeria.com/colgajos-anales.html"/>
+    <lastmod>2026-10-17</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.9</priority>
   </url>
-
   <url>
     <loc>https://www.proctologoalmeria.com/polipos-anales.html</loc>
     <xhtml:link rel="alternate" hreflang="es" href="https://www.proctologoalmeria.com/polipos-anales.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.proctologoalmeria.com/en/anal-polyps.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.proctologoalmeria.com/polipos-anales.html"/>
+    <lastmod>2026-10-17</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.9</priority>
   </url>
-
   <url>
     <loc>https://www.proctologoalmeria.com/condilomas-anales.html</loc>
     <xhtml:link rel="alternate" hreflang="es" href="https://www.proctologoalmeria.com/condilomas-anales.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.proctologoalmeria.com/en/anal-warts.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.proctologoalmeria.com/condilomas-anales.html"/>
+    <lastmod>2026-10-17</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.9</priority>
   </url>
-
   <url>
     <loc>https://www.proctologoalmeria.com/hidradenitis-perianal.html</loc>
     <xhtml:link rel="alternate" hreflang="es" href="https://www.proctologoalmeria.com/hidradenitis-perianal.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.proctologoalmeria.com/en/hidradenitis.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.proctologoalmeria.com/hidradenitis-perianal.html"/>
+    <lastmod>2026-10-17</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.9</priority>
   </url>
-
   <url>
     <loc>https://www.proctologoalmeria.com/cirugia-menor.html</loc>
     <xhtml:link rel="alternate" hreflang="es" href="https://www.proctologoalmeria.com/cirugia-menor.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.proctologoalmeria.com/en/minor-surgery.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.proctologoalmeria.com/cirugia-menor.html"/>
+    <lastmod>2026-10-17</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.9</priority>
   </url>
-
   <url>
     <loc>https://www.proctologoalmeria.com/segunda-opinion.html</loc>
     <xhtml:link rel="alternate" hreflang="es" href="https://www.proctologoalmeria.com/segunda-opinion.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.proctologoalmeria.com/en/second-opinion.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.proctologoalmeria.com/segunda-opinion.html"/>
+    <lastmod>2026-10-17</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.9</priority>
   </url>
-
   <url>
     <loc>https://www.proctologoalmeria.com/blog.html</loc>
     <xhtml:link rel="alternate" hreflang="es" href="https://www.proctologoalmeria.com/blog.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.proctologoalmeria.com/en/blog.html"/>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://www.proctologoalmeria.com/sintomas-hemorroides.html</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://www.proctologoalmeria.com/sintomas-hemorroides.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.proctologoalmeria.com/en/haemorrhoid-symptoms.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.proctologoalmeria.com/blog.html"/>
+    <lastmod>2026-10-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-
-  <url>
-    <loc>https://www.proctologoalmeria.com/fisura-anal-dolor-tratamiento.html</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://www.proctologoalmeria.com/fisura-anal-dolor-tratamiento.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.proctologoalmeria.com/en/anal-fissure-pain-treatment.html"/>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://www.proctologoalmeria.com/sinus-pilonidal-cirugia-alternativa.html</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://www.proctologoalmeria.com/sinus-pilonidal-cirugia-alternativa.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.proctologoalmeria.com/en/pilonidal-sinus-surgery-alternative.html"/>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://www.proctologoalmeria.com/cuando-operar-hemorroides.html</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://www.proctologoalmeria.com/cuando-operar-hemorroides.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.proctologoalmeria.com/en/when-to-operate-haemorrhoids.html"/>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
   <url>
     <loc>https://www.proctologoalmeria.com/foro.html</loc>
     <xhtml:link rel="alternate" hreflang="es" href="https://www.proctologoalmeria.com/foro.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.proctologoalmeria.com/en/forum.html"/>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://www.proctologoalmeria.com/aviso-legal.html</loc>
-    <changefreq>yearly</changefreq>
-    <priority>0.2</priority>
-  </url>
-
-  <url>
-    <loc>https://www.proctologoalmeria.com/privacidad.html</loc>
-    <changefreq>yearly</changefreq>
-    <priority>0.2</priority>
-  </url>
-
-  <url>
-    <loc>https://www.proctologoalmeria.com/cookies.html</loc>
-    <changefreq>yearly</changefreq>
-    <priority>0.2</priority>
-  </url>
-
-  <!-- ═══════════════════════════════════════════ -->
-  <!--  PÁGINAS EN INGLÉS                          -->
-  <!-- ═══════════════════════════════════════════ -->
-
-  <url>
-    <loc>https://www.proctologoalmeria.com/en/</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.proctologoalmeria.com/en/"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://www.proctologoalmeria.com/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.proctologoalmeria.com/foro.html"/>
+    <lastmod>2026-10-17</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>1.0</priority>
+    <priority>0.7</priority>
   </url>
-
   <url>
-    <loc>https://www.proctologoalmeria.com/en/about.html</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.proctologoalmeria.com/en/about.html"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://www.proctologoalmeria.com/sobre-mi.html"/>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://www.proctologoalmeria.com/en/hemorrhoids.html</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.proctologoalmeria.com/en/hemorrhoids.html"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://www.proctologoalmeria.com/hemorroides.html"/>
+    <loc>https://www.proctologoalmeria.com/esclerosis-hemorroidal.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.proctologoalmeria.com/esclerosis-hemorroidal.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.proctologoalmeria.com/en/foam-sclerotherapy.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.proctologoalmeria.com/esclerosis-hemorroidal.html"/>
+    <lastmod>2026-10-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
-
   <url>
-    <loc>https://www.proctologoalmeria.com/en/anal-fissure.html</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.proctologoalmeria.com/en/anal-fissure.html"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://www.proctologoalmeria.com/fisura-anal.html"/>
+    <loc>https://www.proctologoalmeria.com/ligadura-hemorroidal.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.proctologoalmeria.com/ligadura-hemorroidal.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.proctologoalmeria.com/en/rubber-band-ligation.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.proctologoalmeria.com/ligadura-hemorroidal.html"/>
+    <lastmod>2026-10-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
-
   <url>
-    <loc>https://www.proctologoalmeria.com/en/pilonidal-sinus.html</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.proctologoalmeria.com/en/pilonidal-sinus.html"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://www.proctologoalmeria.com/sinus-pilonidal.html"/>
+    <loc>https://www.proctologoalmeria.com/toxina-botulinica-fisura.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.proctologoalmeria.com/toxina-botulinica-fisura.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.proctologoalmeria.com/en/botulinum-toxin-fissure.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.proctologoalmeria.com/toxina-botulinica-fisura.html"/>
+    <lastmod>2026-10-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-  </url>
-
-  <url>
-    <loc>https://www.proctologoalmeria.com/en/anal-flaps.html</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.proctologoalmeria.com/en/anal-flaps.html"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://www.proctologoalmeria.com/colgajos-anales.html"/>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://www.proctologoalmeria.com/en/anal-polyps.html</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.proctologoalmeria.com/en/anal-polyps.html"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://www.proctologoalmeria.com/polipos-anales.html"/>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://www.proctologoalmeria.com/en/anal-warts.html</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.proctologoalmeria.com/en/anal-warts.html"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://www.proctologoalmeria.com/condilomas-anales.html"/>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://www.proctologoalmeria.com/en/hidradenitis.html</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.proctologoalmeria.com/en/hidradenitis.html"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://www.proctologoalmeria.com/hidradenitis-perianal.html"/>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://www.proctologoalmeria.com/en/minor-surgery.html</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.proctologoalmeria.com/en/minor-surgery.html"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://www.proctologoalmeria.com/cirugia-menor.html"/>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://www.proctologoalmeria.com/en/second-opinion.html</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.proctologoalmeria.com/en/second-opinion.html"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://www.proctologoalmeria.com/segunda-opinion.html"/>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://www.proctologoalmeria.com/en/blog.html</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.proctologoalmeria.com/en/blog.html"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://www.proctologoalmeria.com/blog.html"/>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://www.proctologoalmeria.com/en/haemorrhoid-symptoms.html</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.proctologoalmeria.com/en/haemorrhoid-symptoms.html"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://www.proctologoalmeria.com/sintomas-hemorroides.html"/>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://www.proctologoalmeria.com/en/anal-fissure-pain-treatment.html</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.proctologoalmeria.com/en/anal-fissure-pain-treatment.html"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://www.proctologoalmeria.com/fisura-anal-dolor-tratamiento.html"/>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://www.proctologoalmeria.com/en/pilonidal-sinus-surgery-alternative.html</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.proctologoalmeria.com/en/pilonidal-sinus-surgery-alternative.html"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://www.proctologoalmeria.com/sinus-pilonidal-cirugia-alternativa.html"/>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://www.proctologoalmeria.com/en/when-to-operate-haemorrhoids.html</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.proctologoalmeria.com/en/when-to-operate-haemorrhoids.html"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://www.proctologoalmeria.com/cuando-operar-hemorroides.html"/>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://www.proctologoalmeria.com/en/forum.html</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.proctologoalmeria.com/en/forum.html"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://www.proctologoalmeria.com/foro.html"/>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://www.proctologoalmeria.com/en/foam-sclerotherapy.html</loc>
-    <lastmod>2026-06-06</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.proctologoalmeria.com/en/rubber-band-ligation.html</loc>
-    <lastmod>2026-06-06</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.proctologoalmeria.com/en/botulinum-toxin-fissure.html</loc>
-    <lastmod>2026-06-06</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.proctologoalmeria.com/en/rectal-bleeding.html</loc>
-    <lastmod>2026-06-06</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.proctologoalmeria.com/en/rubber-band-ligation-step-by-step.html</loc>
-    <lastmod>2026-07-17</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.proctologoalmeria.com/en/foam-sclerotherapy-step-by-step.html</loc>
-    <lastmod>2026-07-17</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.proctologoalmeria.com/en/anal-polyps-symptoms-types.html</loc>
-    <lastmod>2026-07-17</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.proctologoalmeria.com/pliegues-del-ano-colgajos-anales.html</loc>
-    <lastmod>2026-07-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.proctologoalmeria.com/en/anal-skin-tags-what-they-are.html</loc>
-    <lastmod>2026-07-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.proctologoalmeria.com/condilomas-anales-anoscopia-lesiones-internas.html</loc>
-    <lastmod>2026-07-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.proctologoalmeria.com/condilomas-anales-anoscopia-lesiones-internas.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.proctologoalmeria.com/en/anal-warts-anoscopy-internal-lesions.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.proctologoalmeria.com/condilomas-anales-anoscopia-lesiones-internas.html"/>
+    <lastmod>2026-10-17</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.proctologoalmeria.com/cuando-operar-hemorroides.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.proctologoalmeria.com/cuando-operar-hemorroides.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.proctologoalmeria.com/en/when-to-operate-haemorrhoids.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.proctologoalmeria.com/cuando-operar-hemorroides.html"/>
+    <lastmod>2026-10-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.proctologoalmeria.com/fisura-anal-dolor-tratamiento.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.proctologoalmeria.com/fisura-anal-dolor-tratamiento.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.proctologoalmeria.com/en/anal-fissure-pain-treatment.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.proctologoalmeria.com/fisura-anal-dolor-tratamiento.html"/>
+    <lastmod>2026-10-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.proctologoalmeria.com/polipo-anal-sintomas-tipos.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.proctologoalmeria.com/polipo-anal-sintomas-tipos.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.proctologoalmeria.com/en/anal-polyps-symptoms-types.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.proctologoalmeria.com/polipo-anal-sintomas-tipos.html"/>
+    <lastmod>2026-10-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.proctologoalmeria.com/pliegues-del-ano-colgajos-anales.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.proctologoalmeria.com/pliegues-del-ano-colgajos-anales.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.proctologoalmeria.com/en/anal-skin-tags-what-they-are.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.proctologoalmeria.com/pliegues-del-ano-colgajos-anales.html"/>
+    <lastmod>2026-10-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.proctologoalmeria.com/esclerosis-hemorroidal-microespuma-paso-a-paso.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.proctologoalmeria.com/esclerosis-hemorroidal-microespuma-paso-a-paso.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.proctologoalmeria.com/en/foam-sclerotherapy-step-by-step.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.proctologoalmeria.com/esclerosis-hemorroidal-microespuma-paso-a-paso.html"/>
+    <lastmod>2026-10-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.proctologoalmeria.com/ligadura-hemorroidal-banda-elastica-paso-a-paso.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.proctologoalmeria.com/ligadura-hemorroidal-banda-elastica-paso-a-paso.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.proctologoalmeria.com/en/rubber-band-ligation-step-by-step.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.proctologoalmeria.com/ligadura-hemorroidal-banda-elastica-paso-a-paso.html"/>
+    <lastmod>2026-10-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.proctologoalmeria.com/sangrado-rectal.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.proctologoalmeria.com/sangrado-rectal.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.proctologoalmeria.com/en/rectal-bleeding.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.proctologoalmeria.com/sangrado-rectal.html"/>
+    <lastmod>2026-10-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.proctologoalmeria.com/sintomas-hemorroides.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.proctologoalmeria.com/sintomas-hemorroides.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.proctologoalmeria.com/en/haemorrhoid-symptoms.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.proctologoalmeria.com/sintomas-hemorroides.html"/>
+    <lastmod>2026-10-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.proctologoalmeria.com/sinus-pilonidal-cirugia-alternativa.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.proctologoalmeria.com/sinus-pilonidal-cirugia-alternativa.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.proctologoalmeria.com/en/pilonidal-sinus-surgery-alternative.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.proctologoalmeria.com/sinus-pilonidal-cirugia-alternativa.html"/>
+    <lastmod>2026-10-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.proctologoalmeria.com/aviso-legal.html</loc>
+    <lastmod>2026-10-17</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://www.proctologoalmeria.com/privacidad.html</loc>
+    <lastmod>2026-10-17</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://www.proctologoalmeria.com/cookies.html</loc>
+    <lastmod>2026-10-17</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+  <!-- PÁGINAS EN INGLÉS -->
+  <url>
+    <loc>https://www.proctologoalmeria.com/en/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.proctologoalmeria.com/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.proctologoalmeria.com/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.proctologoalmeria.com/"/>
+    <lastmod>2026-10-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.proctologoalmeria.com/en/about.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.proctologoalmeria.com/sobre-mi.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.proctologoalmeria.com/en/about.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.proctologoalmeria.com/sobre-mi.html"/>
+    <lastmod>2026-10-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.proctologoalmeria.com/en/hemorrhoids.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.proctologoalmeria.com/hemorroides.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.proctologoalmeria.com/en/hemorrhoids.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.proctologoalmeria.com/hemorroides.html"/>
+    <lastmod>2026-10-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.proctologoalmeria.com/en/anal-fissure.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.proctologoalmeria.com/fisura-anal.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.proctologoalmeria.com/en/anal-fissure.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.proctologoalmeria.com/fisura-anal.html"/>
+    <lastmod>2026-10-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.proctologoalmeria.com/en/pilonidal-sinus.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.proctologoalmeria.com/sinus-pilonidal.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.proctologoalmeria.com/en/pilonidal-sinus.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.proctologoalmeria.com/sinus-pilonidal.html"/>
+    <lastmod>2026-10-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.proctologoalmeria.com/en/anal-flaps.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.proctologoalmeria.com/colgajos-anales.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.proctologoalmeria.com/en/anal-flaps.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.proctologoalmeria.com/colgajos-anales.html"/>
+    <lastmod>2026-10-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.proctologoalmeria.com/en/anal-polyps.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.proctologoalmeria.com/polipos-anales.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.proctologoalmeria.com/en/anal-polyps.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.proctologoalmeria.com/polipos-anales.html"/>
+    <lastmod>2026-10-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.proctologoalmeria.com/en/anal-warts.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.proctologoalmeria.com/condilomas-anales.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.proctologoalmeria.com/en/anal-warts.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.proctologoalmeria.com/condilomas-anales.html"/>
+    <lastmod>2026-10-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.proctologoalmeria.com/en/hidradenitis.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.proctologoalmeria.com/hidradenitis-perianal.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.proctologoalmeria.com/en/hidradenitis.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.proctologoalmeria.com/hidradenitis-perianal.html"/>
+    <lastmod>2026-10-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.proctologoalmeria.com/en/minor-surgery.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.proctologoalmeria.com/cirugia-menor.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.proctologoalmeria.com/en/minor-surgery.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.proctologoalmeria.com/cirugia-menor.html"/>
+    <lastmod>2026-10-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.proctologoalmeria.com/en/second-opinion.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.proctologoalmeria.com/segunda-opinion.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.proctologoalmeria.com/en/second-opinion.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.proctologoalmeria.com/segunda-opinion.html"/>
+    <lastmod>2026-10-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.proctologoalmeria.com/en/blog.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.proctologoalmeria.com/blog.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.proctologoalmeria.com/en/blog.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.proctologoalmeria.com/blog.html"/>
+    <lastmod>2026-10-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.proctologoalmeria.com/en/forum.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.proctologoalmeria.com/foro.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.proctologoalmeria.com/en/forum.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.proctologoalmeria.com/foro.html"/>
+    <lastmod>2026-10-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.proctologoalmeria.com/en/foam-sclerotherapy.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.proctologoalmeria.com/esclerosis-hemorroidal.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.proctologoalmeria.com/en/foam-sclerotherapy.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.proctologoalmeria.com/esclerosis-hemorroidal.html"/>
+    <lastmod>2026-10-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.proctologoalmeria.com/en/rubber-band-ligation.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.proctologoalmeria.com/ligadura-hemorroidal.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.proctologoalmeria.com/en/rubber-band-ligation.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.proctologoalmeria.com/ligadura-hemorroidal.html"/>
+    <lastmod>2026-10-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.proctologoalmeria.com/en/botulinum-toxin-fissure.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.proctologoalmeria.com/toxina-botulinica-fisura.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.proctologoalmeria.com/en/botulinum-toxin-fissure.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.proctologoalmeria.com/toxina-botulinica-fisura.html"/>
+    <lastmod>2026-10-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.proctologoalmeria.com/en/anal-warts-anoscopy-internal-lesions.html</loc>
-    <lastmod>2026-07-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.proctologoalmeria.com/condilomas-anales-anoscopia-lesiones-internas.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.proctologoalmeria.com/en/anal-warts-anoscopy-internal-lesions.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.proctologoalmeria.com/condilomas-anales-anoscopia-lesiones-internas.html"/>
+    <lastmod>2026-10-17</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.proctologoalmeria.com/en/when-to-operate-haemorrhoids.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.proctologoalmeria.com/cuando-operar-hemorroides.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.proctologoalmeria.com/en/when-to-operate-haemorrhoids.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.proctologoalmeria.com/cuando-operar-hemorroides.html"/>
+    <lastmod>2026-10-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.proctologoalmeria.com/en/anal-fissure-pain-treatment.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.proctologoalmeria.com/fisura-anal-dolor-tratamiento.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.proctologoalmeria.com/en/anal-fissure-pain-treatment.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.proctologoalmeria.com/fisura-anal-dolor-tratamiento.html"/>
+    <lastmod>2026-10-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.proctologoalmeria.com/en/anal-polyps-symptoms-types.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.proctologoalmeria.com/polipo-anal-sintomas-tipos.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.proctologoalmeria.com/en/anal-polyps-symptoms-types.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.proctologoalmeria.com/polipo-anal-sintomas-tipos.html"/>
+    <lastmod>2026-10-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.proctologoalmeria.com/en/anal-skin-tags-what-they-are.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.proctologoalmeria.com/pliegues-del-ano-colgajos-anales.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.proctologoalmeria.com/en/anal-skin-tags-what-they-are.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.proctologoalmeria.com/pliegues-del-ano-colgajos-anales.html"/>
+    <lastmod>2026-10-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.proctologoalmeria.com/en/foam-sclerotherapy-step-by-step.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.proctologoalmeria.com/esclerosis-hemorroidal-microespuma-paso-a-paso.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.proctologoalmeria.com/en/foam-sclerotherapy-step-by-step.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.proctologoalmeria.com/esclerosis-hemorroidal-microespuma-paso-a-paso.html"/>
+    <lastmod>2026-10-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.proctologoalmeria.com/en/rubber-band-ligation-step-by-step.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.proctologoalmeria.com/ligadura-hemorroidal-banda-elastica-paso-a-paso.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.proctologoalmeria.com/en/rubber-band-ligation-step-by-step.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.proctologoalmeria.com/ligadura-hemorroidal-banda-elastica-paso-a-paso.html"/>
+    <lastmod>2026-10-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.proctologoalmeria.com/en/rectal-bleeding.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.proctologoalmeria.com/sangrado-rectal.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.proctologoalmeria.com/en/rectal-bleeding.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.proctologoalmeria.com/sangrado-rectal.html"/>
+    <lastmod>2026-10-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.proctologoalmeria.com/en/haemorrhoid-symptoms.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.proctologoalmeria.com/sintomas-hemorroides.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.proctologoalmeria.com/en/haemorrhoid-symptoms.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.proctologoalmeria.com/sintomas-hemorroides.html"/>
+    <lastmod>2026-10-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.proctologoalmeria.com/en/pilonidal-sinus-surgery-alternative.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.proctologoalmeria.com/sinus-pilonidal-cirugia-alternativa.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.proctologoalmeria.com/en/pilonidal-sinus-surgery-alternative.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.proctologoalmeria.com/sinus-pilonidal-cirugia-alternativa.html"/>
+    <lastmod>2026-10-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
 </urlset>
-
