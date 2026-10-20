@@ -19,7 +19,7 @@ jobs:
       - name: Detectar articulo nuevo
         id: detectar
         run: |
-          ARCHIVO=$(git diff --name-only HEAD~1 HEAD | grep -E '^[a-z].*\.html$' | grep -vE '^(blog|index|404|privacidad|cookies|aviso-legal|contacto|sobre-mi|hemorroides|fisura-anal|sinus-pilonidal|condilomas-anales|polipos-anales|hidradenitis-perianal|ligadura-hemorroidal|esclerosis-hemorroidal|toxina-botulinica|segunda-opinion|cirugia-menor|colgajos-anales|sangrado-rectal)\.html$' | head -1)
+          ARCHIVO=$(git diff --name-only --diff-filter=A HEAD~1 HEAD | grep -E '^[a-z0-9-]+\.html$' | grep -vE '^(blog|index|404|privacidad|cookies|aviso-legal|contacto|sobre-mi|hemorroides|fisura-anal|sinus-pilonidal|condilomas-anales|polipos-anales|hidradenitis-perianal|ligadura-hemorroidal|esclerosis-hemorroidal|toxina-botulinica|segunda-opinion|cirugia-menor|colgajos-anales|sangrado-rectal)\.html$' | head -1)
           if [ -z "$ARCHIVO" ]; then
             echo "publicar=false" >> $GITHUB_OUTPUT
           else
