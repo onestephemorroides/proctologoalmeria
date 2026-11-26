@@ -500,8 +500,8 @@
 
     <!-- IMAGEN INTERIOR A COLOR -->
     <div class="img-interior">
-      <img src="img-condilomas-anales.webp" alt="Ilustración anatómica de condilomas anales — verrugas VPH perianal"/>
-      <div class="img-interior-caption">Condilomas anales — lesiones benignas asociadas al VPH</div>
+      <img src="img-condilomas-ia.webp" alt="Fotograma de la animación de condilomas anales: lesiones verrugosas agrupadas junto a la abertura anal" loading="lazy"/>
+      <div class="img-interior-caption">Condilomas anales — lesiones benignas asociadas al VPH · Animación ilustrativa</div>
     </div>
 
     <div class="highlight-box">
@@ -713,7 +713,7 @@
 <style>
 .fv-play{display:none}
 @media (max-width:768px){
-  .hero-interior::before{background:linear-gradient(to bottom,rgba(61,78,87,.82) 0%,rgba(61,78,87,.5) 55%,rgba(61,78,87,.72) 100%),url('/poster-condilomas-movil.webp') center/cover no-repeat}
+  .hero-interior::before{background:linear-gradient(to bottom,rgba(61,78,87,.82) 0%,rgba(61,78,87,.5) 55%,rgba(61,78,87,.72) 100%),url('/poster-condilomas-ia.webp') center/cover no-repeat}
   .hero-doctor-bg,.hero-img-col{display:none}
   .hero-interior-inner{grid-template-rows:auto;min-height:480px}
   .fv-movil{position:absolute;inset:0;z-index:1;overflow:hidden;pointer-events:none;opacity:.02;transition:opacity .9s ease}
@@ -738,7 +738,7 @@
     vid.setAttribute('loop','');vid.setAttribute('autoplay','');vid.setAttribute('tabindex','-1');
     vid.preload='auto';
     vid.addEventListener('playing',ok);
-    vid.src='/video-movil-condilomas.mp4';
+    vid.src='/video-movil-condilomas-ia.mp4';
     w.appendChild(vid);
     var d=hero.querySelector('.hero-doctor-bg');
     if(d&&d.nextSibling)hero.insertBefore(w,d.nextSibling);else hero.insertBefore(w,hero.firstChild);
