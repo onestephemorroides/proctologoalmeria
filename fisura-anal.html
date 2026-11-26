@@ -628,7 +628,7 @@
         <div class="tto-step"><div class="tto-step-num">3</div><p>Infiltración de toxina botulínica</p></div>
         <div class="tto-step"><div class="tto-step-num">4</div><p>Alta inmediata — sin ingreso</p></div>
       </div>
-      <img src="img-fisura-ia.webp" alt="Fotograma de la animación de la infiltración de toxina botulínica en fisura anal: aguja fina en el esfínter anal interno" loading="lazy" style="width:100%;max-width:480px;display:block;margin:20px auto 0;border-radius:12px;box-shadow:0 4px 16px rgba(0,0,0,.08);"/><p style="text-align:center;font-size:12px;color:var(--gl);margin:8px 0 0">Animación ilustrativa</p>
+      <img src="img-fisura-abierta-ia.webp" alt="Fotograma de la animación de una fisura anal: hendidura en la línea media del canal anal, bajo la línea dentada" loading="lazy" style="width:100%;max-width:480px;display:block;margin:20px auto 0;border-radius:12px;box-shadow:0 4px 16px rgba(0,0,0,.08);"/><p style="text-align:center;font-size:12px;color:var(--gl);margin:8px 0 0">Animación ilustrativa</p>
     </div>
 
     <div class="divider"></div>
@@ -799,22 +799,22 @@
       }
     });
   </script>
-<!-- parche-video-fisura-2026-11-26 -->
+<!-- parche-video-fisura-2026-11-26b -->
 <style>
 .fv-play{display:none}
 @media (max-width:768px){
+  .hero-interior::before{background:linear-gradient(to bottom,rgba(61,78,87,.82) 0%,rgba(61,78,87,.5) 55%,rgba(61,78,87,.72) 100%),url('/poster-fisura-movil.webp') center/cover no-repeat}
+  .hero-doctor-bg,.hero-img-col{display:none}
+  .hero-interior-inner{grid-template-rows:auto;min-height:480px}
   .fv-movil{position:absolute;inset:0;z-index:1;overflow:hidden;pointer-events:none;opacity:.02;transition:opacity .9s ease}
   .fv-movil video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
   .fv-movil::after{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,rgba(61,78,87,.82) 0%,rgba(61,78,87,.5) 55%,rgba(61,78,87,.72) 100%)}
   .hero-con-video .fv-movil{opacity:1}
-  .hero-con-video .hero-doctor-bg,.hero-con-video .hero-img-col{display:none}
-  .hero-con-video::before{display:none}
-  .hero-con-video .hero-interior-inner{grid-template-rows:auto;min-height:480px}
   .fv-play.ver{display:flex;position:absolute;top:16px;right:16px;z-index:5;width:48px;height:48px;border-radius:50%;border:2px solid rgba(255,255,255,.6);background:rgba(255,255,255,.2);align-items:center;justify-content:center;cursor:pointer}
 }
 </style>
 <script>
-/* Vídeo del hero en móvil (animación IA de la infiltración de toxina botulínica): vídeo propio, mudo y ligero. Si no arranca solo, aparece un botón de play. */
+/* Hero móvil: fotograma de la fisura de inicio y, encima, la animación IA (vídeo propio, mudo y ligero). Si no arranca solo, aparece un botón de play. */
 (function(){
   var mq=window.matchMedia('(max-width: 768px)'),hero=null,vid=null,btn=null;
   function ok(){if(hero)hero.classList.add('hero-con-video');if(btn)btn.classList.remove('ver');}
