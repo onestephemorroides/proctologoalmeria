@@ -628,7 +628,7 @@
 }
 </style>
 <script>
-/* Vídeo del hero en móvil: vídeo propio, mudo y ligero (hero-movil.mp4). Arranca solo; el póster se queda hasta que reproduce y el botón lo lanza si el navegador bloquea el autoplay */
+/* Vídeo del hero en móvil: vídeo propio, mudo y ligero (video-movil-esclerosis.mp4). Arranca solo; el póster se queda hasta que reproduce y el botón lo lanza si el navegador bloquea el autoplay */
 (function(){
   var mq=window.matchMedia('(max-width: 768px)'),vid=null;
   function el(i){return document.getElementById(i);}
@@ -649,7 +649,7 @@
     vid.setAttribute('loop','');vid.setAttribute('autoplay','');vid.setAttribute('aria-hidden','true');vid.setAttribute('tabindex','-1');
     vid.preload='auto';
     vid.addEventListener('playing',ok);
-    vid.src='hero-movil.mp4';
+    vid.src='/video-movil-esclerosis.mp4';
     w.appendChild(vid);
     w.classList.add('active');
     return vid;
