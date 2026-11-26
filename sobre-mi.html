@@ -1110,62 +1110,58 @@
   if(b){b.addEventListener('click',function(){cargar('.yt-bg-mobile iframe');api();});}
 })();
 </script>
-<!-- parche-video-movil-2026-11-26 -->
+<!-- parche-video-movil-2026-11-26b -->
 <style>
 @media (max-width:768px){
   .hero-movil-espera .hero-poster{opacity:1!important;display:block!important}
   .hero-overlay{pointer-events:none}
-  .yt-bg-mobile.tocable iframe{pointer-events:auto}
+  .yt-bg-mobile video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none}
 }
 </style>
 <script>
-/* Vídeo del hero en móvil: arranca solo; si el navegador bloquea el autoplay, el póster y el botón se mantienen y un toque lo reproduce */
+/* Vídeo del hero en móvil: vídeo propio, mudo y ligero (hero-movil.mp4). Arranca solo; el póster se queda hasta que reproduce y el botón lo lanza si el navegador bloquea el autoplay */
 (function(){
-  var mq=window.matchMedia('(max-width: 768px)'),hecho=false,player=null,timer=null;
+  var mq=window.matchMedia('(max-width: 768px)'),vid=null;
   function el(i){return document.getElementById(i);}
+  /* en móvil no se usa el iframe de YouTube */
+  if(mq.matches){var ym=el('ytMobile');if(ym)ym.removeAttribute('data-src');}
   function ok(){
-    var p=el('heroPoster'),b=el('heroPlayBtn'),w=document.querySelector('.yt-bg-mobile');
+    var p=el('heroPoster'),b=el('heroPlayBtn');
     document.documentElement.classList.remove('hero-movil-espera');
     if(p){p.style.opacity='0';setTimeout(function(){p.style.display='none';},800);}
     if(b)b.style.display='none';
-    if(w)w.classList.remove('tocable');
-    clearTimeout(timer);
   }
-  function rescate(){var w=document.querySelector('.yt-bg-mobile');if(w)w.classList.add('tocable');}
-  function crearMovil(){
-    var m=el('ytMobile');
-    if(player||!m||!m.getAttribute('src')||!window.YT||!YT.Player)return;
-    player=new YT.Player('ytMobile',{events:{
-      onReady:function(e){try{e.target.mute();e.target.playVideo();}catch(x){}},
-      onStateChange:function(e){if(e.data===1)ok();}
-    }});
+  function crear(){
+    var w=document.querySelector('.yt-bg-mobile');
+    if(vid||!w)return vid;
+    vid=document.createElement('video');
+    vid.muted=true;vid.defaultMuted=true;vid.loop=true;vid.playsInline=true;vid.autoplay=true;
+    vid.setAttribute('muted','');vid.setAttribute('playsinline','');vid.setAttribute('webkit-playsinline','');
+    vid.setAttribute('loop','');vid.setAttribute('autoplay','');vid.setAttribute('aria-hidden','true');vid.setAttribute('tabindex','-1');
+    vid.preload='auto';
+    vid.addEventListener('playing',ok);
+    vid.src='hero-movil.mp4';
+    w.appendChild(vid);
+    w.classList.add('active');
+    return vid;
   }
-  function cargarApi(){
-    if(window.YT&&YT.Player){crearMovil();return;}
-    if(!el('ytapi')){var t=document.createElement('script');t.id='ytapi';t.src='https://www.youtube.com/iframe_api';document.head.appendChild(t);}
+  function iniciar(){
+    if(!mq.matches)return;
+    document.documentElement.classList.add('hero-movil-espera');
+    var v=crear();
+    if(v){var r=v.play();if(r&&r.catch)r.catch(function(){});}
   }
+  window.activarVideoMovil=function(){
+    if(!mq.matches)return;
+    var v=crear();
+    if(v){v.muted=true;var r=v.play();if(r&&r.catch)r.catch(function(){});}
+  };
+  window.addEventListener('load',function(){setTimeout(iniciar,900);});
+  /* en desktop se mantiene el vídeo de YouTube; solo se re-registra la API */
   window.onYouTubeIframeAPIReady=function(){
     var d=el('ytDesktop');
     if(d&&d.getAttribute('src'))window.playerDesktop=new YT.Player('ytDesktop',{events:{onReady:function(e){e.target.mute();e.target.playVideo();}}});
-    crearMovil();
   };
-  function iniciar(){
-    if(!mq.matches||hecho)return;
-    var w=document.querySelector('.yt-bg-mobile'),m=el('ytMobile');
-    if(!w||!m)return;
-    hecho=true;
-    document.documentElement.classList.add('hero-movil-espera');
-    w.classList.add('active');
-    if(!m.getAttribute('src'))m.setAttribute('src',m.getAttribute('data-src'));
-    cargarApi();
-    timer=setTimeout(rescate,3500);
-  }
-  window.activarVideoMovil=function(){
-    iniciar();
-    try{if(player&&player.playVideo){player.mute();player.playVideo();}}catch(e){}
-    rescate();
-  };
-  window.addEventListener('load',function(){setTimeout(iniciar,1300);});
 })();
 </script>
 </body>
