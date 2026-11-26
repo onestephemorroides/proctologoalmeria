@@ -387,8 +387,8 @@
     <p>Botulinum toxin type A injection into the internal anal sphincter is an <strong>effective alternative to surgery for chronic anal fissure</strong>. It acts by temporarily relaxing the sphincter, which breaks the pain-spasm cycle that prevents healing.</p>
 
     <div class="img-wrap">
-      <img src="../img-fisura-procedimiento.webp" alt="Botulinum toxin injection into the internal anal sphincter"/>
-      <div class="img-wrap-caption">Botulinum toxin type A injection into the internal anal sphincter</div>
+      <img src="../img-fisura-ia.webp" alt="Frame from the animation of botulinum toxin injection for anal fissure: fine needle in the internal anal sphincter" loading="lazy"/>
+      <div class="img-wrap-caption">Botulinum toxin type A injection into the internal anal sphincter · Illustrative animation</div>
     </div>
 
     <div class="img-wrap" style="margin-top:16px;max-width:100%;">
@@ -562,5 +562,48 @@
       if (!localStorage.getItem('cookie_consent')) { document.getElementById('cookie-banner').classList.add('visible'); }
     });
   </script>
+<!-- parche-video-fisura-2026-11-26 -->
+<style>
+.fv-play{display:none}
+@media (max-width:768px){
+  .fv-movil{position:absolute;inset:0;z-index:1;overflow:hidden;pointer-events:none;opacity:.02;transition:opacity .9s ease}
+  .fv-movil video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .fv-movil::after{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,rgba(61,78,87,.82) 0%,rgba(61,78,87,.5) 55%,rgba(61,78,87,.72) 100%)}
+  .hero-con-video .fv-movil{opacity:1}
+  .hero-con-video .hero-doctor-bg,.hero-con-video .hero-img-col{display:none}
+  .hero-con-video::before{display:none}
+  .hero-con-video .hero-interior-inner{grid-template-rows:auto;min-height:480px}
+  .fv-play.ver{display:flex;position:absolute;top:16px;right:16px;z-index:5;width:48px;height:48px;border-radius:50%;border:2px solid rgba(255,255,255,.6);background:rgba(255,255,255,.2);align-items:center;justify-content:center;cursor:pointer}
+}
+</style>
+<script>
+/* Vídeo del hero en móvil (animación IA de la infiltración de toxina botulínica): vídeo propio, mudo y ligero. Si no arranca solo, aparece un botón de play. */
+(function(){
+  var mq=window.matchMedia('(max-width: 768px)'),hero=null,vid=null,btn=null;
+  function ok(){if(hero)hero.classList.add('hero-con-video');if(btn)btn.classList.remove('ver');}
+  function crear(){
+    hero=document.querySelector('.hero-interior');
+    if(!hero||vid)return;
+    var w=document.createElement('div');w.className='fv-movil';w.setAttribute('aria-hidden','true');
+    vid=document.createElement('video');
+    vid.muted=true;vid.defaultMuted=true;vid.loop=true;vid.playsInline=true;vid.autoplay=true;
+    vid.setAttribute('muted','');vid.setAttribute('playsinline','');vid.setAttribute('webkit-playsinline','');
+    vid.setAttribute('loop','');vid.setAttribute('autoplay','');vid.setAttribute('tabindex','-1');
+    vid.preload='auto';
+    vid.addEventListener('playing',ok);
+    vid.src='/video-movil-fisura.mp4';
+    w.appendChild(vid);
+    var d=hero.querySelector('.hero-doctor-bg');
+    if(d&&d.nextSibling)hero.insertBefore(w,d.nextSibling);else hero.insertBefore(w,hero.firstChild);
+    btn=document.createElement('button');btn.type='button';btn.className='fv-play';btn.setAttribute('aria-label','Play video');
+    btn.innerHTML='<svg width="20" height="20" viewBox="0 0 24 24" fill="#fff"><polygon points="5 3 19 12 5 21 5 3"/></svg>';
+    btn.addEventListener('click',function(){var r=vid.play();if(r&&r.catch)r.catch(function(){});});
+    hero.appendChild(btn);
+    setTimeout(function(){if(!hero.classList.contains('hero-con-video'))btn.classList.add('ver');},3500);
+    var r=vid.play();if(r&&r.catch)r.catch(function(){});
+  }
+  window.addEventListener('load',function(){setTimeout(function(){if(mq.matches)crear();},900);});
+})();
+</script>
 </body>
 </html>
